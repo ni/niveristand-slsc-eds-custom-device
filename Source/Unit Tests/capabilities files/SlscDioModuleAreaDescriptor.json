@@ -1,0 +1,16 @@
+{
+   "areas" : [
+      {
+         "name": "area_descriptor",
+         "size": 65536
+      },
+      {
+         "name": "identification",
+         "size": 65536
+      },
+      {
+         "name": "capabilities",
+         "size": 262144
+      }
+   ]
+}

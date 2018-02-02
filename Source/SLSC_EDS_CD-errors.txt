@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<nidocument>
+<nicomment>
+Error codes for the VeriStand SLSC EDS custom device.
+<nifamily familyname="SLSC EDS CD errors" displayname="SLSC EDS CD errors">
+</nifamily>
+</nicomment>
+<nierror code="6001">
+SLSC system is not responding to ping.
+</nierror>
+</nidocument>

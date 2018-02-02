@@ -1,0 +1,34 @@
+[OPTIONS]
+Auto TOC=9
+Compatibility=1.1 or later
+Compiled file=SLSC EDS.chm
+Default topic=SLSC_EDS_Main.html
+Display compile progress=No
+Language=0x409 Englisch (Vereinigte Staaten)
+Title=SLSC EDS help
+
+
+[FILES]
+common.js
+feedbacklink.js
+variables.js
+objectnames.js
+domtools.js
+arraytools.js
+osbrowser.js
+initpagedyn.js
+checkinstalled.js
+dynamiccontent.js
+dynamiclinks.js
+linking.js
+launchhelp.js
+stylesheets.js
+web.js
+pdf.js
+SLSC_EDS_Main.html
+SLSC_EDS_Status.html
+SLSC_EDS_Commands.html
+SLSC_EDS_PropertiesRoot.html
+
+[INFOTYPES]
+
