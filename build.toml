@@ -10,7 +10,9 @@ name = 'Set Conditional Symbol'
 type = 'lvSetConditionalSymbol'
 project = '{cd}'
 symbol = 'CD_Version'
-value = 'Default'
+true_value = '2015_2016'
+false_value = 'Default'
+condition = 'lvVersion < 2017'
 
 [[build.steps]]
 name = 'Configuration Library'
