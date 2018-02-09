@@ -1,0 +1,34 @@
+[archive]
+build_output_dir = 'Built'
+archive_location = '\\us-aus-hilbuild\builds\niveristandadd-ons\custom devices\slsc eds'
+
+[projects.cd]
+path = 'Source\SLSC EDS.lvproj'
+
+[[codegen.steps]]
+name = 'Set Conditional Symbol'
+type = 'lvSetConditionalSymbol'
+project = '{cd}'
+symbol = 'CD_Version'
+true_value = '2015_2016'
+false_value = 'Default'
+condition = 'lvVersion < 2017'
+
+[[build.steps]]
+name = 'Configuration Library'
+type = 'lvBuildSpec'
+project = '{cd}'
+target = 'My Computer'
+build_spec = 'Configuration Release'
+
+[[build.steps]]
+name = 'Engine Libraries'
+type = 'lvBuildSpecAllTargets'
+project = '{cd}'
+build_spec = 'Engine Release'
+
+[package]
+type = 'nipkg'
+name = 'slsc-eds-custom-device-{version}'
+release_version = '1.0'
+install_destination = 'documents\National Instruments\NI VeriStand {version}\Custom Devices\SLSC Plug-ins'
