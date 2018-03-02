@@ -6,7 +6,6 @@
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
 	<Item Name="SubVIs" Type="Folder">
 		<Item Name="Report config errors.vi" Type="VI" URL="../Report config errors.vi"/>
-		<Item Name="SLSC Get Module Name from IP Address.vi" Type="VI" URL="../SLSC Get Module Name from IP Address.vi"/>
 		<Item Name="SLSC_Engine Get Module Name.vi" Type="VI" URL="../SLSC_Engine Get Module Name.vi"/>
 		<Item Name="VS SLSC Apply Static Properties.vi" Type="VI" URL="../VS SLSC Apply Static Properties.vi"/>
 	</Item>

@@ -32,16 +32,20 @@
 			<Item Name="Main Page.vi" Type="VI" URL="../Dynamically Called/Main Page.vi"/>
 		</Item>
 		<Item Name="SubVIs" Type="Folder">
-			<Property Name="NI.SortType" Type="Int">3</Property>
-			<Item Name="SLSC Dynamic Channel Lookups.vi" Type="VI" URL="../SubVIs/SLSC Dynamic Channel Lookups.vi"/>
+			<Property Name="NI.SortType" Type="Int">0</Property>
 			<Item Name="SLSC Add Command Section.vi" Type="VI" URL="../../SLSC CD API/SLSC CD System Explorer/SLSC Add Command Section.vi"/>
+			<Item Name="SLSC Add or Remove Channels.vi" Type="VI" URL="../SubVIs/SLSC Add or Remove Channels.vi"/>
 			<Item Name="SLSC Add Property Section.vi" Type="VI" URL="../../SLSC CD API/SLSC CD System Explorer/SLSC Add Property Section.vi"/>
-			<Item Name="SLSC Separate Channels.vi" Type="VI" URL="../SubVIs/SLSC Separate Channels.vi"/>
-			<Item Name="SLSC Populate Module Tree.vi" Type="VI" URL="../../SLSC CD API/SLSC CD System Explorer/SLSC Populate Module Tree.vi"/>
 			<Item Name="SLSC Coerce Number to ENUM.vi" Type="VI" URL="../SubVIs/SLSC Coerce Number to ENUM.vi"/>
+			<Item Name="SLSC Dynamic Channel Lookups.vi" Type="VI" URL="../SubVIs/SLSC Dynamic Channel Lookups.vi"/>
+			<Item Name="SLSC Get Plugin Path.vi" Type="VI" URL="../SubVIs/SLSC Get Plugin Path.vi"/>
 			<Item Name="SLSC Initilize Properties.vi" Type="VI" URL="../SubVIs/SLSC Initilize Properties.vi"/>
+			<Item Name="SLSC Populate Module Tree.vi" Type="VI" URL="../../SLSC CD API/SLSC CD System Explorer/SLSC Populate Module Tree.vi"/>
 			<Item Name="SLSC Refresh Tree Control.vi" Type="VI" URL="../SubVIs/SLSC Refresh Tree Control.vi"/>
+			<Item Name="SLSC Separate Channels.vi" Type="VI" URL="../SubVIs/SLSC Separate Channels.vi"/>
+			<Item Name="SLSC Show Pinout.vi" Type="VI" URL="../SubVIs/SLSC Show Pinout.vi"/>
 			<Item Name="SLSC Update Default Values in Tree.vi" Type="VI" URL="../SubVIs/SLSC Update Default Values in Tree.vi"/>
+			<Item Name="SLSC Update Values in Tree Control.vi" Type="VI" URL="../SubVIs/SLSC Update Values in Tree Control.vi"/>
 		</Item>
 		<Item Name="Types" Type="Folder"/>
 	</Item>

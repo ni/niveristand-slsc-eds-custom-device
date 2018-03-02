@@ -5,7 +5,7 @@
 		<eng>SLSC Plug-ins::SLSC EDS</eng>
 		<loc>SLSC Plug-ins::SLSC EDS</loc>
 	</AddMenu>
-	<Version>1.0.0</Version>
+	<Version>1.0.1</Version>
 	<Type>Inline HW Interface</Type>
 	<MaxOccurrence>2474</MaxOccurrence>
 	<MainPageGUID>8e00a9a9-cfde-4ea5-9266-6ce3d8c7c691</MainPageGUID>
@@ -173,6 +173,56 @@
 						<loc></loc>
 					</Documentation>
 				</Button>
+				<Button>
+					<ID>Diagram</ID>
+					<Glyph>
+						<Type>To Application Data Dir</Type>
+						<Path>System Explorer\Glyphs\NI-XNET Multiplexer.png</Path>
+					</Glyph>
+					<Type>Notification</Type>
+					<ReferencedGUID></ReferencedGUID>
+					<ButtonText>
+						<eng>SLSC Diagram</eng>
+						<loc>SLSC Diagram</loc>
+					</ButtonText>
+					<Caption>
+						<eng>SLSC Diagram</eng>
+						<loc>SLSC Diagram</loc>
+					</Caption>
+					<TipStrip>
+						<eng>Shows the diagram for this card</eng>
+						<loc>Shows the diagram for this card</loc>
+					</TipStrip>
+					<Documentation>
+						<eng></eng>
+						<loc></loc>
+					</Documentation>
+				</Button>
+				<Button>
+					<ID>Pinout</ID>
+					<Glyph>
+						<Type>To Application Data Dir</Type>
+						<Path>System Explorer\Glyphs\NI-XNET Port.png</Path>
+					</Glyph>
+					<Type>Notification</Type>
+					<ReferencedGUID></ReferencedGUID>
+					<ButtonText>
+						<eng>SLSC Pinout</eng>
+						<loc>SLSC Pinout</loc>
+					</ButtonText>
+					<Caption>
+						<eng>SLSC Pinout</eng>
+						<loc>SLSC Pinout</loc>
+					</Caption>
+					<TipStrip>
+						<eng>Shows the pinout for this module</eng>
+						<loc>Shows the pinout for this module</loc>
+					</TipStrip>
+					<Documentation>
+						<eng></eng>
+						<loc></loc>
+					</Documentation>
+				</Button>
 			</ButtonList>
             <ActionVIOnLoad>
                 <Type>To Common Doc Dir</Type>
@@ -296,6 +346,56 @@
 					<TipStrip>
 						<eng>Shows help for this page</eng>
 						<loc>Shows help for this page</loc>
+					</TipStrip>
+					<Documentation>
+						<eng></eng>
+						<loc></loc>
+					</Documentation>
+				</Button>
+				<Button>
+					<ID>Diagram</ID>
+					<Glyph>
+						<Type>To Application Data Dir</Type>
+						<Path>System Explorer\Glyphs\NI-XNET Multiplexer.png</Path>
+					</Glyph>
+					<Type>Notification</Type>
+					<ReferencedGUID></ReferencedGUID>
+					<ButtonText>
+						<eng>SLSC Diagram</eng>
+						<loc>SLSC Diagram</loc>
+					</ButtonText>
+					<Caption>
+						<eng>SLSC Diagram</eng>
+						<loc>SLSC Diagram</loc>
+					</Caption>
+					<TipStrip>
+						<eng>Shows the diagram for this card</eng>
+						<loc>Shows the diagram for this card</loc>
+					</TipStrip>
+					<Documentation>
+						<eng></eng>
+						<loc></loc>
+					</Documentation>
+				</Button>
+				<Button>
+					<ID>Pinout</ID>
+					<Glyph>
+						<Type>To Application Data Dir</Type>
+						<Path>System Explorer\Glyphs\NI-XNET Port.png</Path>
+					</Glyph>
+					<Type>Notification</Type>
+					<ReferencedGUID></ReferencedGUID>
+					<ButtonText>
+						<eng>SLSC Pinout</eng>
+						<loc>SLSC Pinout</loc>
+					</ButtonText>
+					<Caption>
+						<eng>SLSC Pinout</eng>
+						<loc>SLSC Pinout</loc>
+					</Caption>
+					<TipStrip>
+						<eng>Shows the pinout for this module</eng>
+						<loc>Shows the pinout for this module</loc>
 					</TipStrip>
 					<Documentation>
 						<eng></eng>
