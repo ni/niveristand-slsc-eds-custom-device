@@ -1,6 +1,6 @@
 [archive]
 build_output_dir = 'Built'
-archive_location = '\\us-aus-hilbuild\builds\niveristandadd-ons\custom devices\slsc eds'
+archive_location = '\\nirvana\temp\vs_cds\slsc_eds_custom_device'
 
 [projects.cd]
 path = 'Source\SLSC EDS.lvproj'
@@ -26,9 +26,3 @@ name = 'Engine Libraries'
 type = 'lvBuildSpecAllTargets'
 project = '{cd}'
 build_spec = 'Engine Release'
-
-[package]
-type = 'nipkg'
-name = 'slsc-eds-custom-device-{version}'
-release_version = '1.0'
-install_destination = 'documents\National Instruments\NI VeriStand {version}\Custom Devices\SLSC Plug-ins'
