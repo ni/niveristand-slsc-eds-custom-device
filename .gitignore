@@ -1,2 +1,38 @@
 Source/SLSC EDS.lvlps
 Source/SLSC EDS.aliases
+Built/SLSC EDS/Glyphs/Channel Input box.png
+Built/SLSC EDS/Custom Device SLSC EDS.xml
+Built/SLSC EDS/VariantType/MDTFlavorToTypeEnum.vi
+Built/SLSC EDS/VariantType/GetRefnumInfoInternal.vi
+Built/SLSC EDS/SLSC Module SLSC EDS.xml
+Built/SLSC EDS/JKI JSON Serialization.lvlib_JSON Parser/Parse Root.vi
+Built/SLSC EDS/JKI JSON Serialization.lvlib_JSON Parser/Match End.vi
+Built/SLSC EDS/JKI JSON Serialization.lvlib_JSON Lexer/Write String.vi
+Built/SLSC EDS/JKI JSON Serialization.lvlib_JSON Lexer/Tokenize String.vi
+Built/SLSC EDS/JKI JSON Serialization.lvlib_JSON Lexer/Match.vi
+Built/SLSC EDS/JKI JSON Serialization.lvlib_JSON Deserializer/Unflatten From String.vi
+Built/SLSC EDS/Glyphs/SLSC_Module_disable.png
+Built/SLSC EDS/Glyphs/SLSC_Module.png
+Built/SLSC EDS/Glyphs/Disabled Command_edited.jpg
+Built/SLSC EDS/Glyphs/Disabled Command.png
+Built/SLSC EDS/SLSC EDS.chm
+Built/SLSC EDS/SLSC EDS Configuration.llb
+Built/SLSC EDS/NI_Data Type/MDTFlavorToTypeEnum.vi
+Built/SLSC EDS/NI_Data Type/GetRefnumInfoInternal.vi
+Built/SLSC EDS/JKI Serialization.lvlib_Deserializer/Unflatten From String.vi
+Built/SLSC EDS/JKI JSON Serialization.lvlib_Parser/Parse Root.vi
+Built/SLSC EDS/JKI JSON Serialization.lvlib_Parser/Match.vi
+Built/SLSC EDS/JKI JSON Serialization.lvlib_Parser/Match End.vi
+Built/SLSC EDS/JKI JSON Serialization.lvlib_Lexer/Write String.vi
+Built/SLSC EDS/JKI JSON Serialization.lvlib_Lexer/Tokenize String.vi
+Built/SLSC EDS/Glyphs/Channel Output_Disabled.png
+Built/SLSC EDS/Glyphs/Channel Output.png
+Built/SLSC EDS/Glyphs/Channel Input_disabled.png
+Built/SLSC EDS/Glyphs/Channel Input_disabled - Box.png
+Built/SLSC EDS/Glyphs/Channel Input.png
+Built/SLSC EDS/Pharlap/SLSC EDS Engine Pharlap.llb
+Built/SLSC EDS/Linux_x64/SLSC EDS Engine Linux64.llb
+Built/SLSC EDS/Linux_32_ARM/SLSC EDS Engine LinuxARM.llb
+Built/SLSC EDS/Engine Release_depinstr.bin
+Built/SLSC EDS/Data/NIVeriStand_DataServices.dll
+Built/SLSC EDS/SLSC EDS Engine Windows.llb

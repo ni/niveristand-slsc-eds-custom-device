@@ -4,8 +4,7 @@
 	<Property Name="NI.Lib.SourceVersion" Type="Int">352354304</Property>
 	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
-	<Item Name="Ping IP Address.vi" Type="VI" URL="../Ping IP Address.vi"/>
 	<Item Name="SLSC Get Capabilities NVMEM String.vi" Type="VI" URL="../SLSC Get Capabilities NVMEM String.vi"/>
-	<Item Name="SLSC Get EDS Module Information.vi" Type="VI" URL="../SLSC Get EDS Module Information.vi"/>
+	<Item Name="SLSC Read Capabilities File from Disk.vi" Type="VI" URL="../SLSC Read Capabilities File from Disk.vi"/>
 	<Item Name="SLSC Read Properties.vi" Type="VI" URL="../SLSC Read Properties.vi"/>
 </Library>
