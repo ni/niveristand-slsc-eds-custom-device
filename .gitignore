@@ -1,2 +1,5 @@
 Source/SLSC EDS.lvlps
 Source/SLSC EDS.aliases
+
+# Ignore Built dir
+Built/
