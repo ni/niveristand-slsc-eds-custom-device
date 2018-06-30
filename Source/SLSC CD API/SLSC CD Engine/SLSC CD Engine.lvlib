@@ -9,5 +9,5 @@
 	<Item Name="SLSC Read Properties.vi" Type="VI" URL="../SLSC Read Properties.vi"/>
 	<Item Name="SLSC Send Commands.vi" Type="VI" URL="../SLSC Send Commands.vi"/>
 	<Item Name="SLSC Write Properties.vi" Type="VI" URL="../SLSC Write Properties.vi"/>
-	<Item Name="SLSC_Check Connection and Module.vi" Type="VI" URL="../../../Engine/SLSC_Check Connection and Module.vi"/>
+	<Item Name="SLSC_Check Connection and Module.vi" Type="VI" URL="../SLSC_Check Connection and Module.vi"/>
 </Library>

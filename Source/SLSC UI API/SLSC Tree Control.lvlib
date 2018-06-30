@@ -5,6 +5,7 @@
 	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
 	<Item Name="SLSC Add Item to Tree with Properties.vi" Type="VI" URL="../System Explorer/Tree Control/SLSC Add Item to Tree with Properties.vi"/>
+	<Item Name="SLSC Command Enum Constant.vi" Type="VI" URL="../System Explorer/Tree Control/SLSC Command Enum Constant.vi"/>
 	<Item Name="SLSC Convert EDS Command to Tree Control Item.vi" Type="VI" URL="../System Explorer/Tree Control/SLSC Convert EDS Command to Tree Control Item.vi"/>
 	<Item Name="SLSC Convert EDS Properties and Commands to Tree Control.vi" Type="VI" URL="../System Explorer/Tree Control/SLSC Convert EDS Properties and Commands to Tree Control.vi"/>
 	<Item Name="SLSC Convert EDS Property to Tree Control Item.vi" Type="VI" URL="../System Explorer/Tree Control/SLSC Convert EDS Property to Tree Control Item.vi"/>

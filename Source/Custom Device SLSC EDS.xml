@@ -10,7 +10,7 @@
 		<Path>Custom Devices\SLSC Plug-ins\SLSC EDS\SLSC EDS Configuration.llb\HideFromMenu.vi</Path>
 		<Behavior>Static</Behavior>
 	</Dependency>
-	<Version>1.0.0</Version>
+	<Version>1.0.3</Version>
 	<Type>Inline HW Interface</Type>
 	<MaxOccurrence>2474</MaxOccurrence>
 	<MainPageGUID>8e00a9a9-cfde-4ea5-9266-6ce3d8c7c691</MainPageGUID>
