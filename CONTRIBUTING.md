@@ -1,11 +1,11 @@
-# Contributing to \<reponame\> 
+# Contributing to niveristand-slsc-eds-custom-device
 
-Contributions to \<reponame\> are welcome from all!
+Contributions to niveristand-slsc-eds-custom-device are welcome from all!
 
-\<reponame\> is managed via [git](https://git-scm.com), with the canonical upstream
-repository hosted on [GitHub](https://github.com/ni/<reponame>/).
+niveristand-slsc-eds-custom-device is managed via [git](https://git-scm.com), with the canonical upstream
+repository hosted on [GitHub](https://github.com/ni/niveristand-slsc-eds-custom-device/).
 
-\<reponame\> follows a pull-request model for development.  If you wish to
+niveristand-slsc-eds-custom-device follows a pull-request model for development.  If you wish to
 contribute, you will need to create a GitHub account, fork this project, push a
 branch with your changes to your project, and then submit a pull request.
 
@@ -13,11 +13,18 @@ See [GitHub's official documentation](https://help.github.com/articles/using-pul
 
 # Getting Started
 
-- TODO: include build steps here.
+Build specifications are provided for building the custom device. The build process should automatically
+copy the output files to the directory required by VeriStand.
 
 # Testing
 
-- TODO: include testing steps here.
+Both unit and system tests are provided with the custom device. These tests can be run from within the LabVIEW
+project using the [VI Tester](https://github.com/JKISoftware/JKI-VI-Tester) integration, or from the command line
+using the `RunVITester` operation provided by the [testing tools](https://github.com/ni/niveristand-custom-device-testing-tools).
+
+Running the system tests locally requires a specific hardware configuration, which will be documented [here].
+The IP address of local targets can be overridden at runtime through the creation of an `overrides.ini` file
+adjacent to the system definition.
 
 # Developer Certificate of Origin (DCO)
 
@@ -49,5 +56,5 @@ See [GitHub's official documentation](https://help.github.com/articles/using-pul
 
 (taken from [developercertificate.org](https://developercertificate.org/))
 
-See [LICENSE](https://github.com/ni/<reponame>/blob/master/LICENSE)
-for details about how \<reponame\> is licensed.
+See [LICENSE](https://github.com/ni/niveristand-slsc-eds-custom-device/blob/master/LICENSE)
+for details about how niveristand-slsc-eds-custom-device is licensed.
