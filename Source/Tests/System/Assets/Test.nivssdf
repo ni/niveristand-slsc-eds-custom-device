@@ -3,14 +3,14 @@
 	<MD5Checksum />
 	<Version Major="2015" Minor="1" Fix="0" Build="0" />
 	<Content>Definition</Content>
-	<Root Name="SLSC_EDS_TEST" TypeGUID="03D3BA22-1485-13A6-56BD17DA950CCD00">
+	<Root Name="Test" TypeGUID="03D3BA22-1485-13A6-56BD17DA950CCD00">
 		<Description />
 		<Properties>
 			<Property Name="Name">
-				<String>SLSC_EDS_TEST</String>
+				<String>Test</String>
 			</Property>
 			<Property Name="Version">
-				<String>1.0.0.8</String>
+				<String>1.0.0.9</String>
 			</Property>
 			<Property Name="Creator">
 				<String />
@@ -31,7 +31,7 @@
 						<String>Windows</String>
 					</Property>
 					<Property Name="IP Address">
-						<String />
+						<String>localhost</String>
 					</Property>
 					<Property Name="Control Loop Processor">
 						<I32>-2</I32>
@@ -97,6 +97,9 @@
 						<Double>15</Double>
 					</Property>
 					<Property Name="FPGAScanInterfaceMode">
+						<U16>0</U16>
+					</Property>
+					<Property Name="Timing Source Settings">
 						<U16>0</U16>
 					</Property>
 				</Properties>
@@ -456,7 +459,7 @@
 										</DependentFile>
 									</Property>
 									<Property Name="Version">
-										<String>1.0.0</String>
+										<String>1.0.3</String>
 									</Property>
 									<Property Name="user.CD.Slot #">
 										<I32>1</I32>
