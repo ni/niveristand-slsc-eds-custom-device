@@ -953,6 +953,9 @@
 			<Item Name="nislsclvapi.dll" Type="Document" URL="nislsclvapi.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
+			<Item Name="nisyscfg.dll" Type="Document" URL="nisyscfg.dll">
+				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
+			</Item>
 			<Item Name="SLSC CD Engine.lvlib" Type="Library" URL="../SLSC CD API/SLSC CD Engine/SLSC CD Engine.lvlib"/>
 			<Item Name="SLSC CD Shared.lvlib" Type="Library" URL="../SLSC CD API/SLSC CD Shared/SLSC CD Shared.lvlib"/>
 			<Item Name="SLSC Get Module Name (Cloned API).vi" Type="VI" URL="../Engine/SLSC Get Module Name (Cloned API).vi"/>
