@@ -10,7 +10,7 @@
 				<String>Test</String>
 			</Property>
 			<Property Name="Version">
-				<String>1.0.0.16</String>
+				<String>1.0.0.19</String>
 			</Property>
 			<Property Name="Creator">
 				<String />
@@ -3764,6 +3764,24 @@
 				<Properties>
 					<Property Name="Referenced Channel">
 						<DependentNode Path="Targets/Controller/Custom Devices/SLSC/NI SLSC-12001/Slot 1 (SLSC EDS)/Physical Channels/port0//line0/Properties/NI.Line.Index" />
+					</Property>
+				</Properties>
+				<Errors />
+			</Alias>
+			<Alias Name="Ch0LineEnable" TypeGUID="2c11e122-dad9-44da-989c-a66ff203fa31">
+				<Description />
+				<Properties>
+					<Property Name="Referenced Channel">
+						<DependentNode Path="Targets/Controller/Custom Devices/SLSC/NI SLSC-12001/Slot 1 (SLSC EDS)/Physical Channels/port0//line0/Properties/NI.Line.Enable" />
+					</Property>
+				</Properties>
+				<Errors />
+			</Alias>
+			<Alias Name="UpdateChannelConfiguration" TypeGUID="2c11e122-dad9-44da-989c-a66ff203fa31">
+				<Description />
+				<Properties>
+					<Property Name="Referenced Channel">
+						<DependentNode Path="Targets/Controller/Custom Devices/SLSC/NI SLSC-12001/Slot 1 (SLSC EDS)/Commands/NI.UpdateChannelConfiguration" />
 					</Property>
 				</Properties>
 				<Errors />
