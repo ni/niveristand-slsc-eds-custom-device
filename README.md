@@ -17,9 +17,15 @@ LabVIEW 2017
 ## Dependencies
 
 - NI-SLSC >= 17.0
-- [VeriStand-Addon-Inline-Async-API](https://github.com/NIVeriStandAdd-Ons/VeriStand-Addon-Inline-Async-API/tree/master/Built) >= 1.0.0.29
+- [NI VeriStand Addon Inline Async API](https://github.com/ni/niveristand-custom-device-inline-async-api) >= 1.0.0.29
 - [NI VeriStand Custom Device Testing Tools](https://github.com/ni/niveristand-custom-device-testing-tools)
 - JKI JSON >= 1.1.10.37
+
+
+## Git History & Rebasing Policy
+Branch rebasing and other history modifications will be listed here, with several notable exceptions:
+- Branches prefixed with `dev/` may be rebased, overwritten, or deleted at any time.
+- Pull requests may be squashed on merge.
 
 
 ## License
