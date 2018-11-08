@@ -1,15 +1,14 @@
-Package: slsc-eds-custom-device-{version}
-Version: 1.0
+Package: ni-slsc-eds-veristand-{veristand_version}-support
+Version: {nipkg_version}
 Architecture: windows_x64
 Maintainer: National Instruments <support@ni.com>
 XB-Plugin: file
-Description:  This package provides a plugin for the SLSC Electronic Data Sheet Custom Device for NI VeriStand.
+Description:  Provides support for the NI SLSC EDS custom device for NI VeriStand {veristand_version}.
 XB-Eula:  
 Priority: standard
 Homepage: http://www.ni.com
 XB-LanguageSupport: en
 XB-UserVisible: yes
 Section: Add-Ons
-XB-DisplayVersion: 1.0
-XB-DisplayName: SLSC Electronic Data Sheet Custom Device for VeriStand {version}
-Depends: 
+XB-DisplayVersion: {display_version}
+XB-DisplayName: NI SLSC EDS for VeriStand {veristand_version}
