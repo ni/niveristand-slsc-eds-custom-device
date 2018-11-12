@@ -1,5 +1,6 @@
 Source/SLSC EDS.lvlps
 Source/SLSC EDS.aliases
+config.ini
 
 # Ignore Built dir
 Built/

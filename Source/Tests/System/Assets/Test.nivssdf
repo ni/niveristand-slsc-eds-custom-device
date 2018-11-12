@@ -247,7 +247,7 @@
 							<Description />
 							<Properties>
 								<Property Name="user.CD.Chassis IP Address">
-									<BinaryString>MTAuMi4xMDQuMTk=</BinaryString>
+									<BinaryString>MTAuMC4wLjI=</BinaryString>
 								</Property>
 								<Property Name="user.CD.Chassis #">
 									<U32>1</U32>

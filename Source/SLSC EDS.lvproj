@@ -135,6 +135,10 @@
 				<Item Name="SLSC EDS Unit Tests.lvclass" Type="LVClass" URL="../Tests/Unit/SLSC EDS Unit Tests.lvclass"/>
 			</Item>
 			<Item Name="System" Type="Folder">
+				<Item Name="Assets" Type="Folder">
+					<Item Name="config.ini" Type="Document" URL="../Tests/System/Assets/config.ini"/>
+					<Item Name="Test.nivssdf" Type="Document" URL="../Tests/System/Assets/Test.nivssdf"/>
+				</Item>
 				<Item Name="SLSC EDS System Tests.lvclass" Type="LVClass" URL="../Tests/System/SLSC EDS System Tests.lvclass"/>
 			</Item>
 		</Item>
@@ -500,6 +504,8 @@
 				<Item Name="8.6CompatibleGlobalVar.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/config.llb/8.6CompatibleGlobalVar.vi"/>
 				<Item Name="NI_LVConfig.lvlib" Type="Library" URL="/&lt;vilib&gt;/Utility/config.llb/NI_LVConfig.lvlib"/>
 				<Item Name="PackedMatrixToFlatVector.vi" Type="VI" URL="/&lt;vilib&gt;/NI Veristand/Execution/Shared/PackedMatrixToFlatVector.vi"/>
+				<Item Name="Is Path and Not Empty.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Is Path and Not Empty.vi"/>
+				<Item Name="NI_AALBase.lvlib" Type="Library" URL="/&lt;vilib&gt;/Analysis/NI_AALBase.lvlib"/>
 			</Item>
 			<Item Name="user.lib" Type="Folder">
 				<Item Name="Reshape Array to 1D VArray__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Reshape Array to 1D VArray__ogtk.vi"/>
@@ -594,15 +600,16 @@
 			<Item Name="mscorlib" Type="VI" URL="mscorlib">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
-			<Item Name="nisyscfg.dll" Type="Document" URL="nisyscfg.dll">
-				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
-			</Item>
 			<Item Name="NiFpgaLv.dll" Type="Document" URL="NiFpgaLv.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
 			<Item Name="VeriStandTestUtilities.lvlib" Type="Library" URL="../../../niveristand-custom-device-testing-tools/VeriStandTestUtilities/VeriStandTestUtilities.lvlib"/>
 			<Item Name="Loopback.lvclass" Type="LVClass" URL="../../../niveristand-custom-device-testing-tools/Loopback/Loopback.lvclass"/>
 			<Item Name="Loopback_FPGATarget_Loopback_3S22y2ZVP64.lvbitx" Type="Document" URL="../../../niveristand-custom-device-testing-tools/Loopback/Loopback_FPGATarget_Loopback_3S22y2ZVP64.lvbitx"/>
+			<Item Name="lvanlys.dll" Type="Document" URL="/&lt;resource&gt;/lvanlys.dll"/>
+			<Item Name="nisyscfg.dll" Type="Document" URL="nisyscfg.dll">
+				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
+			</Item>
 		</Item>
 		<Item Name="Build Specifications" Type="Build">
 			<Item Name="Configuration Debug" Type="Source Distribution">
@@ -960,9 +967,6 @@
 			<Item Name="nislsclvapi.dll" Type="Document" URL="nislsclvapi.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
-			<Item Name="nisyscfg.dll" Type="Document" URL="nisyscfg.dll">
-				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
-			</Item>
 			<Item Name="SLSC CD Engine.lvlib" Type="Library" URL="../SLSC CD API/SLSC CD Engine/SLSC CD Engine.lvlib"/>
 			<Item Name="SLSC CD Shared.lvlib" Type="Library" URL="../SLSC CD API/SLSC CD Shared/SLSC CD Shared.lvlib"/>
 			<Item Name="SLSC Get Module Name (Cloned API).vi" Type="VI" URL="../Engine/SLSC Get Module Name (Cloned API).vi"/>
@@ -1140,9 +1144,6 @@
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
 			<Item Name="nislsclvapi.dll" Type="Document" URL="nislsclvapi.dll">
-				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
-			</Item>
-			<Item Name="nisyscfg.dll" Type="Document" URL="nisyscfg.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
 			<Item Name="SLSC CD Engine.lvlib" Type="Library" URL="../SLSC CD API/SLSC CD Engine/SLSC CD Engine.lvlib"/>
@@ -1325,9 +1326,6 @@
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
 			<Item Name="nislsclvapi.dll" Type="Document" URL="nislsclvapi.dll">
-				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
-			</Item>
-			<Item Name="nisyscfg.dll" Type="Document" URL="nisyscfg.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
 			<Item Name="SLSC Get Module Name (Cloned API).vi" Type="VI" URL="../Engine/SLSC Get Module Name (Cloned API).vi"/>
