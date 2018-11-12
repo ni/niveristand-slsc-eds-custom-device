@@ -1,6 +1,6 @@
 Source/SLSC EDS.lvlps
 Source/SLSC EDS.aliases
-Source/Tests/System/Assets/config.ini
+*/config.ini
 
 # Ignore Built dir
 Built/
