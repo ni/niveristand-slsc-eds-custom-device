@@ -10,7 +10,7 @@
 				<String>Test</String>
 			</Property>
 			<Property Name="Version">
-				<String>1.0.0.19</String>
+				<String>1.0.0.20</String>
 			</Property>
 			<Property Name="Creator">
 				<String />
@@ -247,7 +247,7 @@
 							<Description />
 							<Properties>
 								<Property Name="user.CD.Chassis IP Address">
-									<BinaryString>MTAuMi4yMDEuNDc=</BinaryString>
+									<BinaryString>MTAuMC4wLjI=</BinaryString>
 								</Property>
 								<Property Name="user.CD.Chassis #">
 									<U32>1</U32>
