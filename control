@@ -3,8 +3,8 @@ Version: {nipkg_version}
 Architecture: windows_x64
 Maintainer: National Instruments <support@ni.com>
 XB-Plugin: file
-Description:  Provides support for the NI SLSC EDS custom device for NI VeriStand {veristand_version}.
-XB-Eula:  
+Description: Provides support for the NI SLSC EDS custom device for NI VeriStand {veristand_version}.
+XB-Eula: eula-ni-standard
 Priority: standard
 Homepage: http://www.ni.com
 XB-LanguageSupport: en
