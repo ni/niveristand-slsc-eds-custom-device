@@ -4,6 +4,7 @@
 	<Property Name="NI.Lib.SourceVersion" Type="Int">352354304</Property>
 	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
+	<Item Name="SLSC Convert SLSC Channel Path into Tree Tag.vi" Type="VI" URL="../SLSC Convert SLSC Channel Path into Tree Tag.vi"/>
 	<Item Name="SLSC Create Command Path String.vi" Type="VI" URL="../SLSC Create Command Path String.vi"/>
 	<Item Name="SLSC Create Property Path String.vi" Type="VI" URL="../SLSC Create Property Path String.vi"/>
 	<Item Name="SLSC Datatype.ctl" Type="VI" URL="../../SLSC CD Engine/SLSC Datatype.ctl"/>

@@ -93,6 +93,7 @@
 				<Item Name="command.ctl" Type="VI" URL="../SLSC EDS API/JSON parsing/command.ctl"/>
 				<Item Name="EDSjsonStructure.ctl" Type="VI" URL="../SLSC EDS API/JSON parsing/EDSjsonStructure.ctl"/>
 				<Item Name="EDSjsonStructureOnlyRequiredElements.ctl" Type="VI" URL="../SLSC EDS API/JSON parsing/EDSjsonStructureOnlyRequiredElements.ctl"/>
+				<Item Name="EDS_Custom_Device_Structure.ctl" Type="VI" URL="../SLSC EDS API/JSON parsing/EDS_Custom_Device_Structure.ctl"/>
 				<Item Name="enum.ctl" Type="VI" URL="../SLSC EDS API/JSON parsing/enum.ctl"/>
 				<Item Name="physicalChannel.ctl" Type="VI" URL="../SLSC EDS API/JSON parsing/physicalChannel.ctl"/>
 				<Item Name="property.ctl" Type="VI" URL="../SLSC EDS API/JSON parsing/property.ctl"/>
@@ -126,9 +127,9 @@
 			<Item Name="SLSC Tree Control.lvlib" Type="Library" URL="../SLSC UI API/SLSC Tree Control.lvlib"/>
 		</Item>
 		<Item Name="SLSC CD API" Type="Folder">
-			<Item Name="SLSC CD System Explorer.lvlib" Type="Library" URL="../SLSC CD API/SLSC CD System Explorer/SLSC CD System Explorer.lvlib"/>
 			<Item Name="SLSC CD Engine.lvlib" Type="Library" URL="../SLSC CD API/SLSC CD Engine/SLSC CD Engine.lvlib"/>
 			<Item Name="SLSC CD Shared.lvlib" Type="Library" URL="../SLSC CD API/SLSC CD Shared/SLSC CD Shared.lvlib"/>
+			<Item Name="SLSC CD System Explorer.lvlib" Type="Library" URL="../SLSC CD API/SLSC CD System Explorer/SLSC CD System Explorer.lvlib"/>
 		</Item>
 		<Item Name="Tests" Type="Folder">
 			<Item Name="Unit" Type="Folder">
@@ -210,7 +211,6 @@
 				<Item Name="Create Mask By Alpha.vi" Type="VI" URL="/&lt;vilib&gt;/picture/picture.llb/Create Mask By Alpha.vi"/>
 				<Item Name="Read PNG File.vi" Type="VI" URL="/&lt;vilib&gt;/picture/png.llb/Read PNG File.vi"/>
 				<Item Name="subDisplayMessage.vi" Type="VI" URL="/&lt;vilib&gt;/express/express output/DisplayMessageBlock.llb/subDisplayMessage.vi"/>
-				<Item Name="LVStringsAndValuesArrayTypeDef_U16.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/miscctls.llb/LVStringsAndValuesArrayTypeDef_U16.ctl"/>
 				<Item Name="subTimeDelay.vi" Type="VI" URL="/&lt;vilib&gt;/express/express execution control/TimeDelayBlock.llb/subTimeDelay.vi"/>
 				<Item Name="Recursive File List.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/libraryn.llb/Recursive File List.vi"/>
 				<Item Name="List Directory and LLBs.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/libraryn.llb/List Directory and LLBs.vi"/>
@@ -506,6 +506,7 @@
 				<Item Name="PackedMatrixToFlatVector.vi" Type="VI" URL="/&lt;vilib&gt;/NI Veristand/Execution/Shared/PackedMatrixToFlatVector.vi"/>
 				<Item Name="Is Path and Not Empty.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/file.llb/Is Path and Not Empty.vi"/>
 				<Item Name="NI_AALBase.lvlib" Type="Library" URL="/&lt;vilib&gt;/Analysis/NI_AALBase.lvlib"/>
+				<Item Name="LVStringsAndValuesArrayTypeDef_U16.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/miscctls.llb/LVStringsAndValuesArrayTypeDef_U16.ctl"/>
 			</Item>
 			<Item Name="user.lib" Type="Folder">
 				<Item Name="Reshape Array to 1D VArray__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Reshape Array to 1D VArray__ogtk.vi"/>
@@ -967,6 +968,9 @@
 			<Item Name="nislsclvapi.dll" Type="Document" URL="nislsclvapi.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
+			<Item Name="nisyscfg.dll" Type="Document" URL="nisyscfg.dll">
+				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
+			</Item>
 			<Item Name="SLSC CD Engine.lvlib" Type="Library" URL="../SLSC CD API/SLSC CD Engine/SLSC CD Engine.lvlib"/>
 			<Item Name="SLSC CD Shared.lvlib" Type="Library" URL="../SLSC CD API/SLSC CD Shared/SLSC CD Shared.lvlib"/>
 			<Item Name="SLSC Get Module Name (Cloned API).vi" Type="VI" URL="../Engine/SLSC Get Module Name (Cloned API).vi"/>
@@ -1144,6 +1148,9 @@
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
 			<Item Name="nislsclvapi.dll" Type="Document" URL="nislsclvapi.dll">
+				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
+			</Item>
+			<Item Name="nisyscfg.dll" Type="Document" URL="nisyscfg.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
 			<Item Name="SLSC CD Engine.lvlib" Type="Library" URL="../SLSC CD API/SLSC CD Engine/SLSC CD Engine.lvlib"/>
@@ -1326,6 +1333,9 @@
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
 			<Item Name="nislsclvapi.dll" Type="Document" URL="nislsclvapi.dll">
+				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
+			</Item>
+			<Item Name="nisyscfg.dll" Type="Document" URL="nisyscfg.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
 			<Item Name="SLSC Get Module Name (Cloned API).vi" Type="VI" URL="../Engine/SLSC Get Module Name (Cloned API).vi"/>
