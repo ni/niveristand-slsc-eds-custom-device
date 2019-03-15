@@ -1,0 +1,2373 @@
+
+{
+    "productNum": 31026, // 0x7932
+    "productName": "SLSC-12251",
+
+    "vendorNum": 4243, // 0x1093
+    "vendorName": "National Instruments Corporation",
+
+    "vendorPrefix": "NI",
+
+    "capsVersion": "0.1",
+    "capsSpecVersion": 1,
+
+    "enums": [
+        {
+            "name": "NI.FIU.ChannelConnect",
+            "description-en": "Connects Channel n to n + 1",
+            "values": [
+                {
+                    "name": "IndependentChannels",
+                    "description-en": "Channel n and channel n + 1 are independent.",
+                    "value": 0
+                },
+                {
+                    "name": "ConnectedChannels",
+                    "description-en": "Channel n and channel n + 1 are connected.",
+                    "value": 1
+                }
+            ]
+        },
+        {
+            "name": "NI.FIU.Fault",
+            "description-en": "Selects which fault is inserted to the channel.",
+            "values": [
+                {
+                    "name": "NoFault",
+                    "description-en": "No fault on channel.",
+                    "value": 0
+                },
+                {
+                    "name": "FaultA",
+                    "description-en": "Fault A is inserted to the channel.",
+                    "value": 1
+                },
+                {
+                    "name": "FaultB",
+                    "description-en": "Fault B is inserted to the channel.",
+                    "value": 2
+                }
+                
+            ]
+        },
+        {
+            "name": "NI.FIU.Load",
+            "description-en": "Determines if channel n is connected to load pin n.",
+            "values": [
+                {
+                    "name": "NoLoad",
+                    "description-en": "The Load pin is not connected to channel n.",
+                    "value": 0
+                },
+                {
+                    "name": "Load",
+                    "description-en": "The load pin is connected to channel n.",
+                    "value": 1
+                }
+
+            ]
+        },
+        {
+            "name": "NI.FIU.UpdateModeEnum",
+            "description-en": "Determines how the channel state is updated.",
+            "values": [
+                {
+                    "name": "UpdateCommand",
+                    "description-en": "Channels are updated when an Update command is issued by software.",
+                    "value": 0
+                },
+                {
+                    "name": "Trigger",
+                    "description-en": "Channels are updated upon a trigger edge.",
+                    "value": 1
+                }
+
+            ]
+        }
+
+    ],
+
+
+
+    "registerMap": {
+        "interrupts": [
+            {
+                "name": "UpdateComplete",
+                "description-en": "Signals completion of the most recent Update operation",
+                "enableBitfield": "InterruptEnable/UpdateDoneEnable",
+                "disableBitfield": "InterruptDisable/UpdateDoneDisable",
+                "ackBitfield": "InterruptAck/UpdateDoneAck",
+                "statusBitfield": "InterruptStatus/UpdateDone"
+            }
+        ],
+        "registers": [
+            {
+                "name": "InterruptStatus",
+                "access": "ReadOnly",
+                "address": 1024,
+                "size": 8,
+                
+
+                "bitfields": [
+                    {
+                        "name": "UpdateDone",
+                        "description-en": "Begin updating all channels that have UpdateSource set to Software. You can use the UpdateComplete interrupt and/or UpdateCompleteStatus bit to determine when the update is complete. Only one Update operation can execute at a time.",
+                        "offset": 0,
+                        "size": 1
+                    },
+
+                    {
+                        "name": "OverCurrentHighIntStatus",
+                        "offset": 1,
+                        "size": 1
+                    },
+                    {
+                        "name": "OverCurrentLowIntStatus",
+                        "offset": 2,
+                        "size": 1
+                    },
+                    {
+                        "name": "OverCurrentFaultChannelIntStatus",
+                        "offset": 3,
+                        "size": 1
+                    },
+                    {
+                        "name": "OverTemperatureIntStatus",
+                        "offset": 4,
+                        "size": 1
+                    },
+                    {
+                        "name": "DigitalOverTemperatureIntStatus",
+                        "offset": 5,
+                        "size": 1
+                    }
+                ]
+            },
+            {
+                "name": "InterruptMask",
+                "access": "ReadOnly",
+                "address": 1025,
+                "size": 8,
+                
+
+                "bitfields": [
+                    {
+                        "name": "UpdateDoneMask",
+                        "description-en": "Begin updating all channels that have UpdateSource set to Software. You can use the UpdateComplete interrupt and/or UpdateCompleteStatus bit to determine when the update is complete. Only one Update operation can execute at a time.",
+                        "offset": 0,
+                        "size": 1
+                    },
+
+                    {
+                        "name": "OverCurrentHighIntMask",
+                        "offset": 1,
+                        "size": 1
+                    },
+                    {
+                        "name": "OverCurrentLowIntMask",
+                        "offset": 2,
+                        "size": 1
+                    },
+                    {
+                        "name": "OverCurrentFaultChannelIntMask",
+                        "offset": 3,
+                        "size": 1
+                    },
+                    {
+                        "name": "OverTemperatureIntMask",
+                        "offset": 4,
+                        "size": 1
+                    },
+                    {
+                        "name": "DigitalOverTemperatureIntMask",
+                        "offset": 5,
+                        "size": 1
+                    }
+                ]
+            },
+            {
+                "name": "InterruptEnable",
+                "access": "WriteOnly",
+                "address": 1026,
+                "size": 8,
+                "strobe": true,
+
+                "bitfields": [
+                    {
+                        "name": "UpdateDoneEnable",
+                        "description-en": "Begin updating all channels that have UpdateSource set to Software. You can use the UpdateComplete interrupt and/or UpdateCompleteStatus bit to determine when the update is complete. Only one Update operation can execute at a time.",
+                        "offset": 0,
+                        "size": 1
+                    },
+
+                    {
+                        "name": "OverCurrentHighIntEnable",
+                        "offset": 1,
+                        "size": 1
+                    },
+                    {
+                        "name": "OverCurrentLowIntEnable",
+                        "offset": 2,
+                        "size": 1
+                    },
+                    {
+                        "name": "OverCurrentFaultChannelIntEnable",
+                        "offset": 3,
+                        "size": 1
+                    },
+                    {
+                        "name": "OverTemperatureIntEnable",
+                        "offset": 4,
+                        "size": 1
+                    },
+                    {
+                        "name": "DigitalOverTemperatureIntEnable",
+                        "offset": 5,
+                        "size": 1
+                    }
+
+                ]
+            },
+            {
+                "name": "InterruptDisable",
+                "access": "WriteOnly",
+                "address": 1027,
+                "size": 8,
+                "strobe": true,
+
+                "bitfields": [
+                    {
+                        "name": "UpdateDoneDisable",
+                        "description-en": "Begin updating all channels that have UpdateSource set to Software. You can use the UpdateComplete interrupt and/or UpdateCompleteStatus bit to determine when the update is complete. Only one Update operation can execute at a time.",
+                        "offset": 0,
+                        "size": 1
+                    },
+
+                    {
+                        "name": "OverCurrentHighIntDisable",
+                        "offset": 1,
+                        "size": 1
+                    },
+                    {
+                        "name": "OverCurrentLowIntDisable",
+                        "offset": 2,
+                        "size": 1
+                    },
+                    {
+                        "name": "OverCurrentFaultChannelIntDisable",
+                        "offset": 3,
+                        "size": 1
+                    },
+                    {
+                        "name": "OverTemperatureIntDisable",
+                        "offset": 4,
+                        "size": 1
+                    },
+                    {
+                        "name": "DigitalOverTemperatureIntDisable",
+                        "offset": 5,
+                        "size": 1
+                    }
+                ]
+            },
+            {
+                "name": "InterruptAck",
+                "access": "WriteOnly",
+                "address": 1028,
+                "size": 8,
+                "strobe": true,
+
+                "bitfields": [
+                    {
+                        "name": "UpdateDoneAck",
+                        "description-en": "Begin updating all channels that have UpdateSource set to Software. You can use the UpdateComplete interrupt and/or UpdateCompleteStatus bit to determine when the update is complete. Only one Update operation can execute at a time.",
+                        "offset": 0,
+                        "size": 1
+                    },
+
+                    {
+                        "name": "OverCurrentHighIntAck",
+                        "offset": 1,
+                        "size": 1
+                    },
+                    {
+                        "name": "OverCurrentLowIntAck",
+                        "offset": 2,
+                        "size": 1
+                    },
+                    {
+                        "name": "OverCurrentFaultChannelIntAck",
+                        "offset": 3,
+                        "size": 1
+                    },
+                    {
+                        "name": "OverTemperatureIntAck",
+                        "offset": 4,
+                        "size": 1
+                    },
+                    {
+                        "name": "DigitalOverTemperatureIntAck",
+                        "offset": 5,
+                        "size": 1
+                    }
+
+                    
+                ]
+            },
+            {
+                "name": "SwitchDelayTime",
+                "access": "ReadWrite",
+                "address": 528,
+                "size": 8,
+
+                "initialValue": 128,
+
+                "bitfields": [
+                                   
+                    {
+                        "name": "CycleDelays",
+                        "description-en": "Number of 12.8 us cycles of delay to achieve around 2ms delay",
+                        "offset": 0,
+                        "size": 8
+                    }
+                    
+
+                ]
+            },
+            {
+                "name": "FastFilterCount",
+                "access": "ReadWrite",
+                "address": 769,
+                "size": 8,
+
+                "initialValue": 128,
+
+                "bitfields": [
+                                   
+                    {
+                        "name": "FastCount",
+                        "description-en": "Number of 12.8 us cycles of delay to achieve around 2ms delay",
+                        "offset": 0,
+                        "size": 8
+                    }
+                    
+
+                ]
+            },
+            {
+                "name": "SlowFilterCount",
+                "access": "ReadWrite",
+                "address": 770,
+                "size": 8,
+
+                "initialValue": 128,
+
+                "bitfields": [
+                                   
+                    {
+                        "name": "SlowCount",
+                        "description-en": "Number of 12.8 us cycles of delay to achieve around 2ms delay",
+                        "offset": 0,
+                        "size": 8
+                    }
+                    
+
+                ]
+            },
+            
+
+             
+            {
+                "name": "FaultRegister0",
+                "access": "ReadWrite",
+                "address": 256,
+                "size": 8,
+
+                "initialValue": 0,
+
+                "bitfields": [
+                    {
+                        "name": "LoadEnableP",
+                        "description-en": "Enables the load on channel",
+                        "offset": 0,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "FaultSelectionP",
+                        "description-en": "Fault connected to channel n. (0: No Fault; 1: A; 2: B)",
+                        "offset": 1,
+                        "size"  : 2
+                    },
+                    {
+                        "name": "LoadEnableM",
+                        "description-en": "Enables the load on channel",
+                        "offset": 3,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "FaultSelectionM",
+                        "description-en": "Fault connected to channel n. (0: No Fault; 1: A; 2: B)",
+                        "offset": 4,
+                        "size"  : 2
+                    },                
+                    {
+                        "name": "ChannelConnect",
+                        "description-en": "Line direction (0: No Fault; 1: A; 2: B)",
+                        "offset": 6,
+                        "size": 1
+                    }
+                    
+
+                ]
+            },
+            {
+                "name": "FaultRegisterState0",
+                "access": "ReadOnly",
+                "address": 257,
+                "size": 8,
+
+                "bitfields": [
+                    {
+                        "name": "LoadEnableP",
+                        "description-en": "Enables the load on channel",
+                        "offset": 0,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "FaultSelectionP",
+                        "description-en": "Fault connected to channel n. (0: No Fault; 1: A; 2: B)",
+                        "offset": 1,
+                        "size"  : 2
+                    },
+                    {
+                        "name": "LoadEnableM",
+                        "description-en": "Enables the load on channel",
+                        "offset": 3,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "FaultSelectionM",
+                        "description-en": "Fault connected to channel n. (0: No Fault; 1: A; 2: B)",
+                        "offset": 4,
+                        "size"  : 2
+                    },                
+                    {
+                        "name": "ChannelConnect",
+                        "description-en": "Line direction (0: No Fault; 1: A; 2: B)",
+                        "offset": 6,
+                        "size": 1
+                    }
+                    
+
+                ]
+            },           
+            {
+                "name": "FaultRegister1",
+                "access": "ReadWrite",
+                "address": 272,
+                "size": 8,
+
+                "initialValue": 0,
+
+                "bitfields": [
+                    {
+                        "name": "LoadEnableP",
+                        "description-en": "Enables the load on channel",
+                        "offset": 0,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "FaultSelectionP",
+                        "description-en": "Fault connected to channel n. (0: No Fault; 1: A; 2: B)",
+                        "offset": 1,
+                        "size"  : 2
+                    },
+                    {
+                        "name": "LoadEnableM",
+                        "description-en": "Enables the load on channel",
+                        "offset": 3,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "FaultSelectionM",
+                        "description-en": "Fault connected to channel n. (0: No Fault; 1: A; 2: B)",
+                        "offset": 4,
+                        "size"  : 2
+                    },                
+                    {
+                        "name": "ChannelConnect",
+                        "description-en": "Line direction (0: No Fault; 1: A; 2: B)",
+                        "offset": 6,
+                        "size": 1
+                    }
+                    
+
+                ]
+            },
+            {
+                "name": "FaultRegisterState1",
+                "access": "ReadOnly",
+                "address": 273,
+                "size": 8,
+
+                "bitfields": [
+                    {
+                        "name": "LoadEnableP",
+                        "description-en": "Enables the load on channel",
+                        "offset": 0,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "FaultSelectionP",
+                        "description-en": "Fault connected to channel n. (0: No Fault; 1: A; 2: B)",
+                        "offset": 1,
+                        "size"  : 2
+                    },
+                    {
+                        "name": "LoadEnableM",
+                        "description-en": "Enables the load on channel",
+                        "offset": 3,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "FaultSelectionM",
+                        "description-en": "Fault connected to channel n. (0: No Fault; 1: A; 2: B)",
+                        "offset": 4,
+                        "size"  : 2
+                    },                
+                    {
+                        "name": "ChannelConnect",
+                        "description-en": "Line direction (0: No Fault; 1: A; 2: B)",
+                        "offset": 6,
+                        "size": 1
+                    }
+                    
+
+                ]
+            },           
+            {
+                "name": "FaultRegister2",
+                "access": "ReadWrite",
+                "address": 288,
+                "size": 8,
+
+                "initialValue": 0,
+
+                "bitfields": [
+                    {
+                        "name": "LoadEnableP",
+                        "description-en": "Enables the load on channel",
+                        "offset": 0,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "FaultSelectionP",
+                        "description-en": "Fault connected to channel n. (0: No Fault; 1: A; 2: B)",
+                        "offset": 1,
+                        "size"  : 2
+                    },
+                    {
+                        "name": "LoadEnableM",
+                        "description-en": "Enables the load on channel",
+                        "offset": 3,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "FaultSelectionM",
+                        "description-en": "Fault connected to channel n. (0: No Fault; 1: A; 2: B)",
+                        "offset": 4,
+                        "size"  : 2
+                    },                
+                    {
+                        "name": "ChannelConnect",
+                        "description-en": "Line direction (0: No Fault; 1: A; 2: B)",
+                        "offset": 6,
+                        "size": 1
+                    }
+                    
+
+                ]
+            },
+            {
+                "name": "FaultRegisterState2",
+                "access": "ReadOnly",
+                "address": 289,
+                "size": 8,
+
+                "bitfields": [
+                    {
+                        "name": "LoadEnableP",
+                        "description-en": "Enables the load on channel",
+                        "offset": 0,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "FaultSelectionP",
+                        "description-en": "Fault connected to channel n. (0: No Fault; 1: A; 2: B)",
+                        "offset": 1,
+                        "size"  : 2
+                    },
+                    {
+                        "name": "LoadEnableM",
+                        "description-en": "Enables the load on channel",
+                        "offset": 3,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "FaultSelectionM",
+                        "description-en": "Fault connected to channel n. (0: No Fault; 1: A; 2: B)",
+                        "offset": 4,
+                        "size"  : 2
+                    },                
+                    {
+                        "name": "ChannelConnect",
+                        "description-en": "Line direction (0: No Fault; 1: A; 2: B)",
+                        "offset": 6,
+                        "size": 1
+                    }
+                    
+
+                ]
+            },           
+            {
+                "name": "FaultRegister3",
+                "access": "ReadWrite",
+                "address": 304,
+                "size": 8,
+
+                "initialValue": 0,
+
+                "bitfields": [
+                    {
+                        "name": "LoadEnableP",
+                        "description-en": "Enables the load on channel",
+                        "offset": 0,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "FaultSelectionP",
+                        "description-en": "Fault connected to channel n. (0: No Fault; 1: A; 2: B)",
+                        "offset": 1,
+                        "size"  : 2
+                    },
+                    {
+                        "name": "LoadEnableM",
+                        "description-en": "Enables the load on channel",
+                        "offset": 3,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "FaultSelectionM",
+                        "description-en": "Fault connected to channel n. (0: No Fault; 1: A; 2: B)",
+                        "offset": 4,
+                        "size"  : 2
+                    },                
+                    {
+                        "name": "ChannelConnect",
+                        "description-en": "Line direction (0: No Fault; 1: A; 2: B)",
+                        "offset": 6,
+                        "size": 1
+                    }
+                    
+
+                ]
+            },
+            {
+                "name": "FaultRegisterState3",
+                "access": "ReadOnly",
+                "address": 305,
+                "size": 8,
+
+                "bitfields": [
+                    {
+                        "name": "LoadEnableP",
+                        "description-en": "Enables the load on channel",
+                        "offset": 0,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "FaultSelectionP",
+                        "description-en": "Fault connected to channel n. (0: No Fault; 1: A; 2: B)",
+                        "offset": 1,
+                        "size"  : 2
+                    },
+                    {
+                        "name": "LoadEnableM",
+                        "description-en": "Enables the load on channel",
+                        "offset": 3,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "FaultSelectionM",
+                        "description-en": "Fault connected to channel n. (0: No Fault; 1: A; 2: B)",
+                        "offset": 4,
+                        "size"  : 2
+                    },                
+                    {
+                        "name": "ChannelConnect",
+                        "description-en": "Line direction (0: No Fault; 1: A; 2: B)",
+                        "offset": 6,
+                        "size": 1
+                    }
+                    
+
+                ]
+            },           
+            {
+                "name": "FaultRegister4",
+                "access": "ReadWrite",
+                "address": 320,
+                "size": 8,
+
+                "initialValue": 0,
+
+                "bitfields": [
+                    {
+                        "name": "LoadEnableP",
+                        "description-en": "Enables the load on channel",
+                        "offset": 0,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "FaultSelectionP",
+                        "description-en": "Fault connected to channel n. (0: No Fault; 1: A; 2: B)",
+                        "offset": 1,
+                        "size"  : 2
+                    },
+                    {
+                        "name": "LoadEnableM",
+                        "description-en": "Enables the load on channel",
+                        "offset": 3,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "FaultSelectionM",
+                        "description-en": "Fault connected to channel n. (0: No Fault; 1: A; 2: B)",
+                        "offset": 4,
+                        "size"  : 2
+                    },                
+                    {
+                        "name": "ChannelConnect",
+                        "description-en": "Line direction (0: No Fault; 1: A; 2: B)",
+                        "offset": 6,
+                        "size": 1
+                    }
+                    
+
+                ]
+            },
+            {
+                "name": "FaultRegisterState4",
+                "access": "ReadOnly",
+                "address": 321,
+                "size": 8,
+
+                "bitfields": [
+                    {
+                        "name": "LoadEnableP",
+                        "description-en": "Enables the load on channel",
+                        "offset": 0,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "FaultSelectionP",
+                        "description-en": "Fault connected to channel n. (0: No Fault; 1: A; 2: B)",
+                        "offset": 1,
+                        "size"  : 2
+                    },
+                    {
+                        "name": "LoadEnableM",
+                        "description-en": "Enables the load on channel",
+                        "offset": 3,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "FaultSelectionM",
+                        "description-en": "Fault connected to channel n. (0: No Fault; 1: A; 2: B)",
+                        "offset": 4,
+                        "size"  : 2
+                    },                
+                    {
+                        "name": "ChannelConnect",
+                        "description-en": "Line direction (0: No Fault; 1: A; 2: B)",
+                        "offset": 6,
+                        "size": 1
+                    }
+                    
+
+                ]
+            },           
+            {
+                "name": "FaultRegister5",
+                "access": "ReadWrite",
+                "address": 336,
+                "size": 8,
+
+                "initialValue": 0,
+
+                "bitfields": [
+                    {
+                        "name": "LoadEnableP",
+                        "description-en": "Enables the load on channel",
+                        "offset": 0,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "FaultSelectionP",
+                        "description-en": "Fault connected to channel n. (0: No Fault; 1: A; 2: B)",
+                        "offset": 1,
+                        "size"  : 2
+                    },
+                    {
+                        "name": "LoadEnableM",
+                        "description-en": "Enables the load on channel",
+                        "offset": 3,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "FaultSelectionM",
+                        "description-en": "Fault connected to channel n. (0: No Fault; 1: A; 2: B)",
+                        "offset": 4,
+                        "size"  : 2
+                    },                
+                    {
+                        "name": "ChannelConnect",
+                        "description-en": "Line direction (0: No Fault; 1: A; 2: B)",
+                        "offset": 6,
+                        "size": 1
+                    }
+                    
+
+                ]
+            },
+            {
+                "name": "FaultRegisterState5",
+                "access": "ReadOnly",
+                "address": 337,
+                "size": 8,
+
+                "bitfields": [
+                    {
+                        "name": "LoadEnableP",
+                        "description-en": "Enables the load on channel",
+                        "offset": 0,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "FaultSelectionP",
+                        "description-en": "Fault connected to channel n. (0: No Fault; 1: A; 2: B)",
+                        "offset": 1,
+                        "size"  : 2
+                    },
+                    {
+                        "name": "LoadEnableM",
+                        "description-en": "Enables the load on channel",
+                        "offset": 3,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "FaultSelectionM",
+                        "description-en": "Fault connected to channel n. (0: No Fault; 1: A; 2: B)",
+                        "offset": 4,
+                        "size"  : 2
+                    },                
+                    {
+                        "name": "ChannelConnect",
+                        "description-en": "Line direction (0: No Fault; 1: A; 2: B)",
+                        "offset": 6,
+                        "size": 1
+                    }
+                    
+
+                ]
+            },           
+            {
+                "name": "FaultRegister6",
+                "access": "ReadWrite",
+                "address": 352,
+                "size": 8,
+
+                "initialValue": 0,
+
+                "bitfields": [
+                    {
+                        "name": "LoadEnableP",
+                        "description-en": "Enables the load on channel",
+                        "offset": 0,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "FaultSelectionP",
+                        "description-en": "Fault connected to channel n. (0: No Fault; 1: A; 2: B)",
+                        "offset": 1,
+                        "size"  : 2
+                    },
+                    {
+                        "name": "LoadEnableM",
+                        "description-en": "Enables the load on channel",
+                        "offset": 3,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "FaultSelectionM",
+                        "description-en": "Fault connected to channel n. (0: No Fault; 1: A; 2: B)",
+                        "offset": 4,
+                        "size"  : 2
+                    },                
+                    {
+                        "name": "ChannelConnect",
+                        "description-en": "Line direction (0: No Fault; 1: A; 2: B)",
+                        "offset": 6,
+                        "size": 1
+                    }
+                    
+
+                ]
+            },
+            {
+                "name": "FaultRegisterState6",
+                "access": "ReadOnly",
+                "address": 353,
+                "size": 8,
+
+                "bitfields": [
+                    {
+                        "name": "LoadEnableP",
+                        "description-en": "Enables the load on channel",
+                        "offset": 0,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "FaultSelectionP",
+                        "description-en": "Fault connected to channel n. (0: No Fault; 1: A; 2: B)",
+                        "offset": 1,
+                        "size"  : 2
+                    },
+                    {
+                        "name": "LoadEnableM",
+                        "description-en": "Enables the load on channel",
+                        "offset": 3,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "FaultSelectionM",
+                        "description-en": "Fault connected to channel n. (0: No Fault; 1: A; 2: B)",
+                        "offset": 4,
+                        "size"  : 2
+                    },                
+                    {
+                        "name": "ChannelConnect",
+                        "description-en": "Line direction (0: No Fault; 1: A; 2: B)",
+                        "offset": 6,
+                        "size": 1
+                    }
+                    
+
+                ]
+            },           
+            {
+                "name": "FaultRegister7",
+                "access": "ReadWrite",
+                "address": 368,
+                "size": 8,
+
+                "initialValue": 0,
+
+                "bitfields": [
+                    {
+                        "name": "LoadEnableP",
+                        "description-en": "Enables the load on channel",
+                        "offset": 0,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "FaultSelectionP",
+                        "description-en": "Fault connected to channel n. (0: No Fault; 1: A; 2: B)",
+                        "offset": 1,
+                        "size"  : 2
+                    },
+                    {
+                        "name": "LoadEnableM",
+                        "description-en": "Enables the load on channel",
+                        "offset": 3,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "FaultSelectionM",
+                        "description-en": "Fault connected to channel n. (0: No Fault; 1: A; 2: B)",
+                        "offset": 4,
+                        "size"  : 2
+                    },                
+                    {
+                        "name": "ChannelConnect",
+                        "description-en": "Line direction (0: No Fault; 1: A; 2: B)",
+                        "offset": 6,
+                        "size": 1
+                    }
+                    
+
+                ]
+            },
+            {
+                "name": "FaultRegisterState7",
+                "access": "ReadOnly",
+                "address": 369,
+                "size": 8,
+
+                "bitfields": [
+                    {
+                        "name": "LoadEnableP",
+                        "description-en": "Enables the load on channel",
+                        "offset": 0,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "FaultSelectionP",
+                        "description-en": "Fault connected to channel n. (0: No Fault; 1: A; 2: B)",
+                        "offset": 1,
+                        "size"  : 2
+                    },
+                    {
+                        "name": "LoadEnableM",
+                        "description-en": "Enables the load on channel",
+                        "offset": 3,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "FaultSelectionM",
+                        "description-en": "Fault connected to channel n. (0: No Fault; 1: A; 2: B)",
+                        "offset": 4,
+                        "size"  : 2
+                    },                
+                    {
+                        "name": "ChannelConnect",
+                        "description-en": "Line direction (0: No Fault; 1: A; 2: B)",
+                        "offset": 6,
+                        "size": 1
+                    }
+                    
+
+                ]
+            },           
+           {
+                "name": "BoardControl",
+                "access": "ReadWrite",
+                "address": 513,
+                "size": 8,
+
+                "initialValue": 3,
+
+                "bitfields": [
+                    {
+                        "name": "TempSensorEnable",
+                        "description-en": "Selects the update mode for the module. ",
+                        "offset": 0,
+                        "size": 1
+                    },
+                    {
+                        "name": "BoardEnable",
+                        "description-en": "Selects the update mode for the module. ",
+                        "offset": 1,
+                        "size": 1
+                    },
+                    {
+                        "name": "UpdateModeField",
+                        "description-en": "Selects the update mode for the module. ",
+                        "offset": 4,
+                        "size": 3
+                    }
+                ]
+            },
+
+            {
+                "name": "UpdateRegister",
+                "access": "WriteOnly",
+                "strobe": true,
+                "address": 512,
+                "size": 8,
+
+                "bitfields": [
+                    {
+                        "name": "Update",
+                        "description-en": "Writing a 1 to this register updates all the channels.",
+                        "offset": 0,
+                        "size": 1
+                    }
+                ]
+            },
+            {
+                "name": "OvercurrentOnFaultBus",
+                "access": "ReadOnly",
+                "address": 771,
+                "size": 8,
+
+                "bitfields": [
+                    
+                    {
+                        "name": "FaultAOvercurrent",
+                        "description-en": "If '1', it means overcurrent was detected in the corresponding fault bus. ",
+                        "offset": 0,
+                        "size": 1
+                    },
+                    {
+                        "name": "FaultBOvercurrent",
+                        "description-en": "If '1', it means overcurrent was detected in the corresponding fault bus.",
+                        "offset": 1,
+                        "size": 1
+                    }
+                ]
+            },
+            {
+                "name": "OvercurrentHighStatus",
+                "access": "ReadOnly",
+                "address": 772,
+                "size": 16,
+
+                "bitfields": [
+                    
+                    {
+                        "name": "OvercurrentHigh",
+                        "description-en": "If '1', it means overcurrent was detected in the corresponding fault bus. ",
+                        "offset": 0,
+                        "size": 16
+                    }
+                    
+                ]
+            },
+            {
+                "name": "OvercurrentLowStatus",
+                "access": "ReadOnly",
+                "address": 774,
+                "size": 16,
+
+                "bitfields": [
+                    
+                    {
+                        "name": "OvercurrentLow",
+                        "description-en": "If '1', it means overcurrent was detected in the corresponding fault bus. ",
+                        "offset": 0,
+                        "size": 16
+                    }
+                    
+                ]
+            },
+            {
+                "name": "OverTemperature",
+                "access": "ReadOnly",
+                "address": 776,
+                "size": 32,
+
+                "bitfields": [
+                    
+                    {
+                        "name": "OvertemperatureChannel",
+                        "description-en": "If '1', it means overcurrent was detected in the corresponding fault bus. ",
+                        "offset": 0,
+                        "size": 16
+                    },
+                    {
+                        "name": "OvertemperatureDifferential",
+                        "description-en": "If '1', it means overcurrent was detected in the corresponding fault bus. ",
+                        "offset": 16,
+                        "size": 8
+                    }
+                    
+                ]
+            },
+            {
+                "name": "DigitalTempertureFault",
+                "access": "ReadOnly",
+                "address": 34,
+                "size": 8,
+                "bitfields": [
+                    {
+                        "name": "TempFaultVector",
+                        "description-en": "Raw Value of the temperture threhold",
+                        "offset": 0,
+                        "size": 4
+                    }
+                ]
+            },
+            {
+                "name": "ClearFaults",
+                "access": "ReadWrite",
+                "address": 768,
+                "size": 8,
+
+                "initialValue": 128,
+
+                "bitfields": [
+                                   
+                    {
+                        "name": "OverCurrentHigh",
+                        "description-en": "Number of 12.8 us cycles of delay to achieve around 2ms delay",
+                        "offset": 0,
+                        "size": 1
+                    },
+                    {
+                        "name": "OverCurrentLow",
+                        "description-en": "Number of 12.8 us cycles of delay to achieve around 2ms delay",
+                        "offset": 1,
+                        "size": 1
+                    },
+                    {
+                        "name": "OverCurrentFaultBus",
+                        "description-en": "Number of 12.8 us cycles of delay to achieve around 2ms delay",
+                        "offset": 2,
+                        "size": 1
+                    },
+                    {
+                        "name": "OverTemperature",
+                        "description-en": "Number of 12.8 us cycles of delay to achieve around 2ms delay",
+                        "offset": 3,
+                        "size": 1
+                    }
+                    
+
+                ]
+            },
+            {
+                "name": "Status",
+                "access": "ReadWrite",
+                "address": 4,
+                "size": 16,
+
+                "bitfields": [
+                    {
+                        "name": "UpdateDone",
+                        "description-en": "",
+                        "offset": 0,
+                        "size": 1
+                    },
+                    {
+                        "name": "WriteDuringUpdateError",
+                        "description-en": "",
+                        "offset": 1,
+                        "size": 1
+                    },
+                    {
+                        "name": "BoardFault",
+                        "description-en": "",
+                        "offset": 2,
+                        "size": 1
+                    },
+                    {
+                        "name": "PowerGood24V",
+                        "description-en": "",
+                        "offset": 3,
+                        "size": 1
+                    },
+                    {
+                        "name": "PowerGood5V",
+                        "description-en": "",
+                        "offset": 4,
+                        "size": 1
+                    },
+                    {
+                        "name": "StrapOption",
+                        "description-en": "",
+                        "offset": 5,
+                        "size": 1
+                    },
+                    {
+                        "name": "SlscInterfaceUnusedPin",
+                        "description-en": "State of the unused SLSC Pin",
+                        "offset": 6,
+                        "size": 1
+                    },
+                    {
+                        "name": "ClearWriteDuringUpdateError",
+                        "description-en": "Write 1 to this bit to allow the module change the configuraiton. Alternatively you can reset the module.  ",
+                        "offset": 9,
+                        "size": 1
+                    },
+                    {
+                        "name": "FlashHold",
+                        "description-en": "Unused, this bit is ignored.  ",
+                        "offset": 14,
+                        "size": 1
+                    },
+                    {
+                        "name": "FlashWriteProtect",
+                        "description-en": "0: Flash protected against write. 1: Flash available for write. ",
+                        "offset": 15,
+                        "size": 1
+                    }
+                ]
+            },
+            {
+                "name": "TemperatureRegister0",
+                "access": "ReadOnly",
+                "address": 16,
+                "size": 16,
+                "bitfields": [
+                    {
+                        "name": "AcquiredTemperature",
+                        "description-en": "Raw value of the temperature ",
+                        "offset": 0,
+                        "size": 14
+                    }
+                ]
+            },
+            {
+                "name": "TemperatureRegister1",
+                "access": "ReadOnly",
+                "address": 18,
+                "size": 16,
+                "bitfields": [
+                    {
+                        "name": "AcquiredTemperature",
+                        "description-en": "Raw value of the temperature ",
+                        "offset": 0,
+                        "size": 14
+                    }
+                ]
+            },
+            {
+                "name": "TemperatureRegister2",
+                "access": "ReadOnly",
+                "address": 20,
+                "size": 16,
+                "bitfields": [
+                    {
+                        "name": "AcquiredTemperature",
+                        "description-en": "Raw value of the temperature ",
+                        "offset": 0,
+                        "size": 14
+                    }
+                ]
+            },
+            {
+                "name": "TemperatureRegister3",
+                "access": "ReadOnly",
+                "address": 22,
+                "size": 16,
+                "bitfields": [
+                    {
+                        "name": "AcquiredTemperature",
+                        "description-en": "Raw value of the temperature ",
+                        "offset": 0,
+                        "size": 14
+                    }
+                ]
+            },
+            {
+                "name": "TemperatureThreshold",
+                "access": "ReadWrite",
+                "address": 32,
+                "size": 16,
+                "bitfields": [
+                    {
+                        "name": "TempThrehold",
+                        "description-en": "Raw Value of the temperture threhold",
+                        "offset": 0,
+                        "size": 14
+                    }
+                ]
+            },
+            {
+                "name"   : "Version",
+                "access" : "ReadOnly",
+                "address": 0,
+                "size": 32,
+
+                "bitfields": [
+                    {
+                        "name": "Timestamp",
+                        "description-en": "Version of the Module Controller. ",
+                        "offset": 0,
+                        "size": 32
+                    }
+                ]
+            }
+
+
+        ]
+    },
+
+    "scales": [
+        {
+            // Linear Scale
+            "name": "TemperatureScale",
+            "m": 0.03125,
+            "b": 0.0
+        }
+
+    ],
+
+
+    "properties": [
+        {
+            "name": "NI.FIU.ModuleControllerVersion",
+            "description-en": "Module Controller Version.",
+            "documentation-en": "The version is the timestamp, in hexadecimal format, of the time the Module Controller was compiled. ",
+            "dataType": "UInt32",
+            "bitfield": "Version/Timestamp",
+            "access": "ReadOnly"
+        },
+        {
+            "name": "NI.FIU.UpdateMode",
+            "description-en": "Defines the update mode for the channels.",
+            "dataType": "NI.FIU.UpdateModeEnum",
+            "bitfield": "BoardControl/UpdateModeField",
+            "access": "WriteOnly"
+        },
+        {
+            "name": "NI.FIU.WriteDuringUpdateError",
+            "description-en": "If a write to a fault channel is executed while an update is in progress this bit will be asserted and no channels can be changed until the error is cleared using ClearWriteDuringUpdateError or the module is reset. (Recommended)",
+            "dataType": "Bool",
+            "bitfield": "Status/WriteDuringUpdateError",
+            "access": "ReadOnly"
+        },
+        {
+            "name": "NI.FIU.ClearWriteDuringUpdateError",
+            "description-en": " Clears the WriteDuringUpdateError",
+            "dataType": "Bool",
+            "bitfield": "Status/ClearWriteDuringUpdateError",
+            "access": "WriteOnly"
+        },
+       {
+            "name": "NI.FIU.TemperatureSensor0",
+            "description-en": "Reading of the temperature sensor.",
+            "dataType": "Double",
+            "bitfield": "TemperatureRegister0/AcquiredTemperature",
+            "scale": "TemperatureScale",
+            "access": "ReadOnly"
+        },
+       {
+            "name": "NI.FIU.TemperatureSensor1",
+            "description-en": "Reading of the temperature sensor.",
+            "dataType": "Double",
+            "bitfield": "TemperatureRegister1/AcquiredTemperature",
+            "scale": "TemperatureScale",
+            "access": "ReadOnly"
+        },
+       {
+            "name": "NI.FIU.TemperatureSensor2",
+            "description-en": "Reading of the temperature sensor.",
+            "dataType": "Double",
+            "bitfield": "TemperatureRegister2/AcquiredTemperature",
+            "scale": "TemperatureScale",
+            "access": "ReadOnly"
+        },
+       {
+            "name": "NI.FIU.TemperatureSensor3",
+            "description-en": "Reading of the temperature sensor.",
+            "dataType": "Double",
+            "bitfield": "TemperatureRegister3/AcquiredTemperature",
+            "scale": "TemperatureScale",
+            "access": "ReadOnly"
+        },
+        {
+            "name": "NI.FIU.DigitalTemperatureFaults",
+            "description-en": "Reading of the temperature sensor.",
+            "dataType": "UInt32",
+            "bitfield": "DigitalTempertureFault/TempFaultVector",
+            "scale": "TemperatureScale",
+            "access": "ReadOnly"
+        },
+
+    
+        {
+            "name": "NI.FIU.Calibration.Date",
+            "dataType": "Double",
+            "access": "ReadOnly",
+            "value": 2000000000//TOKENCALIBRATIONDATE
+        },
+        {
+            "name": "NI.FIU.Calibration.ExpirationDate",
+            "dataType": "Double",
+            "access": "ReadOnly",
+            "value": 2200000000//TOKENCALIBRATIONEXPIRATIONDATE
+        },
+        {
+            "name": "NI.FIU.BoardFault.OvercurrentOnFaultBusA",
+            "dataType": "Bool",
+            "access": "ReadOnly",
+            "bitfield": "OvercurrentOnFaultBus/FaultAOvercurrent"
+        },
+        {
+            "name": "NI.FIU.BoardFault.OvercurrentOnFaultBusB",
+            "dataType": "Bool",
+            "access": "ReadOnly",
+            "bitfield": "OvercurrentOnFaultBus/FaultBOvercurrent"
+        },
+        {
+            "name": "NI.FIU.BoardFault.OvercurrentHigh",
+            "access": "ReadOnly",
+            "dataType": "UInt32",
+            "bitfield": "OvercurrentHighStatus/OvercurrentHigh"
+        },
+        {
+            "name": "NI.FIU.BoardFault.OvercurrentLow",
+            "access": "ReadOnly",
+            "dataType": "UInt32",
+            "bitfield": "OvercurrentLowStatus/OvercurrentLow"
+        },
+        {
+            "name": "NI.FIU.BoardFault.OverTemperatureOnChannelToChannel",
+            "access": "ReadOnly",
+            "dataType": "UInt32",
+            "bitfield": "OverTemperature/OvertemperatureDifferential"
+        },
+        {
+            "name": "NI.FIU.BoardFault.OverTemperatureOnChannel",
+            "access": "ReadOnly",
+            "dataType": "UInt32",
+            "bitfield": "OverTemperature/OvertemperatureChannel"
+        },
+        {
+            "name": "NI.FIU.BoardFault.Origin.OverCurrentHigh",
+            "access": "ReadOnly",
+            "dataType": "Bool",
+            "bitfield": "InterruptStatus/OverCurrentHighIntStatus"
+        },
+        {
+            "name": "NI.FIU.BoardFault.Origin.OverCurrentLow",
+            "access": "ReadOnly",
+            "dataType": "Bool",
+            "bitfield": "InterruptStatus/OverCurrentLowIntStatus"
+        },
+        {
+            "name": "NI.FIU.BoardFault.Origin.OverCurrentFaultBus",
+            "access": "ReadOnly",
+            "dataType": "Bool",
+            "bitfield": "InterruptStatus/OverCurrentFaultChannelIntStatus"
+        },
+        {
+            "name": "NI.FIU.BoardFault.Origin.ChannelOverTemperature",
+            "access": "ReadOnly",
+            "dataType": "Bool",
+            "bitfield": "InterruptStatus/OverTemperatureIntStatus"
+        },
+        {
+            "name": "NI.FIU.BoardFault.Origin.BoardOverTemperature",
+            "access": "ReadOnly",
+            "dataType": "Bool",
+            "bitfield": "InterruptStatus/DigitalOverTemperatureIntStatus"
+        }
+
+
+    ],
+
+    "commands": [
+        {
+            "name": "NI.FIU.FaultUpdate",
+            "description-en": "Update fault state",
+            "documentation-en": "Update channel configuration using the update command. ",
+            "startBitfield": "UpdateRegister/Update",
+            "doneInterrupt": "UpdateComplete",
+            "doneTimeoutInMs": 100
+        }
+
+    ],
+
+
+    "physicalChannels": [
+
+        {
+            "name": "ChannelPair_0",
+            "properties": [
+                {
+                    "name": "NI.FIU.Even.FaultSource",
+                    "description-en": "Selects the fault source for the channel.",
+                    "dataType": "NI.FIU.Fault",
+                    "bitfield": "FaultRegister0/FaultSelectionP",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.Even.Load",
+                    "description-en": "Enables connection to load for the channel.",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "FaultRegister0/LoadEnableP",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.Odd.FaultSource",
+                    "description-en": "Selects the fault source for the channel.",
+                    "dataType": "NI.FIU.Fault",
+                    "bitfield": "FaultRegister0/FaultSelectionM",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.Odd.Load",
+                    "description-en": "Enables connection to load for the channel.",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "FaultRegister0/LoadEnableM",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.InterChannelConnect",
+                    "description-en": "Connects the channels together.",
+                    "dataType": "NI.FIU.ChannelConnect",
+                    "bitfield": "FaultRegister0/ChannelConnect",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.State.Even.FaultSource",
+                    "description-en": "Selects the fault source for the channel.",
+                    "dataType": "NI.FIU.Fault",
+                    "bitfield": "FaultRegisterState0/FaultSelectionP",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.State.Even.LoadEnable",
+                    "description-en": "Enables connection to load for the channel.",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "FaultRegisterState0/LoadEnableP",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.State.Odd.FaultSource",
+                    "description-en": "Selects the fault source for the channel.",
+                    "dataType": "NI.FIU.Fault",
+                    "bitfield": "FaultRegisterState0/FaultSelectionM",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.State.Odd.LoadEnable",
+                    "description-en": "Enables connection to load for the channel.",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "FaultRegisterState0/LoadEnableM",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.State.InterChannelConnect",
+                    "description-en": "Connects the channels together.",
+                    "dataType": "NI.FIU.ChannelConnect",
+                    "bitfield": "FaultRegisterState0/ChannelConnect",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Even.Gain",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 0.00511//TOKENEVENGAIN
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Even.Offset",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 0.00011//TOKENEVENOFFSET
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Odd.Gain",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 0.11511//TOKENODDGAIN
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Odd.Offset",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 0.11011//TOKENODDOFFSET
+                }
+                
+            ]
+        },
+        {
+            "name": "ChannelPair_1",
+            "properties": [
+                {
+                    "name": "NI.FIU.Even.FaultSource",
+                    "description-en": "Selects the fault source for the channel.",
+                    "dataType": "NI.FIU.Fault",
+                    "bitfield": "FaultRegister1/FaultSelectionP",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.Even.Load",
+                    "description-en": "Enables connection to load for the channel.",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "FaultRegister1/LoadEnableP",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.Odd.FaultSource",
+                    "description-en": "Selects the fault source for the channel.",
+                    "dataType": "NI.FIU.Fault",
+                    "bitfield": "FaultRegister1/FaultSelectionM",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.Odd.Load",
+                    "description-en": "Enables connection to load for the channel.",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "FaultRegister1/LoadEnableM",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.InterChannelConnect",
+                    "description-en": "Connects the channels together.",
+                    "dataType": "NI.FIU.ChannelConnect",
+                    "bitfield": "FaultRegister1/ChannelConnect",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.State.Even.FaultSource",
+                    "description-en": "Selects the fault source for the channel.",
+                    "dataType": "NI.FIU.Fault",
+                    "bitfield": "FaultRegisterState1/FaultSelectionP",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.State.Even.LoadEnable",
+                    "description-en": "Enables connection to load for the channel.",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "FaultRegisterState1/LoadEnableP",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.State.Odd.FaultSource",
+                    "description-en": "Selects the fault source for the channel.",
+                    "dataType": "NI.FIU.Fault",
+                    "bitfield": "FaultRegisterState1/FaultSelectionM",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.State.Odd.LoadEnable",
+                    "description-en": "Enables connection to load for the channel.",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "FaultRegisterState1/LoadEnableM",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.State.InterChannelConnect",
+                    "description-en": "Connects the channels together.",
+                    "dataType": "NI.FIU.ChannelConnect",
+                    "bitfield": "FaultRegisterState1/ChannelConnect",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Even.Gain",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 1.00511//TOKENEVENGAIN
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Even.Offset",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 1.00011//TOKENEVENOFFSET
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Odd.Gain",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 1.11511//TOKENODDGAIN
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Odd.Offset",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 1.11011//TOKENODDOFFSET
+                }
+                
+            ]
+        },
+        {
+            "name": "ChannelPair_2",
+            "properties": [
+                {
+                    "name": "NI.FIU.Even.FaultSource",
+                    "description-en": "Selects the fault source for the channel.",
+                    "dataType": "NI.FIU.Fault",
+                    "bitfield": "FaultRegister2/FaultSelectionP",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.Even.Load",
+                    "description-en": "Enables connection to load for the channel.",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "FaultRegister2/LoadEnableP",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.Odd.FaultSource",
+                    "description-en": "Selects the fault source for the channel.",
+                    "dataType": "NI.FIU.Fault",
+                    "bitfield": "FaultRegister2/FaultSelectionM",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.Odd.Load",
+                    "description-en": "Enables connection to load for the channel.",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "FaultRegister2/LoadEnableM",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.InterChannelConnect",
+                    "description-en": "Connects the channels together.",
+                    "dataType": "NI.FIU.ChannelConnect",
+                    "bitfield": "FaultRegister2/ChannelConnect",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.State.Even.FaultSource",
+                    "description-en": "Selects the fault source for the channel.",
+                    "dataType": "NI.FIU.Fault",
+                    "bitfield": "FaultRegisterState2/FaultSelectionP",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.State.Even.LoadEnable",
+                    "description-en": "Enables connection to load for the channel.",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "FaultRegisterState2/LoadEnableP",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.State.Odd.FaultSource",
+                    "description-en": "Selects the fault source for the channel.",
+                    "dataType": "NI.FIU.Fault",
+                    "bitfield": "FaultRegisterState2/FaultSelectionM",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.State.Odd.LoadEnable",
+                    "description-en": "Enables connection to load for the channel.",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "FaultRegisterState2/LoadEnableM",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.State.InterChannelConnect",
+                    "description-en": "Connects the channels together.",
+                    "dataType": "NI.FIU.ChannelConnect",
+                    "bitfield": "FaultRegisterState2/ChannelConnect",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Even.Gain",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 2.00511//TOKENEVENGAIN
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Even.Offset",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 2.00011//TOKENEVENOFFSET
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Odd.Gain",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 2.11511//TOKENODDGAIN
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Odd.Offset",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 2.11011//TOKENODDOFFSET
+                }
+                
+            ]
+        },
+        {
+            "name": "ChannelPair_3",
+            "properties": [
+                {
+                    "name": "NI.FIU.Even.FaultSource",
+                    "description-en": "Selects the fault source for the channel.",
+                    "dataType": "NI.FIU.Fault",
+                    "bitfield": "FaultRegister3/FaultSelectionP",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.Even.Load",
+                    "description-en": "Enables connection to load for the channel.",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "FaultRegister3/LoadEnableP",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.Odd.FaultSource",
+                    "description-en": "Selects the fault source for the channel.",
+                    "dataType": "NI.FIU.Fault",
+                    "bitfield": "FaultRegister3/FaultSelectionM",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.Odd.Load",
+                    "description-en": "Enables connection to load for the channel.",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "FaultRegister3/LoadEnableM",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.InterChannelConnect",
+                    "description-en": "Connects the channels together.",
+                    "dataType": "NI.FIU.ChannelConnect",
+                    "bitfield": "FaultRegister3/ChannelConnect",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.State.Even.FaultSource",
+                    "description-en": "Selects the fault source for the channel.",
+                    "dataType": "NI.FIU.Fault",
+                    "bitfield": "FaultRegisterState3/FaultSelectionP",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.State.Even.LoadEnable",
+                    "description-en": "Enables connection to load for the channel.",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "FaultRegisterState3/LoadEnableP",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.State.Odd.FaultSource",
+                    "description-en": "Selects the fault source for the channel.",
+                    "dataType": "NI.FIU.Fault",
+                    "bitfield": "FaultRegisterState3/FaultSelectionM",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.State.Odd.LoadEnable",
+                    "description-en": "Enables connection to load for the channel.",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "FaultRegisterState3/LoadEnableM",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.State.InterChannelConnect",
+                    "description-en": "Connects the channels together.",
+                    "dataType": "NI.FIU.ChannelConnect",
+                    "bitfield": "FaultRegisterState3/ChannelConnect",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Even.Gain",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 3.00511//TOKENEVENGAIN
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Even.Offset",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 3.00011//TOKENEVENOFFSET
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Odd.Gain",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 3.11511//TOKENODDGAIN
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Odd.Offset",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 3.11011//TOKENODDOFFSET
+                }
+                
+            ]
+        },
+        {
+            "name": "ChannelPair_4",
+            "properties": [
+                {
+                    "name": "NI.FIU.Even.FaultSource",
+                    "description-en": "Selects the fault source for the channel.",
+                    "dataType": "NI.FIU.Fault",
+                    "bitfield": "FaultRegister4/FaultSelectionP",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.Even.Load",
+                    "description-en": "Enables connection to load for the channel.",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "FaultRegister4/LoadEnableP",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.Odd.FaultSource",
+                    "description-en": "Selects the fault source for the channel.",
+                    "dataType": "NI.FIU.Fault",
+                    "bitfield": "FaultRegister4/FaultSelectionM",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.Odd.Load",
+                    "description-en": "Enables connection to load for the channel.",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "FaultRegister4/LoadEnableM",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.InterChannelConnect",
+                    "description-en": "Connects the channels together.",
+                    "dataType": "NI.FIU.ChannelConnect",
+                    "bitfield": "FaultRegister4/ChannelConnect",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.State.Even.FaultSource",
+                    "description-en": "Selects the fault source for the channel.",
+                    "dataType": "NI.FIU.Fault",
+                    "bitfield": "FaultRegisterState4/FaultSelectionP",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.State.Even.LoadEnable",
+                    "description-en": "Enables connection to load for the channel.",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "FaultRegisterState4/LoadEnableP",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.State.Odd.FaultSource",
+                    "description-en": "Selects the fault source for the channel.",
+                    "dataType": "NI.FIU.Fault",
+                    "bitfield": "FaultRegisterState4/FaultSelectionM",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.State.Odd.LoadEnable",
+                    "description-en": "Enables connection to load for the channel.",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "FaultRegisterState4/LoadEnableM",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.State.InterChannelConnect",
+                    "description-en": "Connects the channels together.",
+                    "dataType": "NI.FIU.ChannelConnect",
+                    "bitfield": "FaultRegisterState4/ChannelConnect",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Even.Gain",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 4.00511//TOKENEVENGAIN
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Even.Offset",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 4.00011//TOKENEVENOFFSET
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Odd.Gain",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 4.11511//TOKENODDGAIN
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Odd.Offset",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 4.11011//TOKENODDOFFSET
+                }
+                
+            ]
+        },
+        {
+            "name": "ChannelPair_5",
+            "properties": [
+                {
+                    "name": "NI.FIU.Even.FaultSource",
+                    "description-en": "Selects the fault source for the channel.",
+                    "dataType": "NI.FIU.Fault",
+                    "bitfield": "FaultRegister5/FaultSelectionP",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.Even.Load",
+                    "description-en": "Enables connection to load for the channel.",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "FaultRegister5/LoadEnableP",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.Odd.FaultSource",
+                    "description-en": "Selects the fault source for the channel.",
+                    "dataType": "NI.FIU.Fault",
+                    "bitfield": "FaultRegister5/FaultSelectionM",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.Odd.Load",
+                    "description-en": "Enables connection to load for the channel.",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "FaultRegister5/LoadEnableM",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.InterChannelConnect",
+                    "description-en": "Connects the channels together.",
+                    "dataType": "NI.FIU.ChannelConnect",
+                    "bitfield": "FaultRegister5/ChannelConnect",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.State.Even.FaultSource",
+                    "description-en": "Selects the fault source for the channel.",
+                    "dataType": "NI.FIU.Fault",
+                    "bitfield": "FaultRegisterState5/FaultSelectionP",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.State.Even.LoadEnable",
+                    "description-en": "Enables connection to load for the channel.",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "FaultRegisterState5/LoadEnableP",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.State.Odd.FaultSource",
+                    "description-en": "Selects the fault source for the channel.",
+                    "dataType": "NI.FIU.Fault",
+                    "bitfield": "FaultRegisterState5/FaultSelectionM",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.State.Odd.LoadEnable",
+                    "description-en": "Enables connection to load for the channel.",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "FaultRegisterState5/LoadEnableM",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.State.InterChannelConnect",
+                    "description-en": "Connects the channels together.",
+                    "dataType": "NI.FIU.ChannelConnect",
+                    "bitfield": "FaultRegisterState5/ChannelConnect",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Even.Gain",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 5.00511//TOKENEVENGAIN
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Even.Offset",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 5.00011//TOKENEVENOFFSET
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Odd.Gain",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 5.11511//TOKENODDGAIN
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Odd.Offset",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 5.11011//TOKENODDOFFSET
+                }
+                
+            ]
+        },
+        {
+            "name": "ChannelPair_6",
+            "properties": [
+                {
+                    "name": "NI.FIU.Even.FaultSource",
+                    "description-en": "Selects the fault source for the channel.",
+                    "dataType": "NI.FIU.Fault",
+                    "bitfield": "FaultRegister6/FaultSelectionP",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.Even.Load",
+                    "description-en": "Enables connection to load for the channel.",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "FaultRegister6/LoadEnableP",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.Odd.FaultSource",
+                    "description-en": "Selects the fault source for the channel.",
+                    "dataType": "NI.FIU.Fault",
+                    "bitfield": "FaultRegister6/FaultSelectionM",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.Odd.Load",
+                    "description-en": "Enables connection to load for the channel.",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "FaultRegister6/LoadEnableM",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.InterChannelConnect",
+                    "description-en": "Connects the channels together.",
+                    "dataType": "NI.FIU.ChannelConnect",
+                    "bitfield": "FaultRegister6/ChannelConnect",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.State.Even.FaultSource",
+                    "description-en": "Selects the fault source for the channel.",
+                    "dataType": "NI.FIU.Fault",
+                    "bitfield": "FaultRegisterState6/FaultSelectionP",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.State.Even.LoadEnable",
+                    "description-en": "Enables connection to load for the channel.",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "FaultRegisterState6/LoadEnableP",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.State.Odd.FaultSource",
+                    "description-en": "Selects the fault source for the channel.",
+                    "dataType": "NI.FIU.Fault",
+                    "bitfield": "FaultRegisterState6/FaultSelectionM",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.State.Odd.LoadEnable",
+                    "description-en": "Enables connection to load for the channel.",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "FaultRegisterState6/LoadEnableM",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.State.InterChannelConnect",
+                    "description-en": "Connects the channels together.",
+                    "dataType": "NI.FIU.ChannelConnect",
+                    "bitfield": "FaultRegisterState6/ChannelConnect",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Even.Gain",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 6.00511//TOKENEVENGAIN
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Even.Offset",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 6.00011//TOKENEVENOFFSET
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Odd.Gain",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 6.11511//TOKENODDGAIN
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Odd.Offset",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 6.11011//TOKENODDOFFSET
+                }
+                
+            ]
+        },
+        {
+            "name": "ChannelPair_7",
+            "properties": [
+                {
+                    "name": "NI.FIU.Even.FaultSource",
+                    "description-en": "Selects the fault source for the channel.",
+                    "dataType": "NI.FIU.Fault",
+                    "bitfield": "FaultRegister7/FaultSelectionP",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.Even.Load",
+                    "description-en": "Enables connection to load for the channel.",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "FaultRegister7/LoadEnableP",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.Odd.FaultSource",
+                    "description-en": "Selects the fault source for the channel.",
+                    "dataType": "NI.FIU.Fault",
+                    "bitfield": "FaultRegister7/FaultSelectionM",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.Odd.Load",
+                    "description-en": "Enables connection to load for the channel.",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "FaultRegister7/LoadEnableM",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.InterChannelConnect",
+                    "description-en": "Connects the channels together.",
+                    "dataType": "NI.FIU.ChannelConnect",
+                    "bitfield": "FaultRegister7/ChannelConnect",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.State.Even.FaultSource",
+                    "description-en": "Selects the fault source for the channel.",
+                    "dataType": "NI.FIU.Fault",
+                    "bitfield": "FaultRegisterState7/FaultSelectionP",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.State.Even.LoadEnable",
+                    "description-en": "Enables connection to load for the channel.",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "FaultRegisterState7/LoadEnableP",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.State.Odd.FaultSource",
+                    "description-en": "Selects the fault source for the channel.",
+                    "dataType": "NI.FIU.Fault",
+                    "bitfield": "FaultRegisterState7/FaultSelectionM",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.State.Odd.LoadEnable",
+                    "description-en": "Enables connection to load for the channel.",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "FaultRegisterState7/LoadEnableM",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.State.InterChannelConnect",
+                    "description-en": "Connects the channels together.",
+                    "dataType": "NI.FIU.ChannelConnect",
+                    "bitfield": "FaultRegisterState7/ChannelConnect",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Even.Gain",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 7.00511//TOKENEVENGAIN
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Even.Offset",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 7.00011//TOKENEVENOFFSET
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Odd.Gain",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 7.11511//TOKENODDGAIN
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Odd.Offset",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 7.11011//TOKENODDOFFSET
+                }
+                
+            ]
+        }
+
+
+    ]
+
+
+}

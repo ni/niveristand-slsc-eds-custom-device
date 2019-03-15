@@ -1,0 +1,2493 @@
+
+{
+    "productNum": 31267, // 0x7A23
+    "productName": "SLSC-12251",
+
+    "vendorNum": 4243, // 0x1093
+    "vendorName": "National Instruments Corporation",
+
+    "vendorPrefix": "NI",
+
+    "capsVersion": "1.0",
+    "capsSpecVersion": 1,
+
+
+    "enums": [
+        {
+            "name": "NI.FIU.ChannelConnect",
+            "description-en": "Connects Channel n to n + 1",
+            "values": [
+                {
+                    "name": "IndependentChannels",
+                    "description-en": "Channel n and channel n + 1 are independent.",
+                    "value": 0
+                },
+                {
+                    "name": "ConnectedChannels",
+                    "description-en": "Channel n and channel n + 1 are connected.",
+                    "value": 1
+                }
+            ]
+        },
+        {
+            "name": "NI.FIU.Bus",
+            "description-en": "Selects which Bus is connected to the channel.",
+            "values": [
+                {
+                    "name": "NoBus",
+                    "description-en": "No bus connection on channel.",
+                    "value": 0
+                },
+                {
+                    "name": "BusA",
+                    "description-en": "Bus A is connected to the channel.",
+                    "value": 1
+                },
+                {
+                    "name": "BusB",
+                    "description-en": "Bus B is connected to the channel.",
+                    "value": 2
+                }
+
+            ]
+        },
+        {
+            "name": "NI.FIU.Load",
+            "description-en": "Determines if channel n is connected to load pin n.",
+            "values": [
+                {
+                    "name": "NoLoad",
+                    "description-en": "The Load is not connected to channel n.",
+                    "value": 0
+                },
+                {
+                    "name": "Load",
+                    "description-en": "The Load is connected to channel n.",
+                    "value": 1
+                }
+
+            ]
+        }
+
+    ],
+
+
+
+    "registerMap": {
+        "interrupts": [
+            {
+                "name": "UpdateComplete",
+                "description-en": "Signals completion of the most recent Update operation",
+                "enableBitfield": "InterruptEnable/UpdateDoneEnable",
+                "disableBitfield": "InterruptDisable/UpdateDoneDisable",
+                "ackBitfield": "InterruptAck/UpdateDoneAck",
+                "statusBitfield": "InterruptStatus/UpdateDone"
+            }
+        ],
+        "registers": [
+            {
+                "name": "InterruptStatus",
+                "access": "ReadOnly",
+                "address": 1024,
+                "size": 8,
+
+
+                "bitfields": [
+                    {
+                        "name": "UpdateDone",
+                        "description-en": "When UpdateDone is '0', an update to the channels and/or buses is in progress.",
+                        "offset": 0,
+                        "size": 1
+                    },
+
+                    {
+                        "name": "OverCurrentHighIntStatus",
+                        "offset": 1,
+                        "size": 1
+                    },
+                    {
+                        "name": "OverCurrentLowIntStatus",
+                        "offset": 2,
+                        "size": 1
+                    },
+                    {
+                        "name": "OverCurrentOnBusIntStatus",
+                        "offset": 3,
+                        "size": 1
+                    },
+                    {
+                        "name": "OverTemperatureIntStatus",
+                        "offset": 4,
+                        "size": 1
+                    },
+                    {
+                        "name": "DigitalOverTemperatureIntStatus",
+                        "offset": 5,
+                        "size": 1
+                    }
+                ]
+            },
+            {
+                "name": "InterruptMask",
+                "access": "ReadOnly",
+                "address": 1025,
+                "size": 8,
+
+
+                "bitfields": [
+                    {
+                        "name": "UpdateDoneMask",
+                        "offset": 0,
+                        "size": 1
+                    },
+
+                    {
+                        "name": "OverCurrentHighIntMask",
+                        "offset": 1,
+                        "size": 1
+                    },
+                    {
+                        "name": "OverCurrentLowIntMask",
+                        "offset": 2,
+                        "size": 1
+                    },
+                    {
+                        "name": "OverCurrentOnBusIntMask",
+                        "offset": 3,
+                        "size": 1
+                    },
+                    {
+                        "name": "OverTemperatureIntMask",
+                        "offset": 4,
+                        "size": 1
+                    },
+                    {
+                        "name": "DigitalOverTemperatureIntMask",
+                        "offset": 5,
+                        "size": 1
+                    }
+                ]
+            },
+            {
+                "name": "InterruptEnable",
+                "access": "WriteOnly",
+                "address": 1026,
+                "size": 8,
+                "strobe": true,
+
+                "bitfields": [
+                    {
+                        "name": "UpdateDoneEnable",
+                        "offset": 0,
+                        "size": 1
+                    },
+
+                    {
+                        "name": "OverCurrentHighIntEnable",
+                        "offset": 1,
+                        "size": 1
+                    },
+                    {
+                        "name": "OverCurrentLowIntEnable",
+                        "offset": 2,
+                        "size": 1
+                    },
+                    {
+                        "name": "OverCurrentOnBusIntEnable",
+                        "offset": 3,
+                        "size": 1
+                    },
+                    {
+                        "name": "OverTemperatureIntEnable",
+                        "offset": 4,
+                        "size": 1
+                    },
+                    {
+                        "name": "DigitalOverTemperatureIntEnable",
+                        "offset": 5,
+                        "size": 1
+                    }
+
+                ]
+            },
+            {
+                "name": "InterruptDisable",
+                "access": "WriteOnly",
+                "address": 1027,
+                "size": 8,
+                "strobe": true,
+
+                "bitfields": [
+                    {
+                        "name": "UpdateDoneDisable",
+                        "offset": 0,
+                        "size": 1
+                    },
+
+                    {
+                        "name": "OverCurrentHighIntDisable",
+                        "offset": 1,
+                        "size": 1
+                    },
+                    {
+                        "name": "OverCurrentLowIntDisable",
+                        "offset": 2,
+                        "size": 1
+                    },
+                    {
+                        "name": "OverCurrentOnBusIntDisable",
+                        "offset": 3,
+                        "size": 1
+                    },
+                    {
+                        "name": "OverTemperatureIntDisable",
+                        "offset": 4,
+                        "size": 1
+                    },
+                    {
+                        "name": "DigitalOverTemperatureIntDisable",
+                        "offset": 5,
+                        "size": 1
+                    }
+                ]
+            },
+            {
+                "name": "InterruptAck",
+                "access": "WriteOnly",
+                "address": 1028,
+                "size": 8,
+                "strobe": true,
+
+                "bitfields": [
+                    {
+                        "name": "UpdateDoneAck",
+                        "offset": 0,
+                        "size": 1
+                    },
+
+                    {
+                        "name": "OverCurrentHighIntAck",
+                        "offset": 1,
+                        "size": 1
+                    },
+                    {
+                        "name": "OverCurrentLowIntAck",
+                        "offset": 2,
+                        "size": 1
+                    },
+                    {
+                        "name": "OverCurrentOnBusIntAck",
+                        "offset": 3,
+                        "size": 1
+                    },
+                    {
+                        "name": "OverTemperatureIntAck",
+                        "offset": 4,
+                        "size": 1
+                    },
+                    {
+                        "name": "DigitalOverTemperatureIntAck",
+                        "offset": 5,
+                        "size": 1
+                    }
+
+
+                ]
+            },
+            {
+                "name": "SwitchDelayTime",
+                "access": "ReadWrite",
+                "address": 528,
+                "size": 8,
+
+                "initialValue": 16,
+
+                "bitfields": [
+
+                    {
+                        "name": "CycleDelays",
+                        "description-en": "Number of 12.8 us cycles of delay to achieve around 2ms delay. Determines how long connection updates take to execute.",
+                        "offset": 0,
+                        "size": 8
+                    }
+
+
+                ]
+            },
+            {
+                "name": "FastFilterCount",
+                "access": "ReadWrite",
+                "address": 769,
+                "size": 8,
+
+                "initialValue": 78,
+
+                "bitfields": [
+
+                    {
+                        "name": "FastCount",
+                        "description-en": "Number of 12.8 us cycles of delay to achieve around 1ms delay. Used to determine digital filtering time for OverCurrentHigh and Bus OverCurrent Faults",
+                        "offset": 0,
+                        "size": 8
+                    }
+
+
+                ]
+            },
+            {
+                "name": "SlowFilterCount",
+                "access": "ReadWrite",
+                "address": 770,
+                "size": 8,
+
+                "initialValue": 152,
+
+                "bitfields": [
+
+                    {
+                        "name": "SlowCount",
+                        "description-en": "Number of 6.55 ms cycles of delay to achieve around 1s delay. Used to determine digital filtering time for OverCurrentLow and OverTemperature faults.",
+                        "offset": 0,
+                        "size": 8
+                    }
+
+
+                ]
+            },
+
+
+
+            {
+                "name": "PreloadRegister0",
+                "access": "ReadWrite",
+                "address": 256,
+                "size": 8,
+
+                "initialValue": 0,
+
+                "bitfields": [
+                    {
+                        "name": "LoadEnableP",
+                        "description-en": "Enables the load on channel",
+                        "offset": 0,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "BusSelectionP",
+                        "description-en": "Bus connected to channel n. (0: No Bus; 1: A; 2: B)",
+                        "offset": 1,
+                        "size"  : 2
+                    },
+                    {
+                        "name": "LoadEnableM",
+                        "description-en": "Enables the load on channel",
+                        "offset": 3,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "BusSelectionM",
+                        "description-en": "Bus connected to channel n+1. (0: No Bus; 1: A; 2: B)",
+                        "offset": 4,
+                        "size"  : 2
+                    },
+                    {
+                        "name": "ChannelConnect",
+                        "description-en": "Connect n to n+1 channels (0: Disconnect, 1: Connect)",
+                        "offset": 6,
+                        "size": 1
+                    }
+
+
+                ]
+            },
+            {
+                "name": "StateRegister0",
+                "access": "ReadOnly",
+                "address": 257,
+                "size": 8,
+
+                "bitfields": [
+                    {
+                        "name": "LoadEnableP",
+                        "description-en": "Enables the load on channel",
+                        "offset": 0,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "BusSelectionP",
+                        "description-en": "Fault connected to channel n. (0: No Fault; 1: A; 2: B)",
+                        "offset": 1,
+                        "size"  : 2
+                    },
+                    {
+                        "name": "LoadEnableM",
+                        "description-en": "Enables the load on channel",
+                        "offset": 3,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "BusSelectionM",
+                        "description-en": "Fault connected to channel n. (0: No Fault; 1: A; 2: B)",
+                        "offset": 4,
+                        "size"  : 2
+                    },
+                    {
+                        "name": "ChannelConnect",
+                        "description-en": "Line direction (0: No Fault; 1: A; 2: B)",
+                        "offset": 6,
+                        "size": 1
+                    }
+
+
+                ]
+            },
+            {
+                "name": "PreloadRegister1",
+                "access": "ReadWrite",
+                "address": 272,
+                "size": 8,
+
+                "initialValue": 0,
+
+                "bitfields": [
+                    {
+                        "name": "LoadEnableP",
+                        "description-en": "Enables the load on channel",
+                        "offset": 0,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "BusSelectionP",
+                        "description-en": "Fault connected to channel n. (0: No Fault; 1: A; 2: B)",
+                        "offset": 1,
+                        "size"  : 2
+                    },
+                    {
+                        "name": "LoadEnableM",
+                        "description-en": "Enables the load on channel",
+                        "offset": 3,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "BusSelectionM",
+                        "description-en": "Fault connected to channel n. (0: No Fault; 1: A; 2: B)",
+                        "offset": 4,
+                        "size"  : 2
+                    },
+                    {
+                        "name": "ChannelConnect",
+                        "description-en": "Line direction (0: No Fault; 1: A; 2: B)",
+                        "offset": 6,
+                        "size": 1
+                    }
+
+
+                ]
+            },
+            {
+                "name": "StateRegister1",
+                "access": "ReadOnly",
+                "address": 273,
+                "size": 8,
+
+                "bitfields": [
+                    {
+                        "name": "LoadEnableP",
+                        "description-en": "Enables the load on channel",
+                        "offset": 0,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "BusSelectionP",
+                        "description-en": "Fault connected to channel n. (0: No Fault; 1: A; 2: B)",
+                        "offset": 1,
+                        "size"  : 2
+                    },
+                    {
+                        "name": "LoadEnableM",
+                        "description-en": "Enables the load on channel",
+                        "offset": 3,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "BusSelectionM",
+                        "description-en": "Fault connected to channel n. (0: No Fault; 1: A; 2: B)",
+                        "offset": 4,
+                        "size"  : 2
+                    },
+                    {
+                        "name": "ChannelConnect",
+                        "description-en": "Line direction (0: No Fault; 1: A; 2: B)",
+                        "offset": 6,
+                        "size": 1
+                    }
+
+
+                ]
+            },
+            {
+                "name": "PreloadRegister2",
+                "access": "ReadWrite",
+                "address": 288,
+                "size": 8,
+
+                "initialValue": 0,
+
+                "bitfields": [
+                    {
+                        "name": "LoadEnableP",
+                        "description-en": "Enables the load on channel",
+                        "offset": 0,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "BusSelectionP",
+                        "description-en": "Fault connected to channel n. (0: No Fault; 1: A; 2: B)",
+                        "offset": 1,
+                        "size"  : 2
+                    },
+                    {
+                        "name": "LoadEnableM",
+                        "description-en": "Enables the load on channel",
+                        "offset": 3,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "BusSelectionM",
+                        "description-en": "Fault connected to channel n. (0: No Fault; 1: A; 2: B)",
+                        "offset": 4,
+                        "size"  : 2
+                    },
+                    {
+                        "name": "ChannelConnect",
+                        "description-en": "Line direction (0: No Fault; 1: A; 2: B)",
+                        "offset": 6,
+                        "size": 1
+                    }
+
+
+                ]
+            },
+            {
+                "name": "StateRegister2",
+                "access": "ReadOnly",
+                "address": 289,
+                "size": 8,
+
+                "bitfields": [
+                    {
+                        "name": "LoadEnableP",
+                        "description-en": "Enables the load on channel",
+                        "offset": 0,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "BusSelectionP",
+                        "description-en": "Fault connected to channel n. (0: No Fault; 1: A; 2: B)",
+                        "offset": 1,
+                        "size"  : 2
+                    },
+                    {
+                        "name": "LoadEnableM",
+                        "description-en": "Enables the load on channel",
+                        "offset": 3,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "BusSelectionM",
+                        "description-en": "Fault connected to channel n. (0: No Fault; 1: A; 2: B)",
+                        "offset": 4,
+                        "size"  : 2
+                    },
+                    {
+                        "name": "ChannelConnect",
+                        "description-en": "Line direction (0: No Fault; 1: A; 2: B)",
+                        "offset": 6,
+                        "size": 1
+                    }
+
+
+                ]
+            },
+            {
+                "name": "PreloadRegister3",
+                "access": "ReadWrite",
+                "address": 304,
+                "size": 8,
+
+                "initialValue": 0,
+
+                "bitfields": [
+                    {
+                        "name": "LoadEnableP",
+                        "description-en": "Enables the load on channel",
+                        "offset": 0,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "BusSelectionP",
+                        "description-en": "Fault connected to channel n. (0: No Fault; 1: A; 2: B)",
+                        "offset": 1,
+                        "size"  : 2
+                    },
+                    {
+                        "name": "LoadEnableM",
+                        "description-en": "Enables the load on channel",
+                        "offset": 3,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "BusSelectionM",
+                        "description-en": "Fault connected to channel n. (0: No Fault; 1: A; 2: B)",
+                        "offset": 4,
+                        "size"  : 2
+                    },
+                    {
+                        "name": "ChannelConnect",
+                        "description-en": "Line direction (0: No Fault; 1: A; 2: B)",
+                        "offset": 6,
+                        "size": 1
+                    }
+
+
+                ]
+            },
+            {
+                "name": "StateRegister3",
+                "access": "ReadOnly",
+                "address": 305,
+                "size": 8,
+
+                "bitfields": [
+                    {
+                        "name": "LoadEnableP",
+                        "description-en": "Enables the load on channel",
+                        "offset": 0,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "BusSelectionP",
+                        "description-en": "Fault connected to channel n. (0: No Fault; 1: A; 2: B)",
+                        "offset": 1,
+                        "size"  : 2
+                    },
+                    {
+                        "name": "LoadEnableM",
+                        "description-en": "Enables the load on channel",
+                        "offset": 3,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "BusSelectionM",
+                        "description-en": "Fault connected to channel n. (0: No Fault; 1: A; 2: B)",
+                        "offset": 4,
+                        "size"  : 2
+                    },
+                    {
+                        "name": "ChannelConnect",
+                        "description-en": "Line direction (0: No Fault; 1: A; 2: B)",
+                        "offset": 6,
+                        "size": 1
+                    }
+
+
+                ]
+            },
+            {
+                "name": "PreloadRegister4",
+                "access": "ReadWrite",
+                "address": 320,
+                "size": 8,
+
+                "initialValue": 0,
+
+                "bitfields": [
+                    {
+                        "name": "LoadEnableP",
+                        "description-en": "Enables the load on channel",
+                        "offset": 0,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "BusSelectionP",
+                        "description-en": "Fault connected to channel n. (0: No Fault; 1: A; 2: B)",
+                        "offset": 1,
+                        "size"  : 2
+                    },
+                    {
+                        "name": "LoadEnableM",
+                        "description-en": "Enables the load on channel",
+                        "offset": 3,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "BusSelectionM",
+                        "description-en": "Fault connected to channel n. (0: No Fault; 1: A; 2: B)",
+                        "offset": 4,
+                        "size"  : 2
+                    },
+                    {
+                        "name": "ChannelConnect",
+                        "description-en": "Line direction (0: No Fault; 1: A; 2: B)",
+                        "offset": 6,
+                        "size": 1
+                    }
+
+
+                ]
+            },
+            {
+                "name": "StateRegister4",
+                "access": "ReadOnly",
+                "address": 321,
+                "size": 8,
+
+                "bitfields": [
+                    {
+                        "name": "LoadEnableP",
+                        "description-en": "Enables the load on channel",
+                        "offset": 0,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "BusSelectionP",
+                        "description-en": "Fault connected to channel n. (0: No Fault; 1: A; 2: B)",
+                        "offset": 1,
+                        "size"  : 2
+                    },
+                    {
+                        "name": "LoadEnableM",
+                        "description-en": "Enables the load on channel",
+                        "offset": 3,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "BusSelectionM",
+                        "description-en": "Fault connected to channel n. (0: No Fault; 1: A; 2: B)",
+                        "offset": 4,
+                        "size"  : 2
+                    },
+                    {
+                        "name": "ChannelConnect",
+                        "description-en": "Line direction (0: No Fault; 1: A; 2: B)",
+                        "offset": 6,
+                        "size": 1
+                    }
+
+
+                ]
+            },
+            {
+                "name": "PreloadRegister5",
+                "access": "ReadWrite",
+                "address": 336,
+                "size": 8,
+
+                "initialValue": 0,
+
+                "bitfields": [
+                    {
+                        "name": "LoadEnableP",
+                        "description-en": "Enables the load on channel",
+                        "offset": 0,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "BusSelectionP",
+                        "description-en": "Fault connected to channel n. (0: No Fault; 1: A; 2: B)",
+                        "offset": 1,
+                        "size"  : 2
+                    },
+                    {
+                        "name": "LoadEnableM",
+                        "description-en": "Enables the load on channel",
+                        "offset": 3,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "BusSelectionM",
+                        "description-en": "Fault connected to channel n. (0: No Fault; 1: A; 2: B)",
+                        "offset": 4,
+                        "size"  : 2
+                    },
+                    {
+                        "name": "ChannelConnect",
+                        "description-en": "Line direction (0: No Fault; 1: A; 2: B)",
+                        "offset": 6,
+                        "size": 1
+                    }
+
+
+                ]
+            },
+            {
+                "name": "StateRegister5",
+                "access": "ReadOnly",
+                "address": 337,
+                "size": 8,
+
+                "bitfields": [
+                    {
+                        "name": "LoadEnableP",
+                        "description-en": "Enables the load on channel",
+                        "offset": 0,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "BusSelectionP",
+                        "description-en": "Fault connected to channel n. (0: No Fault; 1: A; 2: B)",
+                        "offset": 1,
+                        "size"  : 2
+                    },
+                    {
+                        "name": "LoadEnableM",
+                        "description-en": "Enables the load on channel",
+                        "offset": 3,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "BusSelectionM",
+                        "description-en": "Fault connected to channel n. (0: No Fault; 1: A; 2: B)",
+                        "offset": 4,
+                        "size"  : 2
+                    },
+                    {
+                        "name": "ChannelConnect",
+                        "description-en": "Line direction (0: No Fault; 1: A; 2: B)",
+                        "offset": 6,
+                        "size": 1
+                    }
+
+
+                ]
+            },
+            {
+                "name": "PreloadRegister6",
+                "access": "ReadWrite",
+                "address": 352,
+                "size": 8,
+
+                "initialValue": 0,
+
+                "bitfields": [
+                    {
+                        "name": "LoadEnableP",
+                        "description-en": "Enables the load on channel",
+                        "offset": 0,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "BusSelectionP",
+                        "description-en": "Fault connected to channel n. (0: No Fault; 1: A; 2: B)",
+                        "offset": 1,
+                        "size"  : 2
+                    },
+                    {
+                        "name": "LoadEnableM",
+                        "description-en": "Enables the load on channel",
+                        "offset": 3,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "BusSelectionM",
+                        "description-en": "Fault connected to channel n. (0: No Fault; 1: A; 2: B)",
+                        "offset": 4,
+                        "size"  : 2
+                    },
+                    {
+                        "name": "ChannelConnect",
+                        "description-en": "Line direction (0: No Fault; 1: A; 2: B)",
+                        "offset": 6,
+                        "size": 1
+                    }
+
+
+                ]
+            },
+            {
+                "name": "StateRegister6",
+                "access": "ReadOnly",
+                "address": 353,
+                "size": 8,
+
+                "bitfields": [
+                    {
+                        "name": "LoadEnableP",
+                        "description-en": "Enables the load on channel",
+                        "offset": 0,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "BusSelectionP",
+                        "description-en": "Fault connected to channel n. (0: No Fault; 1: A; 2: B)",
+                        "offset": 1,
+                        "size"  : 2
+                    },
+                    {
+                        "name": "LoadEnableM",
+                        "description-en": "Enables the load on channel",
+                        "offset": 3,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "BusSelectionM",
+                        "description-en": "Fault connected to channel n. (0: No Fault; 1: A; 2: B)",
+                        "offset": 4,
+                        "size"  : 2
+                    },
+                    {
+                        "name": "ChannelConnect",
+                        "description-en": "Line direction (0: No Fault; 1: A; 2: B)",
+                        "offset": 6,
+                        "size": 1
+                    }
+
+
+                ]
+            },
+            {
+                "name": "PreloadRegister7",
+                "access": "ReadWrite",
+                "address": 368,
+                "size": 8,
+
+                "initialValue": 0,
+
+                "bitfields": [
+                    {
+                        "name": "LoadEnableP",
+                        "description-en": "Enables the load on channel",
+                        "offset": 0,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "BusSelectionP",
+                        "description-en": "Fault connected to channel n. (0: No Fault; 1: A; 2: B)",
+                        "offset": 1,
+                        "size"  : 2
+                    },
+                    {
+                        "name": "LoadEnableM",
+                        "description-en": "Enables the load on channel",
+                        "offset": 3,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "BusSelectionM",
+                        "description-en": "Fault connected to channel n. (0: No Fault; 1: A; 2: B)",
+                        "offset": 4,
+                        "size"  : 2
+                    },
+                    {
+                        "name": "ChannelConnect",
+                        "description-en": "Line direction (0: No Fault; 1: A; 2: B)",
+                        "offset": 6,
+                        "size": 1
+                    }
+
+
+                ]
+            },
+            {
+                "name": "StateRegister7",
+                "access": "ReadOnly",
+                "address": 369,
+                "size": 8,
+
+                "bitfields": [
+                    {
+                        "name": "LoadEnableP",
+                        "description-en": "Enables the load on channel",
+                        "offset": 0,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "BusSelectionP",
+                        "description-en": "Fault connected to channel n. (0: No Fault; 1: A; 2: B)",
+                        "offset": 1,
+                        "size"  : 2
+                    },
+                    {
+                        "name": "LoadEnableM",
+                        "description-en": "Enables the load on channel",
+                        "offset": 3,
+                        "size"  : 1
+                    },
+                    {
+                        "name": "BusSelectionM",
+                        "description-en": "Fault connected to channel n. (0: No Fault; 1: A; 2: B)",
+                        "offset": 4,
+                        "size"  : 2
+                    },
+                    {
+                        "name": "ChannelConnect",
+                        "description-en": "Line direction (0: No Fault; 1: A; 2: B)",
+                        "offset": 6,
+                        "size": 1
+                    }
+
+
+                ]
+            },
+
+           {
+                "name": "BoardControl",
+                "access": "ReadWrite",
+                "address": 513,
+                "size": 8,
+
+                "initialValue": 3,
+
+                "bitfields": [
+                    {
+                        "name": "TempSensorEnable",
+                        "description-en": "Enables temperature sensors on the module",
+                        "offset": 0,
+                        "size": 1
+                    },
+                    {
+                        "name": "BoardEnable",
+                        "description-en": "Enables counters for digital filtering and channel updates.",
+                        "offset": 1,
+                        "size": 1
+                    },
+                    {
+                        "name": "UpdateModeField",
+                        "description-en": "Selects the update mode for the module.",
+                        "offset": 4,
+                        "size": 3
+                    }
+                ]
+            },
+
+            {
+                "name": "UpdateRegister",
+                "access": "WriteOnly",
+                "strobe": true,
+                "address": 512,
+                "size": 8,
+
+                "bitfields": [
+                    {
+                        "name": "Update",
+                        "description-en": "Writing a 1 to this register updates all the channels.",
+                        "offset": 0,
+                        "size": 1
+                    }
+                ]
+            },
+            {
+                "name": "OvercurrentOnBus",
+                "access": "ReadOnly",
+                "address": 771,
+                "size": 8,
+
+                "bitfields": [
+
+                    {
+                        "name": "BusA_OverCurrent",
+                        "description-en": "If '1', it means overcurrent was detected on bus A. ",
+                        "offset": 0,
+                        "size": 1
+                    },
+                    {
+                        "name": "BusB_OverCurrent",
+                        "description-en": "If '1', it means overcurrent was detected on bus A.",
+                        "offset": 1,
+                        "size": 1
+                    }
+                ]
+            },
+            {
+                "name": "OvercurrentHighStatus",
+                "access": "ReadOnly",
+                "address": 772,
+                "size": 16,
+
+                "bitfields": [
+
+                    {
+                        "name": "OvercurrentHigh",
+                        "description-en": "If '1', it means overcurrent was detected on the channel corresponding to the bit position.",
+                        "offset": 0,
+                        "size": 16
+                    }
+
+                ]
+            },
+            {
+                "name": "OvercurrentLowStatus",
+                "access": "ReadOnly",
+                "address": 774,
+                "size": 16,
+
+                "bitfields": [
+
+                    {
+                        "name": "OvercurrentLow",
+                        "description-en": "If '1', it means overcurrent was detected on the channel corresponding to the bit position.",
+                        "offset": 0,
+                        "size": 16
+                    }
+
+                ]
+            },
+            {
+                "name": "OverTemperature",
+                "access": "ReadOnly",
+                "address": 776,
+                "size": 32,
+
+                "bitfields": [
+
+                    {
+                        "name": "OvertemperatureChannel",
+                        "description-en": "If '1', it means over temperature was detected on the channel corresponding to the bit position.",
+                        "offset": 0,
+                        "size": 16
+                    },
+                    {
+                        "name": "OvertemperatureDifferential",
+                        "description-en": "If '1', it means over temperature was detected on the channel pair corresponding to the bit position.",
+                        "offset": 16,
+                        "size": 8
+                    }
+
+                ]
+            },
+            {
+                "name": "DigitalTempertureFault",
+                "access": "ReadOnly",
+                "address": 34,
+                "size": 8,
+                "bitfields": [
+                    {
+                        "name": "TempFaultVector",
+                        "description-en": "If '1', it means over temperature was detected at the digital temperature sensor corresponding to the bit position.",
+                        "offset": 0,
+                        "size": 4
+                    }
+                ]
+            },
+            {
+                "name": "ClearFaults",
+                "access": "ReadWrite",
+                "address": 768,
+                "size": 8,
+
+                "initialValue": 128,
+
+                "bitfields": [
+
+                    {
+                        "name": "OverCurrentHigh",
+                        "offset": 0,
+                        "size": 1
+                    },
+                    {
+                        "name": "OverCurrentLow",
+                        "offset": 1,
+                        "size": 1
+                    },
+                    {
+                        "name": "OverCurrentOnBus",
+                        "offset": 2,
+                        "size": 1
+                    },
+                    {
+                        "name": "OverTemperature",
+                        "offset": 3,
+                        "size": 1
+                    },
+                    {
+                        "name": "OverTemperatureDigital",
+                        "offset": 4,
+                        "size": 1
+                    }
+
+
+                ]
+            },
+            {
+                "name": "Status",
+                "access": "ReadWrite",
+                "address": 4,
+                "size": 16,
+
+                "bitfields": [
+                    {
+                        "name": "UpdateDone",
+                        "description-en": "",
+                        "offset": 0,
+                        "size": 1
+                    },
+                    {
+                        "name": "WriteDuringUpdateError",
+                        "description-en": "",
+                        "offset": 1,
+                        "size": 1
+                    },
+                    {
+                        "name": "BoardFault",
+                        "description-en": "",
+                        "offset": 2,
+                        "size": 1
+                    },
+                    {
+                        "name": "PowerGood24V",
+                        "description-en": "",
+                        "offset": 3,
+                        "size": 1
+                    },
+                    {
+                        "name": "PowerGood5V",
+                        "description-en": "",
+                        "offset": 4,
+                        "size": 1
+                    },
+                    {
+                        "name": "StrapOption",
+                        "description-en": "",
+                        "offset": 5,
+                        "size": 1
+                    },
+                    {
+                        "name": "SlscInterfaceUnusedPin",
+                        "description-en": "State of the unused SLSC Pin",
+                        "offset": 6,
+                        "size": 1
+                    },
+                    {
+                        "name": "ClearWriteDuringUpdateError",
+                        "description-en": "Write 1 to this bit to allow the module change the configuraiton. Alternatively you can reset the module.  ",
+                        "offset": 9,
+                        "size": 1
+                    },
+                    {
+                        "name": "FlashHold",
+                        "description-en": "Unused, this bit is ignored.  ",
+                        "offset": 14,
+                        "size": 1
+                    },
+                    {
+                        "name": "FlashWriteProtect",
+                        "description-en": "0: Flash protected against write. 1: Flash available for write. ",
+                        "offset": 15,
+                        "size": 1
+                    }
+                ]
+            },
+            {
+                "name": "TemperatureRegister0",
+                "access": "ReadOnly",
+                "address": 16,
+                "size": 16,
+                "bitfields": [
+                    {
+                        "name": "AcquiredTemperature",
+                        "description-en": "Raw value of the temperature ",
+                        "offset": 0,
+                        "size": 14
+                    }
+                ]
+            },
+            {
+                "name": "TemperatureRegister2",
+                "access": "ReadOnly",
+                "address": 18,
+                "size": 16,
+                "bitfields": [
+                    {
+                        "name": "AcquiredTemperature",
+                        "description-en": "Raw value of the temperature ",
+                        "offset": 0,
+                        "size": 14
+                    }
+                ]
+            },
+            {
+                "name": "TemperatureRegister1",
+                "access": "ReadOnly",
+                "address": 20,
+                "size": 16,
+                "bitfields": [
+                    {
+                        "name": "AcquiredTemperature",
+                        "description-en": "Raw value of the temperature ",
+                        "offset": 0,
+                        "size": 14
+                    }
+                ]
+            },
+            {
+                "name": "TemperatureRegister3",
+                "access": "ReadOnly",
+                "address": 22,
+                "size": 16,
+                "bitfields": [
+                    {
+                        "name": "AcquiredTemperature",
+                        "description-en": "Raw value of the temperature ",
+                        "offset": 0,
+                        "size": 14
+                    }
+                ]
+            },
+            {
+                "name": "TemperatureThreshold",
+                "access": "ReadWrite",
+                "address": 32,
+                "size": 16,
+                "initialValue": 4000, // 125C scaled by 0.03125
+                "bitfields": [
+                    {
+                        "name": "TempThrehold",
+                        "description-en": "Raw Value of the temperature threshold",
+                        "offset": 0,
+                        "size": 14
+                    }
+                ]
+            },
+            {
+                "name"   : "Version",
+                "access" : "ReadOnly",
+                "address": 0,
+                "size": 32,
+
+                "bitfields": [
+                    {
+                        "name": "Timestamp",
+                        "description-en": "Version of the Module Controller. ",
+                        "offset": 0,
+                        "size": 32
+                    }
+                ]
+            }
+
+
+        ]
+    },
+
+    "scales": [
+        {
+            // Linear Scale
+            "name": "TemperatureScale",
+            "m": 0.03125,
+            "b": 0.0
+        }
+
+    ],
+
+
+    "properties": [
+        {
+            "name": "NI.FIU.ModuleControllerVersion",
+            "description-en": "Read only Module Controller Version number",
+            "documentation-en": "The version is the timestamp, in hexadecimal format, of the time the Module Controller was compiled. ",
+            "dataType": "UInt32",
+            "bitfield": "Version/Timestamp",
+            "access": "ReadOnly"
+        },
+        {
+            "name": "NI.FIU.BoardFault",
+            "description-en": "True when there is any fault on the board",
+            "dataType": "Bool",
+            "bitfield": "Status/BoardFault",
+            "access": "ReadOnly"
+        },
+       {
+            "name": "NI.FIU.TemperatureSensor0",
+            "description-en": "Degrees Celsius of one of the board's 4 quadrant digital temperature sensors.",
+            "unit-en": "C",
+            "min": -40,
+            "max": 150,
+            "dataType": "Double",
+            "bitfield": "TemperatureRegister0/AcquiredTemperature",
+            "scale": "TemperatureScale",
+            "access": "ReadOnly"
+        },
+       {
+            "name": "NI.FIU.TemperatureSensor1",
+            "description-en": "Degrees Celsius of one of the board's 4 quadrant digital temperature sensors.",
+            "unit-en": "C",
+            "min": -40,
+            "max": 150,
+            "dataType": "Double",
+            "bitfield": "TemperatureRegister1/AcquiredTemperature",
+            "scale": "TemperatureScale",
+            "access": "ReadOnly"
+        },
+       {
+            "name": "NI.FIU.TemperatureSensor2",
+            "description-en": "Degrees Celsius of one of the board's 4 quadrant digital temperature sensors.",
+            "unit-en": "C",
+            "min": -40,
+            "max": 150,
+            "dataType": "Double",
+            "bitfield": "TemperatureRegister2/AcquiredTemperature",
+            "scale": "TemperatureScale",
+            "access": "ReadOnly"
+        },
+       {
+            "name": "NI.FIU.TemperatureSensor3",
+            "description-en": "Degrees Celsius of one of the board's 4 quadrant digital temperature sensors.",
+            "unit-en": "C",
+            "min": -40,
+            "max": 150,
+            "dataType": "Double",
+            "bitfield": "TemperatureRegister3/AcquiredTemperature",
+            "scale": "TemperatureScale",
+            "access": "ReadOnly"
+        },
+
+
+        {
+            "name": "NI.FIU.Calibration.Date",
+            "description-en": "Time, in seconds elapsed since 12:00 a.m., Friday, January 1, 1904, Universal Time, of the last calibration date of the device",
+            "unit-en": "Seconds",
+            "dataType": "Double",
+            "access": "ReadOnly",
+            "value": 2000000000//TOKENCALIBRATIONDATE
+        },
+        {
+            "name": "NI.FIU.Calibration.ExpirationDate",
+            "description-en": "Time, in seconds elapsed since 12:00 a.m., Friday, January 1, 1904, Universal Time, of the next recommended calibration date of the device",
+            "unit-en": "Seconds",
+            "dataType": "Double",
+            "access": "ReadOnly",
+            "value": 2200000000//TOKENCALIBRATIONEXPIRATIONDATE
+        },
+        {
+            "name": "NI.FIU.BoardFault.OvercurrentOnBusA",
+            "description-en": "True when Bus A exceeds the Bus High Current Limit for longer than its delay time",
+            "dataType": "Bool",
+            "access": "ReadOnly",
+            "bitfield": "OvercurrentOnBus/BusA_OverCurrent"
+        },
+        {
+            "name": "NI.FIU.BoardFault.OvercurrentOnBusB",
+            "description-en": "True when Bus B exceeds the Bus High Current Limit for longer than its delay time",
+            "dataType": "Bool",
+            "access": "ReadOnly",
+            "bitfield": "OvercurrentOnBus/BusB_OverCurrent"
+        },
+        {
+            "name": "NI.FIU.BoardFault.OvercurrentHigh",
+            "description-en": "Starting with the LSB, each bit represents a DUT channel, true when that DUT channel exceeds the DUT High Current Limit for longer than its delay time",
+            "access": "ReadOnly",
+            "dataType": "UInt32",
+            "bitfield": "OvercurrentHighStatus/OvercurrentHigh"
+        },
+        {
+            "name": "NI.FIU.BoardFault.OvercurrentLow",
+            "description-en": "Starting with the LSB, each bit represents a DUT channel, true when that DUT channel exceeds the DUT Low Current Limit for longer than its delay time",
+            "access": "ReadOnly",
+            "dataType": "UInt32",
+            "bitfield": "OvercurrentLowStatus/OvercurrentLow"
+        },
+        {
+            "name": "NI.FIU.BoardFault.OverTemperatureOnChannelToChannel",
+            "description-en": "Starting with the LSB, each bit represents a channel pair, true when that channel pair's analog temperature sensor exceeds the high temperature analog transition range",
+            "access": "ReadOnly",
+            "dataType": "UInt32",
+            "bitfield": "OverTemperature/OvertemperatureDifferential"
+        },
+        {
+            "name": "NI.FIU.BoardFault.OverTemperatureOnChannel",
+            "access": "ReadOnly",
+            "description-en": "Starting with the LSB, each bit represents a channel, true when that channel's analog temperature sensors exceed the high temperature analog transition range",
+            "dataType": "UInt32",
+            "bitfield": "OverTemperature/OvertemperatureChannel"
+        },
+        {
+            "name": "NI.FIU.BoardFault.BoardOverTemperature",
+            "description-en": "Starting with the LSB, each bit represents one of the board's 4 quadrant digital temperature sensors, true when that sensor exceed the high temperature digital set point",
+            "dataType": "UInt32",
+            "bitfield": "DigitalTempertureFault/TempFaultVector",
+            "access": "ReadOnly"
+        }
+    ],
+
+    "commands": [
+        {
+            "name": "NI.FIU.Update",
+            "description-en": "Executing this command allows the channel to change to the preset values.",
+            "startBitfield": "UpdateRegister/Update",
+            "doneInterrupt": "UpdateComplete",
+            "doneTimeoutInMs": 100
+        }
+
+    ],
+
+
+    "physicalChannels": [
+
+        {
+            "name": "Channel_0",
+            "properties": [
+                {
+                    "name": "NI.FIU.Preset.BusSource",
+                    "description-en": "Allows pre-setting channel 0 connectivity to Bus A, Bus B or none. An Update command is required for the change to take place.",
+                    "documentation-en": "Enumeration: 0:'NoBus': Channel is not connected to any Bus, 1:'BusA': Channel is connected to Bus A, 2:'BusB': Channel is connected to Bus B",
+                    "dataType": "NI.FIU.Bus",
+                    "bitfield": "PreloadRegister0/BusSelectionP",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.Preset.Load",
+                    "description-en": "Allows pre-setting channel 0 connectivity to its load. An Update command is required for the change to take place.",
+                    "documentation-en": "0:'NoLoad': Channel is not connected to its Load, 1:'Load': Channel is connected to its Load",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "PreloadRegister0/LoadEnableP",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.State.BusSource",
+                    "description-en": "Read-only property that represents the actual connection states for a particular channel. See Preset property for enumeration.",
+                    "dataType": "NI.FIU.Bus",
+                    "bitfield": "StateRegister0/BusSelectionP",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.State.Load",
+                    "description-en": "Read-only property that represents the actual connection states for a particular channel. See Preset property for enumeration.",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "StateRegister0/LoadEnableP",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Gain",
+                    "description-en": "The gain used to calculate the current from the current transducer, based on the voltage input",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 12.5
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Offset",
+                    "description-en": "The offset used to calculate the current from the current transducer, based on the voltage input",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 0.000000
+                }
+            ]
+        },
+
+        {
+            "name": "Channel_1",
+            "properties": [
+                {
+                    "name": "NI.FIU.Preset.BusSource",
+                    "description-en": "Allows pre-setting channel 1 connectivity to Bus A, Bus B or none. An Update command is required for the change to take place.",
+                    "documentation-en": "Enumeration: 0:'NoBus': Channel is not connected to any Bus, 1:'BusA': Channel is connected to Bus A, 2:'BusB': Channel is connected to Bus B",
+                    "dataType": "NI.FIU.Bus",
+                    "bitfield": "PreloadRegister0/BusSelectionM",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.Preset.Load",
+                    "description-en": "Allows pre-setting channel 1 connectivity to its load. An Update command is required for the change to take place.",
+                    "documentation-en": "0:'NoLoad': Channel is not connected to its Load, 1:'Load': Channel is connected to its Load",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "PreloadRegister0/LoadEnableM",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.State.BusSource",
+                    "description-en": "Read-only property that represents the actual connection states for a particular channel. See Preset property for enumeration.",
+                    "dataType": "NI.FIU.Bus",
+                    "bitfield": "StateRegister0/BusSelectionM",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.State.Load",
+                    "description-en": "Read-only property that represents the actual connection states for a particular channel. See Preset property for enumeration.",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "StateRegister0/LoadEnableM",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Gain",
+                    "description-en": "The gain used to calculate the current from the current transducer, based on the voltage input",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 12.5
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Offset",
+                    "description-en": "The offset used to calculate the current from the current transducer, based on the voltage input",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 0.000000
+                }
+            ]
+        },
+        {
+            "name": "Channel_2",
+            "properties": [
+                {
+                    "name": "NI.FIU.Preset.BusSource",
+                    "description-en": "Allows pre-setting channel 2 connectivity to Bus A, Bus B or none. An Update command is required for the change to take place.",
+                    "documentation-en": "Enumeration: 0:'NoBus': Channel is not connected to any Bus, 1:'BusA': Channel is connected to Bus A, 2:'BusB': Channel is connected to Bus B",
+                    "dataType": "NI.FIU.Bus",
+                    "bitfield": "PreloadRegister1/BusSelectionP",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.Preset.Load",
+                    "description-en": "Allows pre-setting channel 2 connectivity to its load. An Update command is required for the change to take place.",
+                    "documentation-en": "0:'NoLoad': Channel is not connected to its Load, 1:'Load': Channel is connected to its Load",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "PreloadRegister1/LoadEnableP",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.State.BusSource",
+                    "description-en": "Read-only property that represents the actual connection states for a particular channel. See Preset property for enumeration.",
+                    "dataType": "NI.FIU.Bus",
+                    "bitfield": "StateRegister1/BusSelectionP",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.State.Load",
+                    "description-en": "Read-only property that represents the actual connection states for a particular channel. See Preset property for enumeration.",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "StateRegister1/LoadEnableP",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Gain",
+                    "description-en": "The gain used to calculate the current from the current transducer, based on the voltage input",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 12.5
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Offset",
+                    "description-en": "The offset used to calculate the current from the current transducer, based on the voltage input",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 0.000000
+                }
+            ]
+        },
+        {
+            "name": "Channel_3",
+            "properties": [
+                {
+                    "name": "NI.FIU.Preset.BusSource",
+                    "description-en": "Allows pre-setting channel 3 connectivity to Bus A, Bus B or none. An Update command is required for the change to take place.",
+                    "documentation-en": "Enumeration: 0:'NoBus': Channel is not connected to any Bus, 1:'BusA': Channel is connected to Bus A, 2:'BusB': Channel is connected to Bus B",
+                    "dataType": "NI.FIU.Bus",
+                    "bitfield": "PreloadRegister1/BusSelectionM",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.Preset.Load",
+                    "description-en": "Allows pre-setting channel 3 connectivity to its load. An Update command is required for the change to take place.",
+                    "documentation-en": "0:'NoLoad': Channel is not connected to its Load, 1:'Load': Channel is connected to its Load",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "PreloadRegister1/LoadEnableM",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.State.BusSource",
+                    "description-en": "Read-only property that represents the actual connection states for a particular channel. See Preset property for enumeration.",
+                    "dataType": "NI.FIU.Bus",
+                    "bitfield": "StateRegister1/BusSelectionM",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.State.Load",
+                    "description-en": "Read-only property that represents the actual connection states for a particular channel. See Preset property for enumeration.",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "StateRegister1/LoadEnableM",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Gain",
+                    "description-en": "The gain used to calculate the current from the current transducer, based on the voltage input",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 12.5
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Offset",
+                    "description-en": "The offset used to calculate the current from the current transducer, based on the voltage input",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 0.000000
+                }
+            ]
+        },
+        {
+            "name": "Channel_4",
+            "properties": [
+                {
+                    "name": "NI.FIU.Preset.BusSource",
+                    "description-en": "Allows pre-setting channel 4 connectivity to Bus A, Bus B or none. An Update command is required for the change to take place.",
+                    "documentation-en": "Enumeration: 0:'NoBus': Channel is not connected to any Bus, 1:'BusA': Channel is connected to Bus A, 2:'BusB': Channel is connected to Bus B",
+                    "dataType": "NI.FIU.Bus",
+                    "bitfield": "PreloadRegister2/BusSelectionP",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.Preset.Load",
+                    "description-en": "Allows pre-setting channel 4 connectivity to its load. An Update command is required for the change to take place.",
+                    "documentation-en": "0:'NoLoad': Channel is not connected to its Load, 1:'Load': Channel is connected to its Load",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "PreloadRegister2/LoadEnableP",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.State.BusSource",
+                    "description-en": "Read-only property that represents the actual connection states for a particular channel. See Preset property for enumeration.",
+                    "dataType": "NI.FIU.Bus",
+                    "bitfield": "StateRegister2/BusSelectionP",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.State.Load",
+                    "description-en": "Read-only property that represents the actual connection states for a particular channel. See Preset property for enumeration.",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "StateRegister2/LoadEnableP",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Gain",
+                    "description-en": "The gain used to calculate the current from the current transducer, based on the voltage input",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 12.5
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Offset",
+                    "description-en": "The offset used to calculate the current from the current transducer, based on the voltage input",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 0.000000
+                }
+            ]
+        },
+        {
+            "name": "Channel_5",
+            "properties": [
+                {
+                    "name": "NI.FIU.Preset.BusSource",
+                    "description-en": "Allows pre-setting channel 5 connectivity to Bus A, Bus B or none. An Update command is required for the change to take place.",
+                    "documentation-en": "Enumeration: 0:'NoBus': Channel is not connected to any Bus, 1:'BusA': Channel is connected to Bus A, 2:'BusB': Channel is connected to Bus B",
+                    "dataType": "NI.FIU.Bus",
+                    "bitfield": "PreloadRegister2/BusSelectionM",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.Preset.Load",
+                    "description-en": "Allows pre-setting channel 5 connectivity to its load. An Update command is required for the change to take place.",
+                    "documentation-en": "0:'NoLoad': Channel is not connected to its Load, 1:'Load': Channel is connected to its Load",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "PreloadRegister2/LoadEnableM",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.State.BusSource",
+                    "description-en": "Read-only property that represents the actual connection states for a particular channel. See Preset property for enumeration.",
+                    "dataType": "NI.FIU.Bus",
+                    "bitfield": "StateRegister2/BusSelectionM",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.State.Load",
+                    "description-en": "Read-only property that represents the actual connection states for a particular channel. See Preset property for enumeration.",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "StateRegister2/LoadEnableM",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Gain",
+                    "description-en": "The gain used to calculate the current from the current transducer, based on the voltage input",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 12.5
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Offset",
+                    "description-en": "The offset used to calculate the current from the current transducer, based on the voltage input",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 0.000000
+                }
+            ]
+        },
+        {
+            "name": "Channel_6",
+            "properties": [
+                {
+                    "name": "NI.FIU.Preset.BusSource",
+                    "description-en": "Allows pre-setting channel 6 connectivity to Bus A, Bus B or none. An Update command is required for the change to take place.",
+                    "documentation-en": "Enumeration: 0:'NoBus': Channel is not connected to any Bus, 1:'BusA': Channel is connected to Bus A, 2:'BusB': Channel is connected to Bus B",
+                    "dataType": "NI.FIU.Bus",
+                    "bitfield": "PreloadRegister3/BusSelectionP",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.Preset.Load",
+                    "description-en": "Allows pre-setting channel 6 connectivity to its load. An Update command is required for the change to take place.",
+                    "documentation-en": "0:'NoLoad': Channel is not connected to its Load, 1:'Load': Channel is connected to its Load",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "PreloadRegister3/LoadEnableP",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.State.BusSource",
+                    "description-en": "Read-only property that represents the actual connection states for a particular channel. See Preset property for enumeration.",
+                    "dataType": "NI.FIU.Bus",
+                    "bitfield": "StateRegister3/BusSelectionP",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.State.Load",
+                    "description-en": "Read-only property that represents the actual connection states for a particular channel. See Preset property for enumeration.",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "StateRegister3/LoadEnableP",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Gain",
+                    "description-en": "The gain used to calculate the current from the current transducer, based on the voltage input",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 12.5
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Offset",
+                    "description-en": "The offset used to calculate the current from the current transducer, based on the voltage input",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 0.000000
+                }
+            ]
+        },
+        {
+            "name": "Channel_7",
+            "properties": [
+                {
+                    "name": "NI.FIU.Preset.BusSource",
+                    "description-en": "Allows pre-setting channel 7 connectivity to Bus A, Bus B or none. An Update command is required for the change to take place.",
+                    "documentation-en": "Enumeration: 0:'NoBus': Channel is not connected to any Bus, 1:'BusA': Channel is connected to Bus A, 2:'BusB': Channel is connected to Bus B",
+                    "dataType": "NI.FIU.Bus",
+                    "bitfield": "PreloadRegister3/BusSelectionM",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.Preset.Load",
+                    "description-en": "Allows pre-setting channel 7 connectivity to its load. An Update command is required for the change to take place.",
+                    "documentation-en": "0:'NoLoad': Channel is not connected to its Load, 1:'Load': Channel is connected to its Load",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "PreloadRegister3/LoadEnableM",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.State.BusSource",
+                    "description-en": "Read-only property that represents the actual connection states for a particular channel. See Preset property for enumeration.",
+                    "dataType": "NI.FIU.Bus",
+                    "bitfield": "StateRegister3/BusSelectionM",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.State.Load",
+                    "description-en": "Read-only property that represents the actual connection states for a particular channel. See Preset property for enumeration.",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "StateRegister3/LoadEnableM",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Gain",
+                    "description-en": "The gain used to calculate the current from the current transducer, based on the voltage input",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 12.5
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Offset",
+                    "description-en": "The offset used to calculate the current from the current transducer, based on the voltage input",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 0.000000
+                }
+            ]
+        },
+        {
+            "name": "Channel_8",
+            "properties": [
+                {
+                    "name": "NI.FIU.Preset.BusSource",
+                    "description-en": "Allows pre-setting channel 8 connectivity to Bus A, Bus B or none. An Update command is required for the change to take place.",
+                    "documentation-en": "Enumeration: 0:'NoBus': Channel is not connected to any Bus, 1:'BusA': Channel is connected to Bus A, 2:'BusB': Channel is connected to Bus B",
+                    "dataType": "NI.FIU.Bus",
+                    "bitfield": "PreloadRegister4/BusSelectionP",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.Preset.Load",
+                    "description-en": "Allows pre-setting channel 8 connectivity to its load. An Update command is required for the change to take place.",
+                    "documentation-en": "0:'NoLoad': Channel is not connected to its Load, 1:'Load': Channel is connected to its Load",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "PreloadRegister4/LoadEnableP",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.State.BusSource",
+                    "description-en": "Read-only property that represents the actual connection states for a particular channel. See Preset property for enumeration.",
+                    "dataType": "NI.FIU.Bus",
+                    "bitfield": "StateRegister4/BusSelectionP",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.State.Load",
+                    "description-en": "Read-only property that represents the actual connection states for a particular channel. See Preset property for enumeration.",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "StateRegister4/LoadEnableP",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Gain",
+                    "description-en": "The gain used to calculate the current from the current transducer, based on the voltage input",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 12.5
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Offset",
+                    "description-en": "The offset used to calculate the current from the current transducer, based on the voltage input",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 0.000000
+                }
+            ]
+        },
+        {
+            "name": "Channel_9",
+            "properties": [
+                {
+                    "name": "NI.FIU.Preset.BusSource",
+                    "description-en": "Allows pre-setting channel 9 connectivity to Bus A, Bus B or none. An Update command is required for the change to take place.",
+                    "documentation-en": "Enumeration: 0:'NoBus': Channel is not connected to any Bus, 1:'BusA': Channel is connected to Bus A, 2:'BusB': Channel is connected to Bus B",
+                    "dataType": "NI.FIU.Bus",
+                    "bitfield": "PreloadRegister4/BusSelectionM",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.Preset.Load",
+                    "description-en": "Allows pre-setting channel 9 connectivity to its load. An Update command is required for the change to take place.",
+                    "documentation-en": "0:'NoLoad': Channel is not connected to its Load, 1:'Load': Channel is connected to its Load",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "PreloadRegister4/LoadEnableM",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.State.BusSource",
+                    "description-en": "Read-only property that represents the actual connection states for a particular channel. See Preset property for enumeration.",
+                    "dataType": "NI.FIU.Bus",
+                    "bitfield": "StateRegister4/BusSelectionM",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.State.Load",
+                    "description-en": "Read-only property that represents the actual connection states for a particular channel. See Preset property for enumeration.",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "StateRegister4/LoadEnableM",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Gain",
+                    "description-en": "The gain used to calculate the current from the current transducer, based on the voltage input",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 12.5
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Offset",
+                    "description-en": "The offset used to calculate the current from the current transducer, based on the voltage input",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 0.000000
+                }
+            ]
+        },
+        {
+            "name": "Channel_10",
+            "properties": [
+                {
+                    "name": "NI.FIU.Preset.BusSource",
+                    "description-en": "Allows pre-setting channel 10 connectivity to Bus A, Bus B or none. An Update command is required for the change to take place.",
+                    "documentation-en": "Enumeration: 0:'NoBus': Channel is not connected to any Bus, 1:'BusA': Channel is connected to Bus A, 2:'BusB': Channel is connected to Bus B",
+                    "dataType": "NI.FIU.Bus",
+                    "bitfield": "PreloadRegister5/BusSelectionP",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.Preset.Load",
+                    "description-en": "Allows pre-setting channel 10 connectivity to its load. An Update command is required for the change to take place.",
+                    "documentation-en": "0:'NoLoad': Channel is not connected to its Load, 1:'Load': Channel is connected to its Load",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "PreloadRegister5/LoadEnableP",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.State.BusSource",
+                    "description-en": "Read-only property that represents the actual connection states for a particular channel. See Preset property for enumeration.",
+                    "dataType": "NI.FIU.Bus",
+                    "bitfield": "StateRegister5/BusSelectionP",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.State.Load",
+                    "description-en": "Read-only property that represents the actual connection states for a particular channel. See Preset property for enumeration.",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "StateRegister5/LoadEnableP",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Gain",
+                    "description-en": "The gain used to calculate the current from the current transducer, based on the voltage input",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 12.5
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Offset",
+                    "description-en": "The offset used to calculate the current from the current transducer, based on the voltage input",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 0.000000
+                }
+            ]
+        },
+        {
+            "name": "Channel_11",
+            "properties": [
+                {
+                    "name": "NI.FIU.Preset.BusSource",
+                    "description-en": "Allows pre-setting channel 11 connectivity to Bus A, Bus B or none. An Update command is required for the change to take place.",
+                    "documentation-en": "Enumeration: 0:'NoBus': Channel is not connected to any Bus, 1:'BusA': Channel is connected to Bus A, 2:'BusB': Channel is connected to Bus B",
+                    "dataType": "NI.FIU.Bus",
+                    "bitfield": "PreloadRegister5/BusSelectionM",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.Preset.Load",
+                    "description-en": "Allows pre-setting channel 11 connectivity to its load. An Update command is required for the change to take place.",
+                    "documentation-en": "0:'NoLoad': Channel is not connected to its Load, 1:'Load': Channel is connected to its Load",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "PreloadRegister5/LoadEnableM",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.State.BusSource",
+                    "description-en": "Read-only property that represents the actual connection states for a particular channel. See Preset property for enumeration.",
+                    "dataType": "NI.FIU.Bus",
+                    "bitfield": "StateRegister5/BusSelectionM",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.State.Load",
+                    "description-en": "Read-only property that represents the actual connection states for a particular channel. See Preset property for enumeration.",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "StateRegister5/LoadEnableM",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Gain",
+                    "description-en": "The gain used to calculate the current from the current transducer, based on the voltage input",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 12.5
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Offset",
+                    "description-en": "The offset used to calculate the current from the current transducer, based on the voltage input",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 0.000000
+                }
+            ]
+        },
+        {
+            "name": "Channel_12",
+            "properties": [
+                {
+                    "name": "NI.FIU.Preset.BusSource",
+                    "description-en": "Allows pre-setting channel 12 connectivity to Bus A, Bus B or none. An Update command is required for the change to take place.",
+                    "documentation-en": "Enumeration: 0:'NoBus': Channel is not connected to any Bus, 1:'BusA': Channel is connected to Bus A, 2:'BusB': Channel is connected to Bus B",
+                    "dataType": "NI.FIU.Bus",
+                    "bitfield": "PreloadRegister6/BusSelectionP",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.Preset.Load",
+                    "description-en": "Allows pre-setting channel 12 connectivity to its load. An Update command is required for the change to take place.",
+                    "documentation-en": "0:'NoLoad': Channel is not connected to its Load, 1:'Load': Channel is connected to its Load",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "PreloadRegister6/LoadEnableP",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.State.BusSource",
+                    "description-en": "Read-only property that represents the actual connection states for a particular channel. See Preset property for enumeration.",
+                    "dataType": "NI.FIU.Bus",
+                    "bitfield": "StateRegister6/BusSelectionP",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.State.Load",
+                    "description-en": "Read-only property that represents the actual connection states for a particular channel. See Preset property for enumeration.",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "StateRegister6/LoadEnableP",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Gain",
+                    "description-en": "The gain used to calculate the current from the current transducer, based on the voltage input",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 12.5
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Offset",
+                    "description-en": "The offset used to calculate the current from the current transducer, based on the voltage input",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 0.000000
+                }
+            ]
+        },
+        {
+            "name": "Channel_13",
+            "properties": [
+                {
+                    "name": "NI.FIU.Preset.BusSource",
+                    "description-en": "Allows pre-setting channel 13 connectivity to Bus A, Bus B or none. An Update command is required for the change to take place.",
+                    "documentation-en": "Enumeration: 0:'NoBus': Channel is not connected to any Bus, 1:'BusA': Channel is connected to Bus A, 2:'BusB': Channel is connected to Bus B",
+                    "dataType": "NI.FIU.Bus",
+                    "bitfield": "PreloadRegister6/BusSelectionM",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.Preset.Load",
+                    "description-en": "Allows pre-setting channel 13 connectivity to its load. An Update command is required for the change to take place.",
+                    "documentation-en": "0:'NoLoad': Channel is not connected to its Load, 1:'Load': Channel is connected to its Load",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "PreloadRegister6/LoadEnableM",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.State.BusSource",
+                    "description-en": "Read-only property that represents the actual connection states for a particular channel. See Preset property for enumeration.",
+                    "dataType": "NI.FIU.Bus",
+                    "bitfield": "StateRegister6/BusSelectionM",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.State.Load",
+                    "description-en": "Read-only property that represents the actual connection states for a particular channel. See Preset property for enumeration.",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "StateRegister6/LoadEnableM",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Gain",
+                    "description-en": "The gain used to calculate the current from the current transducer, based on the voltage input",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 12.5
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Offset",
+                    "description-en": "The offset used to calculate the current from the current transducer, based on the voltage input",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 0.000000
+                }
+            ]
+        },
+        {
+            "name": "Channel_14",
+            "properties": [
+                {
+                    "name": "NI.FIU.Preset.BusSource",
+                    "description-en": "Allows pre-setting channel 14 connectivity to Bus A, Bus B or none. An Update command is required for the change to take place.",
+                    "documentation-en": "Enumeration: 0:'NoBus': Channel is not connected to any Bus, 1:'BusA': Channel is connected to Bus A, 2:'BusB': Channel is connected to Bus B",
+                    "dataType": "NI.FIU.Bus",
+                    "bitfield": "PreloadRegister7/BusSelectionP",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.Preset.Load",
+                    "description-en": "Allows pre-setting channel 14 connectivity to its load. An Update command is required for the change to take place.",
+                    "documentation-en": "0:'NoLoad': Channel is not connected to its Load, 1:'Load': Channel is connected to its Load",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "PreloadRegister7/LoadEnableP",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.State.BusSource",
+                    "description-en": "Read-only property that represents the actual connection states for a particular channel. See Preset property for enumeration.",
+                    "dataType": "NI.FIU.Bus",
+                    "bitfield": "StateRegister7/BusSelectionP",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.State.Load",
+                    "description-en": "Read-only property that represents the actual connection states for a particular channel. See Preset property for enumeration.",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "StateRegister7/LoadEnableP",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Gain",
+                    "description-en": "The gain used to calculate the current from the current transducer, based on the voltage input",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 12.5
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Offset",
+                    "description-en": "The offset used to calculate the current from the current transducer, based on the voltage input",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 0.000000
+                }
+            ]
+        },
+        {
+            "name": "Channel_15",
+            "properties": [
+                {
+                    "name": "NI.FIU.Preset.BusSource",
+                    "description-en": "Allows pre-setting channel 15 connectivity to Bus A, Bus B or none. An Update command is required for the change to take place.",
+                    "documentation-en": "Enumeration: 0:'NoBus': Channel is not connected to any Bus, 1:'BusA': Channel is connected to Bus A, 2:'BusB': Channel is connected to Bus B",
+                    "dataType": "NI.FIU.Bus",
+                    "bitfield": "PreloadRegister7/BusSelectionM",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.Preset.Load",
+                    "description-en": "Allows pre-setting channel 15 connectivity to its load. An Update command is required for the change to take place.",
+                    "documentation-en": "0:'NoLoad': Channel is not connected to its Load, 1:'Load': Channel is connected to its Load",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "PreloadRegister7/LoadEnableM",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.State.BusSource",
+                    "description-en": "Read-only property that represents the actual connection states for a particular channel. See Preset property for enumeration.",
+                    "dataType": "NI.FIU.Bus",
+                    "bitfield": "StateRegister7/BusSelectionM",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.State.Load",
+                    "description-en": "Read-only property that represents the actual connection states for a particular channel. See Preset property for enumeration.",
+                    "dataType": "NI.FIU.Load",
+                    "bitfield": "StateRegister7/LoadEnableM",
+                    "access": "ReadOnly"
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Gain",
+                    "description-en": "The gain used to calculate the current from the current transducer, based on the voltage input",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 12.5
+                },
+                {
+                    "name": "NI.FIU.CurrentTransducer.Offset",
+                    "description-en": "The offset used to calculate the current from the current transducer, based on the voltage input",
+                    "dataType": "Double",
+                    "access": "ReadOnly",
+                    "value": 0.000000
+                }
+            ]
+        },
+
+
+
+
+
+        {
+
+            "name": "ChannelPair_0",
+            "properties": [
+                {
+                    "name": "NI.FIU.Preset.InterChannel",
+                    "description-en": "Allows pre-setting channel 0 connection to its partner channel. An Update command is required for the change to take place.",
+                    "documentation-en": "0:'IndependentChannels': Channel 0 is not connected to 1, 1:'ConnectedChannels': Channel 0 is connected to 1",
+                    "dataType": "NI.FIU.ChannelConnect",
+                    "bitfield": "PreloadRegister0/ChannelConnect",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.State.InterChannel",
+                    "description-en": "Read-only property that represents the actual connection states for a particular channel pair. See Preset property for enumeration.",
+                    "dataType": "NI.FIU.ChannelConnect",
+                    "bitfield": "StateRegister0/ChannelConnect",
+                    "access": "ReadOnly"
+                }
+
+            ]
+        },
+
+        {
+
+            "name": "ChannelPair_1",
+            "properties": [
+                {
+                    "name": "NI.FIU.Preset.InterChannel",
+                    "description-en": "Allows pre-setting channel 2 connection to its partner channel. An Update command is required for the change to take place.",
+                    "documentation-en": "0:'IndependentChannels': Channel 2 is not connected to 3, 1:'ConnectedChannels': Channel 2 is connected to 3",
+                    "dataType": "NI.FIU.ChannelConnect",
+                    "bitfield": "PreloadRegister1/ChannelConnect",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.State.InterChannel",
+                    "description-en": "Read-only property that represents the actual connection states for a particular channel pair. See Preset property for enumeration.",
+                    "dataType": "NI.FIU.ChannelConnect",
+                    "bitfield": "StateRegister1/ChannelConnect",
+                    "access": "ReadOnly"
+                }
+
+            ]
+        },
+        {
+
+            "name": "ChannelPair_2",
+            "properties": [
+                {
+                    "name": "NI.FIU.Preset.InterChannel",
+                    "description-en": "Allows pre-setting channel 4 connection to its partner channel. An Update command is required for the change to take place.",
+                    "documentation-en": "0:'IndependentChannels': Channel 4 is not connected to 5, 1:'ConnectedChannels': Channel 4 is connected to 5",
+                    "dataType": "NI.FIU.ChannelConnect",
+                    "bitfield": "PreloadRegister2/ChannelConnect",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.State.InterChannel",
+                    "description-en": "Read-only property that represents the actual connection states for a particular channel pair. See Preset property for enumeration.",
+                    "dataType": "NI.FIU.ChannelConnect",
+                    "bitfield": "StateRegister2/ChannelConnect",
+                    "access": "ReadOnly"
+                }
+
+            ]
+        },
+        {
+
+            "name": "ChannelPair_3",
+            "properties": [
+                {
+                    "name": "NI.FIU.Preset.InterChannel",
+                    "description-en": "Allows pre-setting channel 6 connection to its partner channel. An Update command is required for the change to take place.",
+                    "documentation-en": "0:'IndependentChannels': Channel 6 is not connected to 7, 1:'ConnectedChannels': Channel 6 is connected to 7",
+                    "dataType": "NI.FIU.ChannelConnect",
+                    "bitfield": "PreloadRegister3/ChannelConnect",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.State.InterChannel",
+                    "description-en": "Read-only property that represents the actual connection states for a particular channel pair. See Preset property for enumeration.",
+                    "dataType": "NI.FIU.ChannelConnect",
+                    "bitfield": "StateRegister3/ChannelConnect",
+                    "access": "ReadOnly"
+                }
+
+            ]
+        },
+        {
+
+            "name": "ChannelPair_4",
+            "properties": [
+                {
+                    "name": "NI.FIU.Preset.InterChannel",
+                    "description-en": "Allows pre-setting channel 8 connection to its partner channel. An Update command is required for the change to take place.",
+                    "documentation-en": "0:'IndependentChannels': Channel 8 is not connected to 9, 1:'ConnectedChannels': Channel 8 is connected to 9",
+                    "dataType": "NI.FIU.ChannelConnect",
+                    "bitfield": "PreloadRegister4/ChannelConnect",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.State.InterChannel",
+                    "description-en": "Read-only property that represents the actual connection states for a particular channel pair. See Preset property for enumeration.",
+                    "dataType": "NI.FIU.ChannelConnect",
+                    "bitfield": "StateRegister4/ChannelConnect",
+                    "access": "ReadOnly"
+                }
+
+            ]
+        },
+        {
+
+            "name": "ChannelPair_5",
+            "properties": [
+                {
+                    "name": "NI.FIU.Preset.InterChannel",
+                    "description-en": "Allows pre-setting channel 10 connection to its partner channel. An Update command is required for the change to take place.",
+                    "documentation-en": "0:'IndependentChannels': Channel 10 is not connected to 11, 1:'ConnectedChannels': Channel 10 is connected to 11",
+                    "dataType": "NI.FIU.ChannelConnect",
+                    "bitfield": "PreloadRegister5/ChannelConnect",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.State.InterChannel",
+                    "description-en": "Read-only property that represents the actual connection states for a particular channel pair. See Preset property for enumeration.",
+                    "dataType": "NI.FIU.ChannelConnect",
+                    "bitfield": "StateRegister5/ChannelConnect",
+                    "access": "ReadOnly"
+                }
+
+            ]
+        },
+        {
+
+            "name": "ChannelPair_6",
+            "properties": [
+                {
+                    "name": "NI.FIU.Preset.InterChannel",
+                    "description-en": "Allows pre-setting channel 12 connection to its partner channel. An Update command is required for the change to take place.",
+                    "documentation-en": "0:'IndependentChannels': Channel 12 is not connected to 13, 1:'ConnectedChannels': Channel 12 is connected to 13",
+                    "dataType": "NI.FIU.ChannelConnect",
+                    "bitfield": "PreloadRegister6/ChannelConnect",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.State.InterChannel",
+                    "description-en": "Read-only property that represents the actual connection states for a particular channel pair. See Preset property for enumeration.",
+                    "dataType": "NI.FIU.ChannelConnect",
+                    "bitfield": "StateRegister6/ChannelConnect",
+                    "access": "ReadOnly"
+                }
+
+            ]
+        },
+        {
+
+            "name": "ChannelPair_7",
+            "properties": [
+                {
+                    "name": "NI.FIU.Preset.InterChannel",
+                    "description-en": "Allows pre-setting channel 14 connection to its partner channel. An Update command is required for the change to take place.",
+                    "documentation-en": "0:'IndependentChannels': Channel 14 is not connected to 15, 1:'ConnectedChannels': Channel 14 is connected to 15",
+                    "dataType": "NI.FIU.ChannelConnect",
+                    "bitfield": "PreloadRegister7/ChannelConnect",
+                    "access": "ReadWrite"
+                },
+                {
+                    "name": "NI.FIU.State.InterChannel",
+                    "description-en": "Read-only property that represents the actual connection states for a particular channel pair. See Preset property for enumeration.",
+                    "dataType": "NI.FIU.ChannelConnect",
+                    "bitfield": "StateRegister7/ChannelConnect",
+                    "access": "ReadOnly"
+                }
+
+            ]
+        }
+    ]
+}
