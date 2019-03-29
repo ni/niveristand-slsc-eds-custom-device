@@ -10,7 +10,7 @@
 		<Path>Custom Devices\SLSC Plug-ins\SLSC EDS\SLSC EDS Configuration.llb\HideFromMenu.vi</Path>
 		<Behavior>Static</Behavior>
 	</Dependency>
-	<Version>1.0.3</Version>
+	<Version>1.1.0</Version>
 	<Type>Inline HW Interface</Type>
 	<MaxOccurrence>2474</MaxOccurrence>
 	<MainPageGUID>8e00a9a9-cfde-4ea5-9266-6ce3d8c7c691</MainPageGUID>
@@ -90,6 +90,42 @@
 				  </Item2Launch>
 				</MenuItem>
 				<MenuItem>
+				  <GUID>ef08e418-6448-41a4-84ad-1a481338294f</GUID>
+				  <Type>Action</Type>
+				  <Name>
+					<eng>Autodetect</eng>
+					<loc>Autodetect</loc>
+				  </Name>
+				  <Item2Launch>
+					<Type>To Common Doc Dir</Type>
+					<Path>Custom Devices\SLSC Plug-ins\SLSC EDS\SLSC EDS Configuration.llb\RTM SLSC Autodetect.vi</Path>
+				  </Item2Launch>
+				</MenuItem>
+				<MenuItem>
+				  <GUID>5eeeabf3-866e-4f13-9c80-6a6684c32805</GUID>
+				  <Type>Action</Type>
+				  <Name>
+					<eng>Import</eng>
+					<loc>Import</loc>
+				  </Name>
+				  <Item2Launch>
+					<Type>To Common Doc Dir</Type>
+					<Path>Custom Devices\SLSC Plug-ins\SLSC EDS\SLSC EDS Configuration.llb\RTM SLSC Import.vi</Path>
+				  </Item2Launch>
+				</MenuItem>
+				<MenuItem>
+				  <GUID>d72f5d03-40d4-4bad-ba30-3748d24522a8</GUID>
+				  <Type>Action</Type>
+				  <Name>
+					<eng>Export</eng>
+					<loc>Export</loc>
+				  </Name>
+				  <Item2Launch>
+					<Type>To Common Doc Dir</Type>
+					<Path>Custom Devices\SLSC Plug-ins\SLSC EDS\SLSC EDS Configuration.llb\RTM SLSC Export.vi</Path>
+				  </Item2Launch>
+				</MenuItem>
+				<MenuItem>
 				  <GUID>7755077A-1485-13A6-5674A23FB86277FF</GUID>
 				  <Type>Separator</Type>
 				  <Name>
@@ -104,6 +140,81 @@
 			</RunTimeMenu>
 			<ButtonList>
 				<Button>
+					<ID>Autodetect</ID>
+					<Glyph>
+						<Type>To Application Data Dir</Type>
+						<Path>System Explorer\Glyphs\NI-XNET DropFrames.png</Path>
+					</Glyph>
+					<Type>Notification</Type>
+					<ReferencedGUID></ReferencedGUID>
+					<ButtonText>
+						<eng>Autodetect</eng>
+						<loc>Autodetect</loc>
+					</ButtonText>
+					<Caption>
+						<eng>Autodetect</eng>
+						<loc>Autodetect</loc>
+					</Caption>
+					<TipStrip>
+						<eng>Acquire the configuration from the module's capability file in this slot.</eng>
+						<loc>Acquire the configuration from the module's capability file in this slot.</loc>
+					</TipStrip>
+					<Documentation>
+						<eng></eng>
+						<loc></loc>
+					</Documentation>
+				</Button>
+				<Button>
+					<ID>Import</ID>
+					<Glyph>
+						<Type>To Application Data Dir</Type>
+						<Path>System Explorer\Glyphs\import.png</Path>
+					</Glyph>
+					<Type>Notification</Type>
+					<ReferencedGUID></ReferencedGUID>
+					<ButtonText>
+						<eng>Import</eng>
+						<loc>Import</loc>
+					</ButtonText>
+					<Caption>
+						<eng>Import</eng>
+						<loc>Import</loc>
+					</Caption>
+					<TipStrip>
+						<eng>Import the SLSC EDS configuration from a file.</eng>
+						<loc>Import the SLSC EDS configuration from a file.</loc>
+					</TipStrip>
+					<Documentation>
+						<eng></eng>
+						<loc></loc>
+					</Documentation>
+				</Button>
+				<Button>
+					<ID>Export</ID>
+					<Glyph>
+						<Type>To Application Data Dir</Type>
+						<Path>System Explorer\Glyphs\export.png</Path>
+					</Glyph>
+					<Type>Notification</Type>
+					<ReferencedGUID></ReferencedGUID>
+					<ButtonText>
+						<eng>Export</eng>
+						<loc>Export</loc>
+					</ButtonText>
+					<Caption>
+						<eng>Export</eng>
+						<loc>Export</loc>
+					</Caption>
+					<TipStrip>
+						<eng>Export the SLSC EDS configuration to a file.</eng>
+						<loc>Export the SLSC EDS configuration to a file.</loc>
+					</TipStrip>
+					<Documentation>
+						<eng></eng>
+						<loc></loc>
+					</Documentation>
+				</Button>
+				<Button>
 					<ID>ApplyButton</ID>
 					<Glyph>
 						<Type>To Application Data Dir</Type>
@@ -112,16 +223,16 @@
 					<Type>Notification</Type>
 					<ReferencedGUID></ReferencedGUID>
 					<ButtonText>
-						<eng>Apply Default</eng>
-						<loc>Apply Default</loc>
+						<eng>Write Default</eng>
+						<loc>Write Default</loc>
 					</ButtonText>
 					<Caption>
-						<eng>Apply Default</eng>
-						<loc>Apply Default</loc>
+						<eng>Write Default</eng>
+						<loc>Write Default</loc>
 					</Caption>
 					<TipStrip>
-						<eng>Apply the default properties of the page now.</eng>
-						<loc>Apply the default properties of the page now.</loc>
+						<eng>Write the default column properties of the page now.</eng>
+						<loc>Write the default column properties of the page now.</loc>
 					</TipStrip>
 					<Documentation>
 						<eng></eng>
@@ -137,16 +248,16 @@
 					<Type>Notification</Type>
 					<ReferencedGUID></ReferencedGUID>
 					<ButtonText>
-						<eng>Apply Reset</eng>
-						<loc>Apply Reset</loc>
+						<eng>Write Reset</eng>
+						<loc>Write Reset</loc>
 					</ButtonText>
 					<Caption>
-						<eng>Apply Reset</eng>
-						<loc>Apply Reset</loc>
+						<eng>Write Reset</eng>
+						<loc>Write Reset</loc>
 					</Caption>
 					<TipStrip>
-						<eng>Apply the reset properties of the page now.</eng>
-						<loc>Apply the reset properties of the page now.</loc>
+						<eng>Write the reset column properties of the page now.</eng>
+						<loc>Write the reset column properties of the page now.</loc>
 					</TipStrip>
 					<Documentation>
 						<eng></eng>
@@ -154,24 +265,24 @@
 					</Documentation>
 				</Button>
 				<Button>
-					<ID>HelpButton</ID>
+					<ID>ReadButton</ID>
 					<Glyph>
 						<Type>To Application Data Dir</Type>
-						<Path>System Explorer\Glyphs\RM Information Channels.png</Path>
+						<Path>System Explorer\Glyphs\ni-can frames.png</Path>
 					</Glyph>
 					<Type>Notification</Type>
 					<ReferencedGUID></ReferencedGUID>
 					<ButtonText>
-						<eng>Page Help</eng>
-						<loc>Page Help</loc>
+						<eng>Read</eng>
+						<loc>Read</loc>
 					</ButtonText>
 					<Caption>
-						<eng>Page Help</eng>
-						<loc>Page Help</loc>
+						<eng>Read</eng>
+						<loc>Read</loc>
 					</Caption>
 					<TipStrip>
-						<eng>Shows help for this page</eng>
-						<loc>Shows help for this page</loc>
+						<eng>Read Only the variables of the Module right now.</eng>
+						<loc>Read Only the variables of the Module right now.</loc>
 					</TipStrip>
 					<Documentation>
 						<eng></eng>
@@ -187,12 +298,12 @@
 					<Type>Notification</Type>
 					<ReferencedGUID></ReferencedGUID>
 					<ButtonText>
-						<eng>SLSC Diagram</eng>
-						<loc>SLSC Diagram</loc>
+						<eng>Diagram</eng>
+						<loc>Diagram</loc>
 					</ButtonText>
 					<Caption>
-						<eng>SLSC Diagram</eng>
-						<loc>SLSC Diagram</loc>
+						<eng>Diagram</eng>
+						<loc>Diagram</loc>
 					</Caption>
 					<TipStrip>
 						<eng>Shows the diagram for this card</eng>
@@ -212,16 +323,41 @@
 					<Type>Notification</Type>
 					<ReferencedGUID></ReferencedGUID>
 					<ButtonText>
-						<eng>SLSC Pinout</eng>
-						<loc>SLSC Pinout</loc>
+						<eng>Pinout</eng>
+						<loc>Pinout</loc>
 					</ButtonText>
 					<Caption>
-						<eng>SLSC Pinout</eng>
-						<loc>SLSC Pinout</loc>
+						<eng>Pinout</eng>
+						<loc>Pinout</loc>
 					</Caption>
 					<TipStrip>
 						<eng>Shows the pinout for this module</eng>
 						<loc>Shows the pinout for this module</loc>
+					</TipStrip>
+					<Documentation>
+						<eng></eng>
+						<loc></loc>
+					</Documentation>
+				</Button>
+				<Button>
+					<ID>HelpButton</ID>
+					<Glyph>
+						<Type>To Application Data Dir</Type>
+						<Path>System Explorer\Glyphs\RM Information Channels.png</Path>
+					</Glyph>
+					<Type>Notification</Type>
+					<ReferencedGUID></ReferencedGUID>
+					<ButtonText>
+						<eng>Help</eng>
+						<loc>Help</loc>
+					</ButtonText>
+					<Caption>
+						<eng>Help</eng>
+						<loc>Help</loc>
+					</Caption>
+					<TipStrip>
+						<eng>Shows help for this page</eng>
+						<loc>Shows help for this page</loc>
 					</TipStrip>
 					<Documentation>
 						<eng></eng>
@@ -283,6 +419,81 @@
 			</RunTimeMenu>
 			<ButtonList>
 				<Button>
+					<ID>Autodetect</ID>
+					<Glyph>
+						<Type>To Application Data Dir</Type>
+						<Path>System Explorer\Glyphs\NI-XNET DropFrames.png</Path>
+					</Glyph>
+					<Type>Notification</Type>
+					<ReferencedGUID></ReferencedGUID>
+					<ButtonText>
+						<eng>Autodetect</eng>
+						<loc>Autodetect</loc>
+					</ButtonText>
+					<Caption>
+						<eng>Autodetect</eng>
+						<loc>Autodetect</loc>
+					</Caption>
+					<TipStrip>
+						<eng>Acquire the configuration from the capability file in this slot.</eng>
+						<loc>Acquire the configuration from the capability file in this slot.</loc>
+					</TipStrip>
+					<Documentation>
+						<eng></eng>
+						<loc></loc>
+					</Documentation>
+				</Button>
+				<Button>
+					<ID>Import</ID>
+					<Glyph>
+						<Type>To Application Data Dir</Type>
+						<Path>System Explorer\Glyphs\import.png</Path>
+					</Glyph>
+					<Type>Notification</Type>
+					<ReferencedGUID></ReferencedGUID>
+					<ButtonText>
+						<eng>Import</eng>
+						<loc>Import</loc>
+					</ButtonText>
+					<Caption>
+						<eng>Import</eng>
+						<loc>Import</loc>
+					</Caption>
+					<TipStrip>
+						<eng>Import the SLSC EDS configuration from a file.</eng>
+						<loc>Import the SLSC EDS configuration from a file.</loc>
+					</TipStrip>
+					<Documentation>
+						<eng></eng>
+						<loc></loc>
+					</Documentation>
+				</Button>
+				<Button>
+					<ID>Export</ID>
+					<Glyph>
+						<Type>To Application Data Dir</Type>
+						<Path>System Explorer\Glyphs\export.png</Path>
+					</Glyph>
+					<Type>Notification</Type>
+					<ReferencedGUID></ReferencedGUID>
+					<ButtonText>
+						<eng>Export</eng>
+						<loc>Export</loc>
+					</ButtonText>
+					<Caption>
+						<eng>Export</eng>
+						<loc>Export</loc>
+					</Caption>
+					<TipStrip>
+						<eng>Export the SLSC EDS configuration to a file.</eng>
+						<loc>Export the SLSC EDS configuration to a file.</loc>
+					</TipStrip>
+					<Documentation>
+						<eng></eng>
+						<loc></loc>
+					</Documentation>
+				</Button>
+				<Button>
 					<ID>ApplyButton</ID>
 					<Glyph>
 						<Type>To Application Data Dir</Type>
@@ -291,16 +502,16 @@
 					<Type>Notification</Type>
 					<ReferencedGUID></ReferencedGUID>
 					<ButtonText>
-						<eng>Apply Default</eng>
-						<loc>Apply Default</loc>
+						<eng>Write Default</eng>
+						<loc>Write Default</loc>
 					</ButtonText>
 					<Caption>
-						<eng>Apply Default</eng>
-						<loc>Apply Default</loc>
+						<eng>Write Default</eng>
+						<loc>Write Default</loc>
 					</Caption>
 					<TipStrip>
-						<eng>Apply the default properties of the page now.</eng>
-						<loc>Apply the default properties of the page now.</loc>
+						<eng>Write the default column properties of the page now.</eng>
+						<loc>Write the default column properties of the page now.</loc>
 					</TipStrip>
 					<Documentation>
 						<eng></eng>
@@ -316,16 +527,16 @@
 					<Type>Notification</Type>
 					<ReferencedGUID></ReferencedGUID>
 					<ButtonText>
-						<eng>Apply Reset</eng>
-						<loc>Apply Reset</loc>
+						<eng>Write Reset</eng>
+						<loc>Write Reset</loc>
 					</ButtonText>
 					<Caption>
-						<eng>Apply Reset</eng>
-						<loc>Apply Reset</loc>
+						<eng>Write Reset</eng>
+						<loc>Write Reset</loc>
 					</Caption>
 					<TipStrip>
-						<eng>Apply the reset properties of the page now.</eng>
-						<loc>Apply the reset properties of the page now.</loc>
+						<eng>Write the reset column properties of the page now.</eng>
+						<loc>Write the reset column properties of the page now.</loc>
 					</TipStrip>
 					<Documentation>
 						<eng></eng>
@@ -333,24 +544,24 @@
 					</Documentation>
 				</Button>
 				<Button>
-					<ID>HelpButton</ID>
+					<ID>ReadButton</ID>
 					<Glyph>
 						<Type>To Application Data Dir</Type>
-						<Path>System Explorer\Glyphs\RM Information Channels.png</Path>
+						<Path>System Explorer\Glyphs\ni-can frames.png</Path>
 					</Glyph>
 					<Type>Notification</Type>
 					<ReferencedGUID></ReferencedGUID>
 					<ButtonText>
-						<eng>Page Help</eng>
-						<loc>Page Help</loc>
+						<eng>Read</eng>
+						<loc>Read</loc>
 					</ButtonText>
 					<Caption>
-						<eng>Page Help</eng>
-						<loc>Page Help</loc>
+						<eng>Read</eng>
+						<loc>Read</loc>
 					</Caption>
 					<TipStrip>
-						<eng>Shows help for this page</eng>
-						<loc>Shows help for this page</loc>
+						<eng>Read Only the variables of the Module right now.</eng>
+						<loc>Read Only the variables of the Module right now.</loc>
 					</TipStrip>
 					<Documentation>
 						<eng></eng>
@@ -366,12 +577,12 @@
 					<Type>Notification</Type>
 					<ReferencedGUID></ReferencedGUID>
 					<ButtonText>
-						<eng>SLSC Diagram</eng>
-						<loc>SLSC Diagram</loc>
+						<eng>Diagram</eng>
+						<loc>Diagram</loc>
 					</ButtonText>
 					<Caption>
-						<eng>SLSC Diagram</eng>
-						<loc>SLSC Diagram</loc>
+						<eng>Diagram</eng>
+						<loc>Diagram</loc>
 					</Caption>
 					<TipStrip>
 						<eng>Shows the diagram for this card</eng>
@@ -391,16 +602,41 @@
 					<Type>Notification</Type>
 					<ReferencedGUID></ReferencedGUID>
 					<ButtonText>
-						<eng>SLSC Pinout</eng>
-						<loc>SLSC Pinout</loc>
+						<eng>Pinout</eng>
+						<loc>Pinout</loc>
 					</ButtonText>
 					<Caption>
-						<eng>SLSC Pinout</eng>
-						<loc>SLSC Pinout</loc>
+						<eng>Pinout</eng>
+						<loc>Pinout</loc>
 					</Caption>
 					<TipStrip>
 						<eng>Shows the pinout for this module</eng>
 						<loc>Shows the pinout for this module</loc>
+					</TipStrip>
+					<Documentation>
+						<eng></eng>
+						<loc></loc>
+					</Documentation>
+				</Button>
+				<Button>
+					<ID>HelpButton</ID>
+					<Glyph>
+						<Type>To Application Data Dir</Type>
+						<Path>System Explorer\Glyphs\RM Information Channels.png</Path>
+					</Glyph>
+					<Type>Notification</Type>
+					<ReferencedGUID></ReferencedGUID>
+					<ButtonText>
+						<eng>Help</eng>
+						<loc>Help</loc>
+					</ButtonText>
+					<Caption>
+						<eng>Help</eng>
+						<loc>Help</loc>
+					</Caption>
+					<TipStrip>
+						<eng>Shows help for this page</eng>
+						<loc>Shows help for this page</loc>
 					</TipStrip>
 					<Documentation>
 						<eng></eng>

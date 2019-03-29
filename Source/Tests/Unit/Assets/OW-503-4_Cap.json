@@ -1,0 +1,274 @@
+{
+    "productNum": 401,
+    "productName": "OW-503-4 Battery Switch Module",
+    "vendorNum": 20311,
+    "vendorName": "OrangeWire Systems",
+    "vendorPrefix": "OW",
+    "capsVersion": "0.1.0c0",
+    "capsSpecVersion": 1,
+	"capsSpecOldestCompatibleVersion":1,
+    "enums": [
+        {
+            "name": "OW.Filter",
+            "description-en": "Define the cutoff frequency of the Current measurement",
+            "values": [
+                {
+                    "name": "Filter200kHz",
+                    "description-en": "Channel n and channel n + 1 are independent.",
+                    "value": 0
+                },
+                {
+                    "name": "Filter1kHz",
+                    "description-en": "Channel n and channel n + 1 are connected.",
+                    "value": 1
+                },
+                {
+                    "name": "Filter20kHz",
+                    "description-en": "Channel n and channel n + 1 are connected.",
+                    "value": 2
+                },
+                {
+                    "name": "Filter80kHz",
+                    "description-en": "Channel n and channel n + 1 are connected.",
+                    "value": 4
+                }
+            ]
+        }
+	],
+    "registerMap": {
+        "registers": [
+            {
+                "name": "ControlRelay",
+                "access": "WriteOnly",
+                "address": 4,
+                "size": 64,
+
+                "initialValue": 0,
+
+                "bitfields": 
+				[
+				   {
+						  "name":"BatteryRelayCh0",
+						  "description-en":"Connects/Disconnects ARINC channel 0.",
+						  "offset":0,
+						  "size":1, 
+						  "strobe":false
+				   },
+				   {
+						  "name":"BatteryRelayCh1",
+						  "description-en":"Connects/Disconnects ARINC channel 1.",
+						  "offset":1,
+						  "size":1,
+						  "strobe":false
+				   },
+				   {
+						  "name":"BatteryRelayCh2",
+						  "description-en":"Connects/Disconnects ARINC channel 2.",
+						  "offset":2,
+						  "size":1,
+						  "strobe":false
+				   },
+				   {
+						  "name":"BatteryRelayCh3",
+						  "description-en":"Connects/Disconnects ARINC channel 3.",
+						  "offset":3,
+						  "size":1,
+						  "strobe":false
+					},
+				   {
+						  "name":"ShuntRelayCh0",
+						  "description-en":"Connects/Disconnects ARINC channel 0.",
+						  "offset":4,
+						  "size":1,
+						  "strobe":false
+				   },
+				   {
+						  "name":"ShuntRelayCh1",
+						  "description-en":"Connects/Disconnects ARINC channel 1.",
+						  "offset":5,
+						  "size":1,
+						  "strobe":false
+				   },
+				   {
+						  "name":"ShuntRelayCh2",
+						  "description-en":"Connects/Disconnects ARINC channel 2.",
+						  "offset":6,
+						  "size":1,
+						  "strobe":false
+				   },
+				   {
+						  "name":"ShuntRelayCh3",
+						  "description-en":"Connects/Disconnects ARINC channel 3.",
+						  "offset":7,
+						  "size":1,
+						  "strobe":false
+				   },
+				   {
+						  "name":"FilterCh0",
+						  "description-en":"Connects/Disconnects ARINC channel 0.",
+						  "offset":32,
+						  "size":3,
+						  "strobe":false
+				   },
+				   {
+						  "name":"FilterCh1",
+						  "description-en":"Connects/Disconnects ARINC channel 0.",
+						  "offset":35,
+						  "size":3,
+						  "strobe":false
+				   },
+				   {
+						  "name":"FilterCh2",
+						  "description-en":"Connects/Disconnects ARINC channel 0.",
+						  "offset":38,
+						  "size":3,
+						  "strobe":false
+				   },
+				   {
+						  "name":"FilterCh3",
+						  "description-en":"Connects/Disconnects ARINC channel 0.",
+						  "offset":41,
+						  "size":3,
+						  "strobe":false
+				   }
+                ]
+            },
+            {
+                "name": "SPIMessage",
+                "access": "WriteOnly",
+                "address": 5,
+                "size": 32,
+
+                "initialValue": 0,
+
+                "bitfields": [
+                    {
+                        "name": "SPIState",
+                        "description-en": "RefRail",
+                        "offset": 0,
+                        "size": 32
+                    }
+                ]
+            }		   
+        ]
+	},
+
+    "physicalChannels": [
+        {
+            "name": "Ch0",
+            "properties": [
+                {
+                    "name": "OW.BatteryRelay",
+                    "description-en": "Channel 1 Relay state",
+                    "dataType": "Bool",
+                    "access": "WriteOnly",
+                    "bitfield": "ControlRelay/BatteryRelayCh0"
+                },
+                {
+                    "name": "OW.ShuntRelay",
+                    "description-en": "Channel 1 Shunt Relay state",
+                    "dataType": "Bool",
+                    "access": "WriteOnly",
+                    "bitfield": "ControlRelay/ShuntRelayCh0"
+                },
+                {
+                    "name": "OW.Filter",
+                    "description-en": "Channel 1 Shunt Relay state",
+                    "dataType": "OW.Filter",
+                    "access": "WriteOnly",
+                    "bitfield": "ControlRelay/FilterCh0"
+                }
+            ]
+        },
+       {
+            "name": "Ch1",
+            "properties": [
+                {
+                    "name": "OW.BatteryRelay",
+                    "description-en": "Channel 2 Relay state",
+                    "dataType": "Bool",
+                    "access": "WriteOnly",
+                    "bitfield": "ControlRelay/BatteryRelayCh1"
+                },
+                {
+                    "name": "OW.ShuntRelay",
+                    "description-en": "Channel 2 Shunt Relay state",
+                    "dataType": "Bool",
+                    "access": "WriteOnly",
+                    "bitfield": "ControlRelay/ShuntRelayCh1"
+                },
+                {
+                    "name": "OW.Filter",
+                    "description-en": "Channel 2 Shunt Relay state",
+                    "dataType": "OW.Filter",
+                    "access": "WriteOnly",
+                    "bitfield": "ControlRelay/FilterCh1"
+                }
+            ]
+        },
+       {
+            "name": "Ch2",
+            "properties": [
+                {
+                    "name": "OW.BatteryRelay",
+                    "description-en": "Channel 3 Relay state",
+                    "dataType": "Bool",
+                    "access": "WriteOnly",
+                    "bitfield": "ControlRelay/BatteryRelayCh2"
+                },
+                {
+                    "name": "OW.ShuntRelay",
+                    "description-en": "Channel 3 Shunt Relay state",
+                    "dataType": "Bool",
+                    "access": "WriteOnly",
+                    "bitfield": "ControlRelay/ShuntRelayCh2"
+                },
+                {
+                    "name": "OW.Filter",
+                    "description-en": "Channel 3 Shunt Relay state",
+                    "dataType": "OW.Filter",
+                    "access": "WriteOnly",
+                    "bitfield": "ControlRelay/FilterCh2"
+                }
+            ]
+        },
+       {
+            "name": "Ch3",
+            "properties": [
+                {
+                    "name": "OW.BatteryRelay",
+                    "description-en": "Channel 4 Relay state",
+                    "dataType": "Bool",
+                    "access": "WriteOnly",
+                    "bitfield": "ControlRelay/BatteryRelayCh3"
+                },
+                {
+                    "name": "OW.ShuntRelay",
+                    "description-en": "Channel 4 Shunt Relay state",
+                    "dataType": "Bool",
+                    "access": "WriteOnly",
+                    "bitfield": "ControlRelay/ShuntRelayCh3"
+                },
+                                {
+                    "name": "OW.Filter",
+                    "description-en": "Channel 4 Shunt Relay state",
+                    "dataType": "OW.Filter",
+                    "access": "WriteOnly",
+                    "bitfield": "ControlRelay/FilterCh3"
+                }
+            ]
+        },
+		{
+            "name": "SPI",
+            "properties": [
+                {
+                    "name": "OW.SPI.SPIState",
+                    "description-en": "SPI Message",
+                    "dataType": "UInt32",
+                    "access": "WriteOnly",
+                    "bitfield": "SPIMessage/SPIState"
+                }
+            ]
+        }
+    ]
+}

@@ -16,6 +16,9 @@
 			<Item Name="RTMs" Type="Folder">
 				<Item Name="HideFromMenu.vi" Type="VI" URL="../SubVIs/HideFromMenu.vi"/>
 				<Item Name="Set Help Document Display.vi" Type="VI" URL="../SubVIs/Set Help Document Display.vi"/>
+				<Item Name="RTM SLSC Import.vi" Type="VI" URL="../Dynamically Called/RTMs/RTM SLSC Import.vi"/>
+				<Item Name="RTM SLSC Autodetect.vi" Type="VI" URL="../Dynamically Called/RTMs/RTM SLSC Autodetect.vi"/>
+				<Item Name="RTM SLSC Export.vi" Type="VI" URL="../Dynamically Called/RTMs/RTM SLSC Export.vi"/>
 				<Item Name="RTM SLSC DisableEnable.vi" Type="VI" URL="../Dynamically Called/RTMs/RTM SLSC DisableEnable.vi"/>
 			</Item>
 			<Item Name="Extra Pages" Type="Folder">
@@ -36,13 +39,27 @@
 			<Item Name="SLSC Add Command Section.vi" Type="VI" URL="../../SLSC CD API/SLSC CD System Explorer/SLSC Add Command Section.vi"/>
 			<Item Name="SLSC Add or Remove Channels.vi" Type="VI" URL="../SubVIs/SLSC Add or Remove Channels.vi"/>
 			<Item Name="SLSC Add Property Section.vi" Type="VI" URL="../../SLSC CD API/SLSC CD System Explorer/SLSC Add Property Section.vi"/>
+			<Item Name="SLSC Ask to Erase Configuration.vi" Type="VI" URL="../SubVIs/SLSC Ask to Erase Configuration.vi"/>
+			<Item Name="SLSC Clear All Channels from Tree.vi" Type="VI" URL="../../SLSC CD API/SLSC CD System Explorer/SLSC Clear All Channels from Tree.vi"/>
 			<Item Name="SLSC Coerce Number to ENUM.vi" Type="VI" URL="../SubVIs/SLSC Coerce Number to ENUM.vi"/>
+			<Item Name="SLSC Create Tree Hierarchy.vi" Type="VI" URL="../../SLSC CD API/SLSC CD System Explorer/SLSC Create Tree Hierarchy.vi"/>
+			<Item Name="SLSC Disable Buttons.vi" Type="VI" URL="../../SLSC CD API/SLSC CD System Explorer/SLSC Disable Buttons.vi"/>
 			<Item Name="SLSC Dynamic Channel Lookups.vi" Type="VI" URL="../SubVIs/SLSC Dynamic Channel Lookups.vi"/>
+			<Item Name="SLSC Enable Buttons for Online Action.vi" Type="VI" URL="../../SLSC CD API/SLSC CD System Explorer/SLSC Enable Buttons for Online Action.vi"/>
+			<Item Name="SLSC Enable Buttons.vi" Type="VI" URL="../../SLSC CD API/SLSC CD System Explorer/SLSC Enable Buttons.vi"/>
+			<Item Name="SLSC Export Configuration.vi" Type="VI" URL="../SubVIs/SLSC Export Configuration.vi"/>
+			<Item Name="SLSC Get Channel Properties.vi" Type="VI" URL="../../SLSC CD API/SLSC CD System Explorer/SLSC Get Channel Properties.vi"/>
+			<Item Name="SLSC Get Channels to Remove.vi" Type="VI" URL="../../SLSC CD API/SLSC CD System Explorer/SLSC Get Channels to Remove.vi"/>
+			<Item Name="SLSC Get Default-Reset Value.vi" Type="VI" URL="../../SLSC CD API/SLSC CD System Explorer/SLSC Get Default-Reset Value.vi"/>
 			<Item Name="SLSC Get Plugin Path.vi" Type="VI" URL="../SubVIs/SLSC Get Plugin Path.vi"/>
+			<Item Name="SLSC Get Sampling Time.vi" Type="VI" URL="../../SLSC CD API/SLSC CD System Explorer/SLSC Get Sampling Time.vi"/>
 			<Item Name="SLSC Initilize Properties.vi" Type="VI" URL="../SubVIs/SLSC Initilize Properties.vi"/>
+			<Item Name="SLSC Load EDS Configuration.vi" Type="VI" URL="../../SLSC CD API/SLSC CD System Explorer/SLSC Load EDS Configuration.vi"/>
 			<Item Name="SLSC Populate Module Tree.vi" Type="VI" URL="../../SLSC CD API/SLSC CD System Explorer/SLSC Populate Module Tree.vi"/>
 			<Item Name="SLSC Refresh Tree Control.vi" Type="VI" URL="../SubVIs/SLSC Refresh Tree Control.vi"/>
 			<Item Name="SLSC Separate Channels.vi" Type="VI" URL="../SubVIs/SLSC Separate Channels.vi"/>
+			<Item Name="SLSC Set Default-Reset Value.vi" Type="VI" URL="../../SLSC CD API/SLSC CD System Explorer/SLSC Set Default-Reset Value.vi"/>
+			<Item Name="SLSC Set Sampling Time.vi" Type="VI" URL="../../SLSC CD API/SLSC CD System Explorer/SLSC Set Sampling Time.vi"/>
 			<Item Name="SLSC Show Pinout.vi" Type="VI" URL="../SubVIs/SLSC Show Pinout.vi"/>
 			<Item Name="SLSC Update Default Values in Tree.vi" Type="VI" URL="../SubVIs/SLSC Update Default Values in Tree.vi"/>
 			<Item Name="SLSC Update Values in Tree Control.vi" Type="VI" URL="../SubVIs/SLSC Update Values in Tree Control.vi"/>
