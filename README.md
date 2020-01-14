@@ -4,7 +4,7 @@ SLSC EDS (Electronic Datasheet) Plugin Custom Device allows any generic SLSC Cap
 
 ## LabVIEW Version
 
-LabVIEW 2015
+LabVIEW 2017
 
 
 ## Developer Documentation
