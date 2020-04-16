@@ -20,6 +20,8 @@ If the chassis is online and a module is present in the chosen slot when **Autod
 
 ### Configuring a Module
 
+#### Default and Reset Values
+
 Each _property_ and _command_ will have an entry for **Default Value**. This value is applied to the module on deployment of the system definition by default. To disable this behavior, uncheck the **Apply Default Values on Deployment?** checkbox.
 
 Similarly, each _property_ and _command_, where available, will have a **Reset Value** that is applied by default when the system definition is undeployed. To disable this behavior, uncheck the **Apply Rese Values when Undeployed?** checkbox.
@@ -27,6 +29,12 @@ Similarly, each _property_ and _command_, where available, will have a **Reset V
 To modify the default values, select the _property_ or _command_ in the table and a control will appear above the table. When modifying a value, it is assumed to be the **Default Value**. To modify the **Reset Value**, check the **Modify Reset Value?** checkbox next to the value entry above the table.
 
 ![Modify Command Value](Support/Modify%20Command%20Value.png)
+
+#### Runtime Configuration
+
+By default, each _property_ and _command_ will have a VeriStand channel created for it. While the system definition is deployed, these channel values can be changed to alter the default configuration of the module.
+
+These channels can be removed from the system definition if they are not required for the application. If the system has a large channel count, reducing the number of deployed channels can increase system performance.
 
 ### Developer Plugins
 
@@ -36,7 +44,7 @@ The SLSC EDS Plugin Custom Device supports displaying circuit diagrams and devic
 
 **Pinout** button: `%PUBLIC%\Documents\National Instruments\NI VeriStand\<version>\SLSC Plugins\Modules\SLSC EDS Plugins\<vendor prefix>\<product number>_Pinout.png`
 
-**Note**: `<vendor prefix>` is defined in the SLSC capabilities files for the module.
+**Note**: `<vendor prefix>` and `<product number>` are defined in the SLSC capabilities files for the module.
 
 ![Diagram and Pinout](Support/Diagram%20and%20Pinout.png)
 
