@@ -28,7 +28,20 @@ To modify the default values, select the _property_ or _command_ in the table an
 
 ![Modify Command Value](Support/Modify%20Command%20Value.png)
 
+### Developer Plugins
+
+The SLSC EDS Plugin Custom Device supports displaying circuit diagrams and device pinouts for a module. When developing a module intended for use with the SLSC EDS custom device, the dynamic buttons at the top of the System Explorer window can be enabled by placing files in the following locations:
+
+**Diagram** button: `%PUBLIC%\Documents\National Instruments\NI VeriStand\<version>\SLSC Plugins\Modules\SLSC EDS Plugins\<vendor prefix>\<product number>_Diagram.png`
+
+**Pinout** button: `%PUBLIC%\Documents\National Instruments\NI VeriStand\<version>\SLSC Plugins\Modules\SLSC EDS Plugins\<vendor prefix>\<product number>_Pinout.png`
+
+**Note**: `<vendor prefix>` is defined in the SLSC capabilities files for the module.
+
+![Diagram and Pinout](Support/Diagram%20and%20Pinout.png)
+
 ## References
 
+[Legacy Release Notes](https://forums.ni.com/t5/NI-VeriStand-Add-Ons-Documents/SLSC-Electronic-Datasheet-EDS-Plugin-Custom-Device/ta-p/3812754)
 
-It is recommended to target a SLSC board when the chassis running because this would allow the SLSC EDS to read the capabilities features in the board. If you do that, then the module in the specific slot will return the specific capability in the specific slot:
+[Legacy Support Forum](https://forums.ni.com/t5/NI-VeriStand-Add-Ons-Discussions/SLSC-EDS-Plugin-Custom-Device-Feedback/td-p/3812753)
