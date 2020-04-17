@@ -24,7 +24,7 @@ If the chassis is online and a module is present in the chosen slot when **Autod
 
 Each _property_ and _command_ will have an entry for **Default Value**. This value is applied to the module on deployment of the system definition by default. To disable this behavior, uncheck the **Apply Default Values on Deployment?** checkbox.
 
-Similarly, each _property_ and _command_, where available, will have a **Reset Value** that is applied by default when the system definition is undeployed. To disable this behavior, uncheck the **Apply Rese Values when Undeployed?** checkbox.
+Similarly, each _property_ and _command_, where available, will have a **Reset Value** that is applied by default when the system definition is undeployed. To disable this behavior, uncheck the **Apply Reset Values when Undeployed?** checkbox.
 
 To modify the default values, select the _property_ or _command_ in the table and a control will appear above the table. When modifying a value, it is assumed to be the **Default Value**. To modify the **Reset Value**, check the **Modify Reset Value?** checkbox next to the value entry above the table.
 
