@@ -80,9 +80,6 @@
 			<Item Name="Custom Device API.lvlib" Type="Library" URL="/&lt;vilib&gt;/NI VeriStand/Custom Device API/Custom Device API.lvlib"/>
 			<Item Name="Custom Device Utility Library.lvlib" Type="Library" URL="/&lt;vilib&gt;/NI VeriStand/Custom Device Tools/Custom Device Utility Library/Custom Device Utility Library.lvlib"/>
 		</Item>
-		<Item Name="Utility" Type="Folder">
-			<Item Name="Copy .LLB to NI VeriStand dir.vi" Type="VI" URL="../Utility/Copy .LLB to NI VeriStand dir.vi"/>
-		</Item>
 		<Item Name="Support Files" Type="Folder">
 			<Item Name="Glyphs" Type="Folder" URL="../Glyphs">
 				<Property Name="NI.DISK" Type="Bool">true</Property>
@@ -143,12 +140,11 @@
 				<Item Name="SLSC EDS System Tests.lvclass" Type="LVClass" URL="../Tests/System/SLSC EDS System Tests.lvclass"/>
 			</Item>
 		</Item>
-		<Item Name="Build JKI Serialization" Type="Folder">
-			<Item Name="JKI JSON Serialization.lvlib" Type="Library" URL="/&lt;vilib&gt;/addons/_JKI.lib/Serialization/JSON/JKI JSON Serialization.lvlib"/>
-			<Item Name="JKI Serialization.lvlib" Type="Library" URL="/&lt;vilib&gt;/addons/_JKI.lib/Serialization/Core/JKI Serialization.lvlib"/>
-		</Item>
-		<Item Name="Build Rename" Type="Folder">
-			<Item Name="VariantType.lvlib" Type="Library" URL="/&lt;vilib&gt;/Utility/VariantDataType/VariantType.lvlib"/>
+		<Item Name="Utility" Type="Folder">
+			<Item Name="Build Rename" Type="Folder">
+				<Item Name="VariantType.lvlib" Type="Library" URL="/&lt;vilib&gt;/Utility/VariantDataType/VariantType.lvlib"/>
+			</Item>
+			<Item Name="Copy .LLB to NI VeriStand dir.vi" Type="VI" URL="../Utility/Copy .LLB to NI VeriStand dir.vi"/>
 		</Item>
 		<Item Name="SLSC EDS Engine.lvlib" Type="Library" URL="../Engine/SLSC EDS Engine.lvlib"/>
 		<Item Name="SLSC EDS Shared.lvlib" Type="Library" URL="../Shared/SLSC EDS Shared.lvlib"/>
@@ -525,6 +521,8 @@
 				<Item Name="LVFixedPointRepBitsTypeDef.ctl" Type="VI" URL="/&lt;vilib&gt;/fxp/LVFixedPointRepBitsTypeDef.ctl"/>
 				<Item Name="LVFixedPointRepRangeTypeDef.ctl" Type="VI" URL="/&lt;vilib&gt;/fxp/LVFixedPointRepRangeTypeDef.ctl"/>
 				<Item Name="LVNumericRepresentation.ctl" Type="VI" URL="/&lt;vilib&gt;/numeric/LVNumericRepresentation.ctl"/>
+				<Item Name="JKI JSON Serialization.lvlib" Type="Library" URL="/&lt;vilib&gt;/addons/_JKI.lib/Serialization/JSON/JKI JSON Serialization.lvlib"/>
+				<Item Name="JKI Serialization.lvlib" Type="Library" URL="/&lt;vilib&gt;/addons/_JKI.lib/Serialization/Core/JKI Serialization.lvlib"/>
 			</Item>
 			<Item Name="user.lib" Type="Folder">
 				<Item Name="Reshape Array to 1D VArray__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Reshape Array to 1D VArray__ogtk.vi"/>
@@ -751,7 +749,7 @@
 				<Property Name="Destination[4].destName" Type="Str">Help</Property>
 				<Property Name="Destination[4].path" Type="Path">../Built/NI_AB_PROJECTNAME</Property>
 				<Property Name="DestinationCount" Type="Int">5</Property>
-				<Property Name="Source[0].itemID" Type="Str">{84AB3A69-7EA7-47FA-A0A4-1B8297F9F38C}</Property>
+				<Property Name="Source[0].itemID" Type="Str">{0B645DDB-75A6-41D0-902B-6A9FC1E1EC48}</Property>
 				<Property Name="Source[0].type" Type="Str">Container</Property>
 				<Property Name="Source[1].Container.applyDestination" Type="Bool">true</Property>
 				<Property Name="Source[1].Container.applyInclusion" Type="Bool">true</Property>
@@ -818,19 +816,14 @@
 				<Property Name="Source[7].destinationIndex" Type="Int">0</Property>
 				<Property Name="Source[7].itemID" Type="Ref">/My Computer/SLSC Module SLSC EDS.xml</Property>
 				<Property Name="Source[7].sourceInclusion" Type="Str">Include</Property>
-				<Property Name="Source[8].Container.applyDestination" Type="Bool">true</Property>
-				<Property Name="Source[8].Container.depDestIndex" Type="Int">0</Property>
-				<Property Name="Source[8].destinationIndex" Type="Int">1</Property>
-				<Property Name="Source[8].itemID" Type="Ref">/My Computer/Build JKI Serialization</Property>
-				<Property Name="Source[8].newName" Type="Str">JKI_Serialization_JSON_</Property>
-				<Property Name="Source[8].type" Type="Str">Container</Property>
-				<Property Name="Source[9].Container.applyDestination" Type="Bool">true</Property>
-				<Property Name="Source[9].Container.applyPrefix" Type="Bool">true</Property>
-				<Property Name="Source[9].Container.depDestIndex" Type="Int">0</Property>
+				<Property Name="Source[8].destinationIndex" Type="Int">2</Property>
+				<Property Name="Source[8].itemID" Type="Ref">/My Computer/Utility/Build Rename/VariantType.lvlib/Private/MDTFlavorToTypeEnum.vi</Property>
+				<Property Name="Source[8].newName" Type="Str">_MDTFlavorToTypeEnum.vi</Property>
+				<Property Name="Source[8].type" Type="Str">VI</Property>
 				<Property Name="Source[9].destinationIndex" Type="Int">2</Property>
-				<Property Name="Source[9].itemID" Type="Ref">/My Computer/Build Rename</Property>
-				<Property Name="Source[9].newName" Type="Str">_</Property>
-				<Property Name="Source[9].type" Type="Str">Container</Property>
+				<Property Name="Source[9].itemID" Type="Ref">/My Computer/Utility/Build Rename/VariantType.lvlib/Private/GetRefnumInfoInternal.vi</Property>
+				<Property Name="Source[9].newName" Type="Str">_GetRefnumInfoInternal.vi</Property>
+				<Property Name="Source[9].type" Type="Str">VI</Property>
 				<Property Name="SourceCount" Type="Int">10</Property>
 			</Item>
 			<Item Name="Engine Release" Type="Source Distribution">
