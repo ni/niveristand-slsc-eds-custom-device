@@ -103,7 +103,7 @@ function BuildFeedbackURL() {
    var VersionDNA=vsversion;
    
 //   var link_string = handlerURL + "&" + ProductDNA + "&" + "version="+URLencode(VersionDNA) + "&" + "file="+URLencode(FileName);
-   var link_string = "http://decibel.ni.com/";
+   var link_string = "https://github.com/ni/niveristand-slsc-eds-custom-device/issues";
    return link_string;
 }
 
