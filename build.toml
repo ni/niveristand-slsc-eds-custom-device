@@ -5,15 +5,6 @@ archive_location = '\\nirvana\Measurements\VeriStandAddons\slsc_eds_custom_devic
 [projects.cd]
 path = 'Source\SLSC EDS.lvproj'
 
-[[codegen.steps]]
-name = 'Set Conditional Symbol'
-type = 'lvSetConditionalSymbol'
-project = '{cd}'
-symbol = 'CD_Version'
-true_value = '2015_2016'
-false_value = 'Default'
-condition = 'lvVersion < 2017'
-
 [[build.steps]]
 name = 'Configuration Library'
 type = 'lvBuildSpec'
@@ -31,8 +22,6 @@ build_spec = 'Engine Release'
 type = 'nipkg'
 payload_dir = 'Built'
 install_destination = 'documents\\National Instruments\\NI VeriStand {veristand_version}\\SLSC Plugins\\Modules'
-2015_install_destination = 'documents\\National Instruments\\NI VeriStand {veristand_version}\\Custom Devices\\SLSC Plug-ins'
-2016_install_destination = 'documents\\National Instruments\\NI VeriStand {veristand_version}\\Custom Devices\\SLSC Plug-ins'
 
 [notification]
 type = 'teams'

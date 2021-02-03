@@ -17,7 +17,6 @@
 	<Item Name="SLSC Create Status.vi" Type="VI" URL="../SLSC Create Status.vi"/>
 	<Item Name="SLSC Get All Channels.vi" Type="VI" URL="../SLSC Get All Channels.vi"/>
 	<Item Name="SLSC Get Capabilities from Custom Device.vi" Type="VI" URL="../SLSC Get Capabilities from Custom Device.vi"/>
-	<Item Name="SLSC Get IP Address from Chassis.vi" Type="VI" URL="../SLSC Get IP Address from Chassis.vi"/>
 	<Item Name="SLSC Get SLSC Chassis Address in Host.vi" Type="VI" URL="../SLSC Get SLSC Chassis Address in Host.vi"/>
 	<Item Name="SLSC Get SLSC name from Custom Device Ref.vi" Type="VI" URL="../SLSC Get SLSC name from Custom Device Ref.vi"/>
 </Library>
