@@ -72,64 +72,64 @@
 			</Item2Launch>
 			<RunTimeMenu>
 				<MenuItem>
-				  <GUID>6211ef21-86c1-487a-8a8a-f9c4353f6209</GUID>
-				  <Type>Action</Type>
-				  <Name>
-					<eng>Disable</eng>
-					<loc>Disable</loc>
-				  </Name>
-				  <Item2Launch>
-					<Type>To Common Doc Dir</Type>
-					<Path>SLSC Plugins\Modules\SLSC EDS\SLSC EDS Configuration.llb\RTM SLSC DisableEnable.vi</Path>
-				  </Item2Launch>
+					<GUID>6211ef21-86c1-487a-8a8a-f9c4353f6209</GUID>
+					<Type>Action</Type>
+					<Name>
+						<eng>Disable</eng>
+						<loc>Disable</loc>
+					</Name>
+					<Item2Launch>
+						<Type>To Common Doc Dir</Type>
+						<Path>SLSC Plugins\Modules\SLSC EDS\SLSC EDS Configuration.llb\RTM SLSC DisableEnable.vi</Path>
+					</Item2Launch>
 				</MenuItem>
 				<MenuItem>
-				  <GUID>ef08e418-6448-41a4-84ad-1a481338294f</GUID>
-				  <Type>Action</Type>
-				  <Name>
-					<eng>Autodetect</eng>
-					<loc>Autodetect</loc>
-				  </Name>
-				  <Item2Launch>
-					<Type>To Common Doc Dir</Type>
-					<Path>SLSC Plugins\Modules\SLSC EDS\SLSC EDS Configuration.llb\RTM SLSC Autodetect.vi</Path>
-				  </Item2Launch>
+					<GUID>ef08e418-6448-41a4-84ad-1a481338294f</GUID>
+					<Type>Action</Type>
+					<Name>
+						<eng>Autodetect</eng>
+						<loc>Autodetect</loc>
+					</Name>
+					<Item2Launch>
+						<Type>To Common Doc Dir</Type>
+						<Path>SLSC Plugins\Modules\SLSC EDS\SLSC EDS Configuration.llb\RTM SLSC Autodetect.vi</Path>
+					</Item2Launch>
 				</MenuItem>
 				<MenuItem>
-				  <GUID>5eeeabf3-866e-4f13-9c80-6a6684c32805</GUID>
-				  <Type>Action</Type>
-				  <Name>
-					<eng>Import</eng>
-					<loc>Import</loc>
-				  </Name>
-				  <Item2Launch>
-					<Type>To Common Doc Dir</Type>
-					<Path>SLSC Plugins\Modules\SLSC EDS\SLSC EDS Configuration.llb\RTM SLSC Import.vi</Path>
-				  </Item2Launch>
+					<GUID>5eeeabf3-866e-4f13-9c80-6a6684c32805</GUID>
+					<Type>Action</Type>
+					<Name>
+						<eng>Import</eng>
+						<loc>Import</loc>
+					</Name>
+					<Item2Launch>
+						<Type>To Common Doc Dir</Type>
+						<Path>SLSC Plugins\Modules\SLSC EDS\SLSC EDS Configuration.llb\RTM SLSC Import.vi</Path>
+					</Item2Launch>
 				</MenuItem>
 				<MenuItem>
-				  <GUID>d72f5d03-40d4-4bad-ba30-3748d24522a8</GUID>
-				  <Type>Action</Type>
-				  <Name>
-					<eng>Export</eng>
-					<loc>Export</loc>
-				  </Name>
-				  <Item2Launch>
-					<Type>To Common Doc Dir</Type>
-					<Path>SLSC Plugins\Modules\SLSC EDS\SLSC EDS Configuration.llb\RTM SLSC Export.vi</Path>
-				  </Item2Launch>
+					<GUID>d72f5d03-40d4-4bad-ba30-3748d24522a8</GUID>
+					<Type>Action</Type>
+					<Name>
+						<eng>Export</eng>
+						<loc>Export</loc>
+					</Name>
+					<Item2Launch>
+						<Type>To Common Doc Dir</Type>
+						<Path>SLSC Plugins\Modules\SLSC EDS\SLSC EDS Configuration.llb\RTM SLSC Export.vi</Path>
+					</Item2Launch>
 				</MenuItem>
 				<MenuItem>
-				  <GUID>7755077A-1485-13A6-5674A23FB86277FF</GUID>
-				  <Type>Separator</Type>
-				  <Name>
-					<eng>.</eng>
-					<loc>.</loc>
-				  </Name>
-				  <Item2Launch>
-					<Type>Absolute</Type>
-					<Path>.</Path>
-				  </Item2Launch>
+					<GUID>7755077A-1485-13A6-5674A23FB86277FF</GUID>
+					<Type>Separator</Type>
+					<Name>
+						<eng>.</eng>
+						<loc>.</loc>
+					</Name>
+					<Item2Launch>
+						<Type>Absolute</Type>
+						<Path>.</Path>
+					</Item2Launch>
 				</MenuItem>
 			</RunTimeMenu>
 			<ButtonList>
@@ -140,7 +140,7 @@
 						<Path>System Explorer\Glyphs\NI-XNET DropFrames.png</Path>
 					</Glyph>
 					<Type>Notification</Type>
-					<ReferencedGUID></ReferencedGUID>
+					<ReferencedGUID />
 					<ButtonText>
 						<eng>Autodetect</eng>
 						<loc>Autodetect</loc>
@@ -154,8 +154,8 @@
 						<loc>Acquire the configuration from the capability file in this slot.</loc>
 					</TipStrip>
 					<Documentation>
-						<eng></eng>
-						<loc></loc>
+						<eng />
+						<loc />
 					</Documentation>
 				</Button>
 				<Button>
@@ -165,7 +165,7 @@
 						<Path>System Explorer\Glyphs\import.png</Path>
 					</Glyph>
 					<Type>Notification</Type>
-					<ReferencedGUID></ReferencedGUID>
+					<ReferencedGUID />
 					<ButtonText>
 						<eng>Import</eng>
 						<loc>Import</loc>
@@ -179,8 +179,8 @@
 						<loc>Import the SLSC EDS configuration from a file.</loc>
 					</TipStrip>
 					<Documentation>
-						<eng></eng>
-						<loc></loc>
+						<eng />
+						<loc />
 					</Documentation>
 				</Button>
 				<Button>
@@ -190,7 +190,7 @@
 						<Path>System Explorer\Glyphs\export.png</Path>
 					</Glyph>
 					<Type>Notification</Type>
-					<ReferencedGUID></ReferencedGUID>
+					<ReferencedGUID />
 					<ButtonText>
 						<eng>Export</eng>
 						<loc>Export</loc>
@@ -204,8 +204,8 @@
 						<loc>Export the SLSC EDS configuration to a file.</loc>
 					</TipStrip>
 					<Documentation>
-						<eng></eng>
-						<loc></loc>
+						<eng />
+						<loc />
 					</Documentation>
 				</Button>
 				<Button>
@@ -215,7 +215,7 @@
 						<Path>System Explorer\Glyphs\NI-XNET Add Replay File.png</Path>
 					</Glyph>
 					<Type>Notification</Type>
-					<ReferencedGUID></ReferencedGUID>
+					<ReferencedGUID />
 					<ButtonText>
 						<eng>Write Default</eng>
 						<loc>Write Default</loc>
@@ -229,8 +229,8 @@
 						<loc>Write the default column properties of the page now.</loc>
 					</TipStrip>
 					<Documentation>
-						<eng></eng>
-						<loc></loc>
+						<eng />
+						<loc />
 					</Documentation>
 				</Button>
 				<Button>
@@ -240,7 +240,7 @@
 						<Path>System Explorer\Glyphs\NI-XNET File(Replay).png</Path>
 					</Glyph>
 					<Type>Notification</Type>
-					<ReferencedGUID></ReferencedGUID>
+					<ReferencedGUID />
 					<ButtonText>
 						<eng>Write Reset</eng>
 						<loc>Write Reset</loc>
@@ -254,8 +254,8 @@
 						<loc>Write the reset column properties of the page now.</loc>
 					</TipStrip>
 					<Documentation>
-						<eng></eng>
-						<loc></loc>
+						<eng />
+						<loc />
 					</Documentation>
 				</Button>
 				<Button>
@@ -265,7 +265,7 @@
 						<Path>System Explorer\Glyphs\ni-can frames.png</Path>
 					</Glyph>
 					<Type>Notification</Type>
-					<ReferencedGUID></ReferencedGUID>
+					<ReferencedGUID />
 					<ButtonText>
 						<eng>Read</eng>
 						<loc>Read</loc>
@@ -279,8 +279,8 @@
 						<loc>Read Only the variables of the Module right now.</loc>
 					</TipStrip>
 					<Documentation>
-						<eng></eng>
-						<loc></loc>
+						<eng />
+						<loc />
 					</Documentation>
 				</Button>
 				<Button>
@@ -290,7 +290,7 @@
 						<Path>System Explorer\Glyphs\NI-XNET Multiplexer.png</Path>
 					</Glyph>
 					<Type>Notification</Type>
-					<ReferencedGUID></ReferencedGUID>
+					<ReferencedGUID />
 					<ButtonText>
 						<eng>Diagram</eng>
 						<loc>Diagram</loc>
@@ -304,8 +304,8 @@
 						<loc>Shows the diagram for this card</loc>
 					</TipStrip>
 					<Documentation>
-						<eng></eng>
-						<loc></loc>
+						<eng />
+						<loc />
 					</Documentation>
 				</Button>
 				<Button>
@@ -315,7 +315,7 @@
 						<Path>System Explorer\Glyphs\NI-XNET Port.png</Path>
 					</Glyph>
 					<Type>Notification</Type>
-					<ReferencedGUID></ReferencedGUID>
+					<ReferencedGUID />
 					<ButtonText>
 						<eng>Pinout</eng>
 						<loc>Pinout</loc>
@@ -329,8 +329,8 @@
 						<loc>Shows the pinout for this module</loc>
 					</TipStrip>
 					<Documentation>
-						<eng></eng>
-						<loc></loc>
+						<eng />
+						<loc />
 					</Documentation>
 				</Button>
 				<Button>
@@ -340,7 +340,7 @@
 						<Path>System Explorer\Glyphs\RM Information Channels.png</Path>
 					</Glyph>
 					<Type>Notification</Type>
-					<ReferencedGUID></ReferencedGUID>
+					<ReferencedGUID />
 					<ButtonText>
 						<eng>Help</eng>
 						<loc>Help</loc>
@@ -354,15 +354,15 @@
 						<loc>Shows help for this page</loc>
 					</TipStrip>
 					<Documentation>
-						<eng></eng>
-						<loc></loc>
+						<eng />
+						<loc />
 					</Documentation>
 				</Button>
 			</ButtonList>
-            <ActionVIOnLoad>
-                <Type>To Common Doc Dir</Type>
-                <Path>SLSC Plugins\Modules\SLSC EDS\SLSC EDS Configuration.llb\ActionVIOnLoad.vi</Path>
-            </ActionVIOnLoad>
+			<ActionVIOnLoad>
+				<Type>To Common Doc Dir</Type>
+				<Path>SLSC Plugins\Modules\SLSC EDS\SLSC EDS Configuration.llb\ActionVIOnLoad.vi</Path>
+			</ActionVIOnLoad>
 			<ActionVIOnCompile>
 				<Type>To Common Doc Dir</Type>
 				<Path>SLSC Plugins\Modules\SLSC EDS\SLSC EDS Configuration.llb\ActionVIOnCompile.vi</Path>
@@ -387,28 +387,28 @@
 			</Item2Launch>
 			<RunTimeMenu>
 				<MenuItem>
-				  <GUID>a9eb99d7-7471-49ee-afb0-5830947bfc95</GUID>
-				  <Type>Action</Type>
-				  <Name>
-					<eng>Enable</eng>
-					<loc>Enable</loc>
-				  </Name>
-				  <Item2Launch>
-					<Type>To Common Doc Dir</Type>
-					<Path>SLSC Plugins\Modules\SLSC EDS\SLSC EDS Configuration.llb\RTM SLSC DisableEnable.vi</Path>
-				  </Item2Launch>
+					<GUID>a9eb99d7-7471-49ee-afb0-5830947bfc95</GUID>
+					<Type>Action</Type>
+					<Name>
+						<eng>Enable</eng>
+						<loc>Enable</loc>
+					</Name>
+					<Item2Launch>
+						<Type>To Common Doc Dir</Type>
+						<Path>SLSC Plugins\Modules\SLSC EDS\SLSC EDS Configuration.llb\RTM SLSC DisableEnable.vi</Path>
+					</Item2Launch>
 				</MenuItem>
 				<MenuItem>
-				  <GUID>7755077A-1485-13A6-5674A23FB86277FF</GUID>
-				  <Type>Separator</Type>
-				  <Name>
-					<eng>.</eng>
-					<loc>.</loc>
-				  </Name>
-				  <Item2Launch>
-					<Type>Absolute</Type>
-					<Path>.</Path>
-				  </Item2Launch>
+					<GUID>7755077A-1485-13A6-5674A23FB86277FF</GUID>
+					<Type>Separator</Type>
+					<Name>
+						<eng>.</eng>
+						<loc>.</loc>
+					</Name>
+					<Item2Launch>
+						<Type>Absolute</Type>
+						<Path>.</Path>
+					</Item2Launch>
 				</MenuItem>
 			</RunTimeMenu>
 			<ButtonList>
@@ -419,7 +419,7 @@
 						<Path>System Explorer\Glyphs\NI-XNET DropFrames.png</Path>
 					</Glyph>
 					<Type>Notification</Type>
-					<ReferencedGUID></ReferencedGUID>
+					<ReferencedGUID />
 					<ButtonText>
 						<eng>Autodetect</eng>
 						<loc>Autodetect</loc>
@@ -433,8 +433,8 @@
 						<loc>Acquire the configuration from the capability file in this slot.</loc>
 					</TipStrip>
 					<Documentation>
-						<eng></eng>
-						<loc></loc>
+						<eng />
+						<loc />
 					</Documentation>
 				</Button>
 				<Button>
@@ -444,7 +444,7 @@
 						<Path>System Explorer\Glyphs\import.png</Path>
 					</Glyph>
 					<Type>Notification</Type>
-					<ReferencedGUID></ReferencedGUID>
+					<ReferencedGUID />
 					<ButtonText>
 						<eng>Import</eng>
 						<loc>Import</loc>
@@ -458,8 +458,8 @@
 						<loc>Import the SLSC EDS configuration from a file.</loc>
 					</TipStrip>
 					<Documentation>
-						<eng></eng>
-						<loc></loc>
+						<eng />
+						<loc />
 					</Documentation>
 				</Button>
 				<Button>
@@ -469,7 +469,7 @@
 						<Path>System Explorer\Glyphs\export.png</Path>
 					</Glyph>
 					<Type>Notification</Type>
-					<ReferencedGUID></ReferencedGUID>
+					<ReferencedGUID />
 					<ButtonText>
 						<eng>Export</eng>
 						<loc>Export</loc>
@@ -483,8 +483,8 @@
 						<loc>Export the SLSC EDS configuration to a file.</loc>
 					</TipStrip>
 					<Documentation>
-						<eng></eng>
-						<loc></loc>
+						<eng />
+						<loc />
 					</Documentation>
 				</Button>
 				<Button>
@@ -494,7 +494,7 @@
 						<Path>System Explorer\Glyphs\NI-XNET Add Replay File.png</Path>
 					</Glyph>
 					<Type>Notification</Type>
-					<ReferencedGUID></ReferencedGUID>
+					<ReferencedGUID />
 					<ButtonText>
 						<eng>Write Default</eng>
 						<loc>Write Default</loc>
@@ -508,8 +508,8 @@
 						<loc>Write the default column properties of the page now.</loc>
 					</TipStrip>
 					<Documentation>
-						<eng></eng>
-						<loc></loc>
+						<eng />
+						<loc />
 					</Documentation>
 				</Button>
 				<Button>
@@ -519,7 +519,7 @@
 						<Path>System Explorer\Glyphs\NI-XNET File(Replay).png</Path>
 					</Glyph>
 					<Type>Notification</Type>
-					<ReferencedGUID></ReferencedGUID>
+					<ReferencedGUID />
 					<ButtonText>
 						<eng>Write Reset</eng>
 						<loc>Write Reset</loc>
@@ -533,8 +533,8 @@
 						<loc>Write the reset column properties of the page now.</loc>
 					</TipStrip>
 					<Documentation>
-						<eng></eng>
-						<loc></loc>
+						<eng />
+						<loc />
 					</Documentation>
 				</Button>
 				<Button>
@@ -544,7 +544,7 @@
 						<Path>System Explorer\Glyphs\ni-can frames.png</Path>
 					</Glyph>
 					<Type>Notification</Type>
-					<ReferencedGUID></ReferencedGUID>
+					<ReferencedGUID />
 					<ButtonText>
 						<eng>Read</eng>
 						<loc>Read</loc>
@@ -558,8 +558,8 @@
 						<loc>Read Only the variables of the Module right now.</loc>
 					</TipStrip>
 					<Documentation>
-						<eng></eng>
-						<loc></loc>
+						<eng />
+						<loc />
 					</Documentation>
 				</Button>
 				<Button>
@@ -569,7 +569,7 @@
 						<Path>System Explorer\Glyphs\NI-XNET Multiplexer.png</Path>
 					</Glyph>
 					<Type>Notification</Type>
-					<ReferencedGUID></ReferencedGUID>
+					<ReferencedGUID />
 					<ButtonText>
 						<eng>Diagram</eng>
 						<loc>Diagram</loc>
@@ -583,8 +583,8 @@
 						<loc>Shows the diagram for this card</loc>
 					</TipStrip>
 					<Documentation>
-						<eng></eng>
-						<loc></loc>
+						<eng />
+						<loc />
 					</Documentation>
 				</Button>
 				<Button>
@@ -594,7 +594,7 @@
 						<Path>System Explorer\Glyphs\NI-XNET Port.png</Path>
 					</Glyph>
 					<Type>Notification</Type>
-					<ReferencedGUID></ReferencedGUID>
+					<ReferencedGUID />
 					<ButtonText>
 						<eng>Pinout</eng>
 						<loc>Pinout</loc>
@@ -608,8 +608,8 @@
 						<loc>Shows the pinout for this module</loc>
 					</TipStrip>
 					<Documentation>
-						<eng></eng>
-						<loc></loc>
+						<eng />
+						<loc />
 					</Documentation>
 				</Button>
 				<Button>
@@ -619,7 +619,7 @@
 						<Path>System Explorer\Glyphs\RM Information Channels.png</Path>
 					</Glyph>
 					<Type>Notification</Type>
-					<ReferencedGUID></ReferencedGUID>
+					<ReferencedGUID />
 					<ButtonText>
 						<eng>Help</eng>
 						<loc>Help</loc>
@@ -633,15 +633,15 @@
 						<loc>Shows help for this page</loc>
 					</TipStrip>
 					<Documentation>
-						<eng></eng>
-						<loc></loc>
+						<eng />
+						<loc />
 					</Documentation>
 				</Button>
 			</ButtonList>
-            <ActionVIOnLoad>
-                <Type>To Common Doc Dir</Type>
-                <Path>SLSC Plugins\Modules\SLSC EDS\SLSC EDS Configuration.llb\ActionVIOnLoad.vi</Path>
-            </ActionVIOnLoad>
+			<ActionVIOnLoad>
+				<Type>To Common Doc Dir</Type>
+				<Path>SLSC Plugins\Modules\SLSC EDS\SLSC EDS Configuration.llb\ActionVIOnLoad.vi</Path>
+			</ActionVIOnLoad>
 			<ActionVIOnCompile>
 				<Type>To Common Doc Dir</Type>
 				<Path>SLSC Plugins\Modules\SLSC EDS\SLSC EDS Configuration.llb\ActionVIOnCompile.vi</Path>
