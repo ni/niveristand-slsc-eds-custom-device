@@ -27,22 +27,6 @@
 				<RealTimeSystemDestination>c:\ni-rt\VeriStand\SLSC Plugins\Modules\SLSC EDS\SLSC EDS Engine Windows.llb\RT Driver VI.vi</RealTimeSystemDestination>
 			</Source>
 			<Source>
-				<SupportedTarget>Pharlap</SupportedTarget>
-				<Source>
-					<Type>To Common Doc Dir</Type>
-					<Path>SLSC Plugins\Modules\SLSC EDS\Pharlap\SLSC EDS Engine Pharlap.llb\RT Driver VI.vi</Path>
-				</Source>
-				<RealTimeSystemDestination>c:\ni-rt\VeriStand\SLSC Plugins\Modules\SLSC EDS\SLSC EDS Engine Pharlap.llb\RT Driver VI.vi</RealTimeSystemDestination>
-			</Source>
-			<Source>
-				<SupportedTarget>Linux_32_ARM</SupportedTarget>
-				<Source>
-					<Type>To Common Doc Dir</Type>
-					<Path>SLSC Plugins\Modules\SLSC EDS\Linux_32_ARM\SLSC EDS Engine LinuxARM.llb\RT Driver VI.vi</Path>
-				</Source>
-				<RealTimeSystemDestination>c:\ni-rt\VeriStand\SLSC Plugins\Modules\SLSC EDS\SLSC EDS Engine LinuxARM.llb\RT Driver VI.vi</RealTimeSystemDestination>
-			</Source>
-			<Source>
 				<SupportedTarget>Linux_x64</SupportedTarget>
 				<Source>
 					<Type>To Common Doc Dir</Type>
