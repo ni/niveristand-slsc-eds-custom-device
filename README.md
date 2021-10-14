@@ -4,7 +4,7 @@ SLSC EDS (Electronic Datasheet) Plugin Custom Device allows any generic SLSC Cap
 
 ## LabVIEW Version
 
-LabVIEW 2017
+LabVIEW 2019
 
 
 ## Developer Documentation
@@ -16,7 +16,7 @@ LabVIEW 2017
 
 ## Dependencies
 
-- NI-SLSC >= 17.0
+- NI-SLSC
 - [NI VeriStand Addon Inline Async API](https://github.com/ni/niveristand-custom-device-inline-async-api) >= 1.0.0.29
 - [NI VeriStand Custom Device Testing Tools](https://github.com/ni/niveristand-custom-device-testing-tools)
 - JKI JSON >= 1.1.10.37
