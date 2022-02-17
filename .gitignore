@@ -1,5 +1,25 @@
-Source/SLSC EDS.lvlps
-Source/SLSC EDS.aliases
+# Libraries
+*.lvlibp
+*.llb
 
-# Ignore Built dir
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.exe
+
+# Metadata
+*.aliases
+*.lvlps
+*.lvproj.config
+
+# Output directory
 Built/
+
+# Intermediate Help Files
+*.log
+*.hhp
+*.chm

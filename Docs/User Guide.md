@@ -1,10 +1,4 @@
-## Overview
-
-The SLSC Electronic Datasheet (EDS) Plugin Custom Device enables access to _properties_, _commands_, and _physical channels_ of any [SLSC](https://www.ni.com/en-us/shop/select/slsc-category) module within VeriStand.
-
-In the absence of a VeriStand custom device for a specific hardware module, this custom device can be used.
-
-## Usage
+## Using the SLSC EDS Plugin Custom Device
 
 ### Adding a Module
 
