@@ -26,6 +26,10 @@ Running the system tests locally requires a specific hardware configuration, whi
 The IP address of local targets can be overridden at runtime through the creation of an `overrides.ini` file
 adjacent to the system definition.
 
+# Design Decisions
+- Always use NVMEMcap.bin file and custom parser to extract all information from module. This reduces effort for maintaining the option of importing automatically from a connected module as well as an offline configuration.
+- String properties are not shown since it is unknown how they would be used in VeriStand.
+
 # Developer Certificate of Origin (DCO)
 
    Developer's Certificate of Origin 1.1
