@@ -6,7 +6,7 @@ In the absence of a VeriStand custom device for a specific hardware module, this
 
 ## Using the Custom Device
 
-- Download the latest release package from the [Releases page](https://github.com/ni/niveristand-slsc-eds-custom-device/releases).
+- Download the latest release of the VeriStand Custom Devices on [ni.com](https://www.ni.com/en-us/support/downloads/software-products/download.veristand-custom-devices.html) or manually from the [GitHub Releases page](https://github.com/ni/niveristand-slsc-eds-custom-device/releases)
 - See the [User Guide](Docs/User%20Guide.md) for a walkthrough of using the Custom Device.
 
 ## LabVIEW Source Code Version
@@ -23,10 +23,12 @@ LabVIEW 2019
 
 - [LabVIEW 2019 or later](https://www.ni.com/en-us/support/downloads/software-products/download.labview.html)
 - [LabVIEW Real-Time Module](https://www.ni.com/en-us/support/downloads/software-products/download.labview-real-time-module.html)
+- [NI R Series Multifunction RIO](https://www.ni.com/en-us/support/downloads/drivers/download.ni-r-series-multifunction-rio.html)
+  - Required for FPGA-based loopback test, not a direct dependency of the Custom Device
 - [VeriStand Custom Device Development Tools](https://github.com/ni/niveristand-custom-device-development-tools)
   - Install the latest package from the [release page](https://github.com/ni/niveristand-custom-device-development-tools/releases)
 - [VeriStand Custom Device Testing Tools](https://github.com/ni/niveristand-custom-device-testing-tools)
-  - To link correctly, this repository should be cloned as source to the same directory level as this repository
+  - Install the latest package from the [release page](https://github.com/ni/niveristand-custom-device-testing-tools/releases)
 
 ## Git History & Rebasing Policy
 Branch rebasing and other history modifications will be listed here, with several notable exceptions:
