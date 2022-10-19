@@ -20,9 +20,9 @@ pool:
 resources:
   repositories:
     - repository: cd-build-tools
-      type: github
+      type: git
       ref: main
-      name: niveristand-custom-device-build-tools
+      name: papower-vs-cd-build-tools
 
 # STEPS
 # Clean worksspace
