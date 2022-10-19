@@ -17,6 +17,13 @@ pool:
   demands:
     - agent.os -equals Windows_NT
 
+resources:
+  repositories:
+    - repository: cd-build-tools
+      type: github
+      ref: main
+      name: niveristand-custom-device-build-tools
+
 # STEPS
 # Clean worksspace
 # check out eds
