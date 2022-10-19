@@ -27,7 +27,10 @@ jobs:
     timeoutInMinutes: 60
     cancelTimeoutInMinutes: 15
     steps:
+      - script: cd niveristand-slsc-eds-custom-device\Source\
+        displayName: move to source
       - script: chdir
+        displayName: display the directory to confirm it's working
       - script: echo copy lvproj files
         displayName: copying lvproj.config file to Source/SLSC EDS.lvproj
       - script: echo run build spec config
