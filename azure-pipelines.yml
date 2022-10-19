@@ -27,7 +27,7 @@ jobs:
     timeoutInMinutes: 60
     cancelTimeoutInMinutes: 15
     steps:
-      - script: ls
+      - script: chdir
       - script: echo copy lvproj files
         displayName: copying lvproj.config file to Source/SLSC EDS.lvproj
       - script: echo run build spec config
