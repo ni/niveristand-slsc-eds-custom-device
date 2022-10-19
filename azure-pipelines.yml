@@ -39,6 +39,7 @@ jobs:
         displayName: copy lvproj config file
       - script: cd niveristand-slsc-eds-custom-device\Source; dir
         displayName: display results to confirm it's working
+      - script: echo run build spec configuration
         displayName: running Build Spec Configuration Release
       - script: echo run build spec engine
         displayName: running Build Spec Engine Release
