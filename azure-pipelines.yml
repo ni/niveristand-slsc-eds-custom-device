@@ -3,17 +3,55 @@
 # Add steps that build, run tests, deploy, and more:
 # https://aka.ms/yaml
 
+# if there is a change to one of the branches below, run the pipeline
 trigger:
-- main
+  batch: true
+  branches:
+    include:
+      - main
+      - release/*
 
+# use any agent with Windows
 pool:
-  vmImage: ubuntu-latest
+  name: Drivers-NIBuildFarm-RFMIBUILD
+  demands:
+    - agent.os -equals Windows_NT
 
-steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
+# STEPS
+# Clean worksspace
+# check out eds
+jobs:
+  - job: clone-repo
+    displayName: Clone Custom Device Repo
+    timeoutInMinutes: 60
+    cancelTimeoutInMinutes: 15
+    steps:
+      - script: echo clone git repo
+        displayName: git clone https://github.com/ni/niveristand-slsc-eds-custom-device
+# copy config files to lvproj locations
+  - job: copy-config-files
+    displayName: Copy lvproj.config files for LV Version
+    timeoutInMinutes: 60
+    cancelTimeoutInMinutes: 15
+    steps:
+      - script: echo copy lvproj files
+        displayName: copying lvproj.config file to Source/SLSC EDS.lvproj
+# run build specs using LV CLI calls
+  - job: build-specs
+    displayName: Run Build Specs in SLSC EDS
+    timeoutInMinutes: 60
+    cancelTimeoutInMinutes: 15
+    steps:
+      - script: echo run build spec config
+        displayName: running Build Spec Configuration Release
+      - script: echo run build spec engine
+        displayName: running Build Spec Engine Release
 
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
+# copy outputs to expected locations
+  - job: archive
+    displayName: Copy Build Artifacts to archive
+    timeoutInMinutes: 60
+    cancelTimeoutInMinutes: 15
+    steps:
+      - script: echo copy files to archive
+        displayName: copying built files to //nirvana archive
