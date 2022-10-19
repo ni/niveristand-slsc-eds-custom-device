@@ -21,7 +21,7 @@ pool:
 # Clean worksspace
 # check out eds
 jobs:
-  - job: clone-repo
+  - job: Clone
     displayName: Clone Custom Device Repo
     timeoutInMinutes: 60
     cancelTimeoutInMinutes: 15
@@ -29,7 +29,7 @@ jobs:
       - script: echo clone git repo
         displayName: git clone https://github.com/ni/niveristand-slsc-eds-custom-device
 # copy config files to lvproj locations
-  - job: copy-config-files
+  - job: Prebuild
     displayName: Copy lvproj.config files for LV Version
     timeoutInMinutes: 60
     cancelTimeoutInMinutes: 15
@@ -37,7 +37,7 @@ jobs:
       - script: echo copy lvproj files
         displayName: copying lvproj.config file to Source/SLSC EDS.lvproj
 # run build specs using LV CLI calls
-  - job: build-specs
+  - job: Build
     displayName: Run Build Specs in SLSC EDS
     timeoutInMinutes: 60
     cancelTimeoutInMinutes: 15
