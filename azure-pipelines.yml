@@ -41,11 +41,11 @@ jobs:
         displayName: copy LabVIEW INI file
       - script: cd niveristand-slsc-eds-custom-device\Source && dir && cd "C:\Program Files (x86)\National Instruments\LabVIEW 2020\" && dir && type LabVIEW.ini
         displayName: display results to confirm it's working
-      - script: LabVIEWCLI -LabVIEWPath "C:\Program Files (x86)\National Instruments\LabVIEW 2020\LabVIEW.exe" -OperationName ExecuteBuildSpec -ProjectPath niveristand-slsc-eds-custom-device\Source\SLSC EDS.lvproj -TargetName "My Computer" -BuildSpecName "Configuration Release"
+      - script: LabVIEWCLI -PortNumber "3363" -LabVIEWPath "C:\Program Files (x86)\National Instruments\LabVIEW 2020\LabVIEW.exe" -OperationName "ExecuteBuildSpec" -ProjectPath "niveristand-slsc-eds-custom-device\Source\SLSC EDS.lvproj" -TargetName "My Computer" -BuildSpecName "Configuration Release"
         displayName: running Build Spec Configuration Release
-      - script: LabVIEWCLI -LabVIEWPath "C:\Program Files (x86)\National Instruments\LabVIEW 2020\LabVIEW.exe" -OperationName ExecuteBuildSpec -ProjectPath niveristand-slsc-eds-custom-device\Source\SLSC EDS.lvproj -TargetName "My Computer" -BuildSpecName "Engine Release"
+      - script: LabVIEWCLI -PortNumber "3363" -LabVIEWPath "C:\Program Files (x86)\National Instruments\LabVIEW 2020\LabVIEW.exe" -OperationName "ExecuteBuildSpec" -ProjectPath "niveristand-slsc-eds-custom-device\Source\SLSC EDS.lvproj" -TargetName "My Computer" -BuildSpecName "Engine Release"
         displayName: running Build Spec Engine Release Windows
-      - script: LabVIEWCLI -LabVIEWPath "C:\Program Files (x86)\National Instruments\LabVIEW 2020\LabVIEW.exe" -OperationName ExecuteBuildSpec -ProjectPath niveristand-slsc-eds-custom-device\Source\SLSC EDS.lvproj -TargetName "Linux x64" -BuildSpecName "Engine Release"
+      - script: LabVIEWCLI -PortNumber "3363" -LabVIEWPath "C:\Program Files (x86)\National Instruments\LabVIEW 2020\LabVIEW.exe" -OperationName "ExecuteBuildSpec" -ProjectPath "niveristand-slsc-eds-custom-device\Source\SLSC EDS.lvproj" -TargetName "Linux x64" -BuildSpecName "Engine Release"
         displayName: running Build Spec Engine Release Linux x64
       - script: echo copy files to archive
         displayName: copying built files to //nirvana archive
