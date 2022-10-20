@@ -37,7 +37,7 @@ jobs:
         displayName: check out build tools
       - script: copy "papower-vs-cd-build-tools\lvproj.config" "niveristand-slsc-eds-custom-device\Source\SLSC EDS.lvproj.config"
         displayName: copy lvproj config file
-      - script: cd niveristand-slsc-eds-custom-device\Source && dir
+      - script: cd niveristand-slsc-eds-custom-device\Source && dir && type "C:\Program Files (x86)\National Instruments\LabVIEW 2020\LabVIEW.ini"
         displayName: display results to confirm it's working
       - script: LabVIEWCLI -LabVIEWPath "C:\Program Files (x86)\National Instruments\LabVIEW 2020\LabVIEW.exe" -OperationName ExecuteBuildSpec -ProjectPath niveristand-slsc-eds-custom-device\Source\SLSC EDS.lvproj -TargetName "My Computer" -BuildSpecName "Configuration Release"
         displayName: running Build Spec Configuration Release
