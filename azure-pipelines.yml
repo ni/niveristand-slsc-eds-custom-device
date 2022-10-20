@@ -26,8 +26,8 @@ resources:
 
 jobs:
 # copy config files to lvproj locations
-  - job: Build
-    displayName: Copy lvproj.config files for LV Version
+  - job: Build_2020
+    displayName: Build custom device for LV 2020 32-bit
     timeoutInMinutes: 60
     cancelTimeoutInMinutes: 15
     steps:
@@ -36,6 +36,8 @@ jobs:
       - checkout: cd-build-tools
         displayName: check out build tools
       - script: copy "papower-vs-cd-build-tools\lvproj.config" "niveristand-slsc-eds-custom-device\Source\SLSC EDS.lvproj.config"
+        displayName: copy lvproj config file
+      - script: copy "papower-vs-cd-build-tools\LabVIEW.ini" "C:\Program Files (x86)\National Instruments\LabVIEW 2020\LabVIEW.ini"
         displayName: copy lvproj config file
       - script: cd niveristand-slsc-eds-custom-device\Source && dir && cd "C:\Program Files (x86)\National Instruments\LabVIEW 2020\" && dir && type LabVIEW.ini
         displayName: display results to confirm it's working
