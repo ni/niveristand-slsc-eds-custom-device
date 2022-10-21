@@ -40,9 +40,11 @@ jobs:
         displayName: check out custom device
       - checkout: cd-build-tools
         displayName: check out build tools
-      - script: copy "papower-vs-cd-build-tools\lvproj.config" "niveristand-slsc-eds-custom-device\Source\SLSC EDS.lvproj.config"
+      - checkout: niveristand-custom-device-build-tools
+        displayName: check out other build tools
+      - script: copy "niveristand-custom-device-build-tools\resources\LabVIEW.exe.config" "niveristand-slsc-eds-custom-device\Source\SLSC EDS.lvproj.config"
         displayName: copy lvproj config file
-      - script: copy "papower-vs-cd-build-tools\LabVIEW.ini" "C:\Program Files (x86)\National Instruments\LabVIEW 2020\LabVIEW.ini"
+      - script: copy "niveristand-custom-device-build-tools\resources\LabVIEW.ini" "C:\Program Files (x86)\National Instruments\LabVIEW 2020\LabVIEW.ini"
         displayName: copy LabVIEW INI file
       - script: LabVIEWCLI -LogToConsole True -PortNumber "3363" -LabVIEWPath "C:\Program Files (x86)\National Instruments\LabVIEW 2020\LabVIEW.exe" -OperationName "ExecuteBuildSpec" -ProjectPath "niveristand-slsc-eds-custom-device\Source\SLSC EDS.lvproj" -TargetName "My Computer" -BuildSpecName "Configuration Release"
         displayName: running Build Spec Configuration Release
