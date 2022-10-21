@@ -23,6 +23,11 @@ resources:
       type: git
       ref: main
       name: papower-vs-cd-build-tools
+    - repository: niveristand-custom-device-build-tools
+      type: github
+      ref: main
+      endpoint: ni (2)
+      name: ni/niveristand-custom-device-build-tools
 
 jobs:
 # copy config files to lvproj locations
