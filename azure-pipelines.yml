@@ -54,5 +54,5 @@ jobs:
         displayName: running Build Spec Engine Release Linux x64
       - script: echo build the nipkg
         displayName: building the nipkg
-      - script: echo copy files to archive
+      - script: copy "imitation-cd\Built" "\\nirvana\temp\papower"
         displayName: copying built files to //nirvana archive
