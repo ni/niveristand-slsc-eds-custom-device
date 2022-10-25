@@ -55,4 +55,4 @@ jobs:
       - script: echo build the nipkg
         displayName: building the nipkg
       - script: copy "imitation-cd\Built" "\\nirvana\temp\papower"
-        displayName: copying built files to //nirvana archive
+        displayName: copying built files to \\nirvana archive
