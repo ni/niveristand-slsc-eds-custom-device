@@ -16,7 +16,7 @@ resources:
       ref: main
       endpoint: ni (2)
       name: ni/niveristand-custom-device-build-tools
-# TEMPORARY, include fake custom device to use templates until migrating the templates into build tools makes sense
+# TEMPORARY, include fake custom device to use templates until migrating the templates into build tools makes sense 
     - repository: imitation-cd
       type: github
       ref: main
