@@ -1,9 +1,6 @@
-# Starter pipeline
-# Start with a minimal pipeline that you can customize to build and deploy your code.
-# Add steps that build, run tests, deploy, and more:
-# https://aka.ms/yaml
+# test/POC pipeline for GitHub Veristand Custom Devices migration out of Jenkins
 
-# if there is a change to one of the branches below, run the pipeline
+# Triggering: if there is a change to one of the branches below, run the pipeline
 trigger:
   batch: true
   branches:
@@ -11,48 +8,70 @@ trigger:
       - main
       - release/*
 
-# use any agent with Windows
-pool:
-  name: Drivers-NIBuildFarm-RFMIBUILD
-  demands:
-    - agent.os -equals Windows_NT
-
+# Repositories: include build tools (custom device repo included by default)
 resources:
   repositories:
-    - repository: cd-build-tools
-      type: git
-      ref: main
-      name: papower-vs-cd-build-tools
     - repository: niveristand-custom-device-build-tools
       type: github
       ref: main
       endpoint: ni (2)
       name: ni/niveristand-custom-device-build-tools
+# TEMPORARY, include fake custom device to use templates until migrating the templates into build tools makes sense
+    - repository: imitation-cd
+      type: github
+      ref: main
+      endpoint: papowerNI
+      name: papowerNI/imitation-cd
 
-jobs:
-# copy config files to lvproj locations
-  - job: Build_2020
-    displayName: Build custom device for LV 2020 32-bit
-    timeoutInMinutes: 60
-    cancelTimeoutInMinutes: 15
-    steps:
-      - checkout: self
-        displayName: check out custom device
-      - checkout: cd-build-tools
-        displayName: check out build tools
-      - checkout: niveristand-custom-device-build-tools
-        displayName: check out other build tools
-      - script: copy "niveristand-custom-device-build-tools\resources\LabVIEW.exe.config" "niveristand-slsc-eds-custom-device\Source\SLSC EDS.lvproj.config"
-        displayName: copy lvproj config file
-      - script: copy "niveristand-custom-device-build-tools\resources\LabVIEW.ini" "C:\Program Files (x86)\National Instruments\LabVIEW 2020\LabVIEW.ini"
-        displayName: copy LabVIEW INI file
-      - script: LabVIEWCLI -LogToConsole True -PortNumber "3363" -LabVIEWPath "C:\Program Files (x86)\National Instruments\LabVIEW 2020\LabVIEW.exe" -OperationName "ExecuteBuildSpec" -ProjectPath "niveristand-slsc-eds-custom-device\Source\SLSC EDS.lvproj" -TargetName "My Computer" -BuildSpecName "Configuration Release"
-        displayName: running Build Spec Configuration Release
-      - script: LabVIEWCLI -LogToConsole True -PortNumber "3363" -LabVIEWPath "C:\Program Files (x86)\National Instruments\LabVIEW 2020\LabVIEW.exe" -OperationName "ExecuteBuildSpec" -ProjectPath "niveristand-slsc-eds-custom-device\Source\SLSC EDS.lvproj" -TargetName "My Computer" -BuildSpecName "Engine Release"
-        displayName: running Build Spec Engine Release Windows
-      - script: LabVIEWCLI -LogToConsole True -PortNumber "3363" -LabVIEWPath "C:\Program Files (x86)\National Instruments\LabVIEW 2020\LabVIEW.exe" -OperationName "ExecuteBuildSpec" -ProjectPath "niveristand-slsc-eds-custom-device\Source\SLSC EDS.lvproj" -TargetName "Linux x64" -BuildSpecName "Engine Release"
-        displayName: running Build Spec Engine Release Linux x64
-      - script: echo build the nipkg
-        displayName: building the nipkg
-      - script: copy "imitation-cd\Built" "\\nirvana\temp\papower"
-        displayName: copying built files to \\nirvana archive
+# Pipeline-level Variables
+variables:
+  agentPool: custom-device-temp
+  buildToolsRepo: niveristand-custom-device-build-tools
+  projectLocation: 'Source\SLSC EDS.lvproj'
+  customDeviceName: niveristand-slsc-eds-custom-device
+  shouldPack: true
+
+stages:
+  - stage: build
+
+  # Agent Pool:  choose an agent that meets the following requirements
+    pool:
+      name: ${{ variables.agentPool }}
+      demands:
+        - agent.os -equals Windows_NT
+
+    # Currently, no parallelism is needed so far, and no stages are needed so far
+    jobs:
+      - job: build_for_lv2020
+        displayName: Build for LabVIEW 2020
+        steps:
+          - template: azure-templates\build-steps.yaml
+            parameters:
+              buildToolsRepo: ${{ variables.buildToolsRepo }}
+              projectLocation: ${{ variables.projectLocation }}
+              customDevice: ${{ variables.customDeviceName }}
+              lvVersion: '2020'
+              bitness: '32'
+              pack: ${{ variables.shouldPack }}
+      - job: build_for_lv2021
+        displayName: Build for LabVIEW 2021
+        steps:
+          - template: azure-templates\build-steps.yaml
+            parameters:
+              buildToolsRepo: ${{ variables.buildToolsRepo }}
+              projectLocation: ${{ variables.projectLocation }}
+              customDevice: ${{ variables.customDeviceName }}
+              lvVersion: '2021'
+              bitness: '64'
+              pack: ${{ variables.shouldPack }}
+      - job: build_for_lv2023
+        displayName: Build for LabVIEW 2023
+        steps:
+          - template: azure-templates\build-steps.yaml
+            parameters:
+              buildToolsRepo: ${{ variables.buildToolsRepo }}
+              projectLocation: ${{ variables.projectLocation }}
+              customDevice: ${{ variables.customDeviceName }}
+              lvVersion: '2023'
+              bitness: '64'
+              pack: ${{ variables.shouldPack }}
