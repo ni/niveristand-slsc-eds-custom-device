@@ -27,7 +27,7 @@ resources:
 variables:
   agentPool: custom-device-temp
   buildToolsRepo: niveristand-custom-device-build-tools
-  templateLocation: '..\imitation-cd\azure-templates\build-steps.yaml'
+  templateLocation: 'azure-templates\build-steps.yaml@imitation-cd'
   projectLocation: 'Source\SLSC EDS.lvproj'
   customDeviceName: niveristand-slsc-eds-custom-device
   shouldPack: true
