@@ -27,6 +27,7 @@ resources:
 variables:
   agentPool: custom-device-temp
   buildToolsRepo: niveristand-custom-device-build-tools
+  templateLocation: '..\imitation-cd\azure-templates\build-steps.yaml'
   projectLocation: 'Source\SLSC EDS.lvproj'
   customDeviceName: niveristand-slsc-eds-custom-device
   shouldPack: true
@@ -45,7 +46,7 @@ stages:
       - job: build_for_lv2020
         displayName: Build for LabVIEW 2020
         steps:
-          - template: azure-templates\build-steps.yaml
+          - template: ${{ variables.templateLocation }}
             parameters:
               buildToolsRepo: ${{ variables.buildToolsRepo }}
               projectLocation: ${{ variables.projectLocation }}
@@ -56,7 +57,7 @@ stages:
       - job: build_for_lv2021
         displayName: Build for LabVIEW 2021
         steps:
-          - template: azure-templates\build-steps.yaml
+          - template: ${{ variables.templateLocation }}
             parameters:
               buildToolsRepo: ${{ variables.buildToolsRepo }}
               projectLocation: ${{ variables.projectLocation }}
@@ -67,7 +68,7 @@ stages:
       - job: build_for_lv2023
         displayName: Build for LabVIEW 2023
         steps:
-          - template: azure-templates\build-steps.yaml
+          - template: ${{ variables.templateLocation }}
             parameters:
               buildToolsRepo: ${{ variables.buildToolsRepo }}
               projectLocation: ${{ variables.projectLocation }}
