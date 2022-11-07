@@ -30,7 +30,7 @@ variables:
   templateLocation: 'azure-templates\build-steps.yaml@imitation-cd'
   projectLocation: 'Source\SLSC EDS.lvproj'
   customDeviceName: niveristand-slsc-eds-custom-device
-  shouldPack: true
+  shouldPack: false
 
 stages:
   - stage: build
