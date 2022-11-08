@@ -44,7 +44,7 @@ stages:
     # Currently, no parallelism is needed so far, and no stages are needed so far
     jobs:
       - job: build_for_lv2020
-        displayName: Build for LabVIEW 2020
+        displayName: Build ${{ variables.customDeviceName }} for LabVIEW 2020
         steps:
           - template: ${{ variables.templateLocation }}
             parameters:
@@ -55,7 +55,7 @@ stages:
               bitness: '32'
               pack: ${{ variables.shouldPack }}
       - job: build_for_lv2021
-        displayName: Build for LabVIEW 2021
+        displayName: Build ${{ variables.customDeviceName }} for LabVIEW 2021
         steps:
           - template: ${{ variables.templateLocation }}
             parameters:
@@ -66,7 +66,7 @@ stages:
               bitness: '64'
               pack: ${{ variables.shouldPack }}
       - job: build_for_lv2023
-        displayName: Build for LabVIEW 2023
+        displayName: Build ${{ variables.customDeviceName }} for LabVIEW 2023
         steps:
           - template: ${{ variables.templateLocation }}
             parameters:
