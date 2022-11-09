@@ -28,22 +28,33 @@ pool:
 
 # --------- Build Parameters here ---------
 parameters:
-    # Custom Device Name
+# Custom Device Name
   - name: customDevice
     type: string
     default: niveristand-slsc-eds-custom-device
-    # LabVIEW Versions to Build
+# LabVIEW Versions to Build
   - name: lvVersions
     type: object
     default:
       - '2020'
       - '2021'
       - '2023'
-    # Custom Device Build Steps (project location, LabVIEW CLI Build operation)
+# Custom Device Build Steps
   - name: buildSteps
     type: object
     default:
-      - ['Source\SLSC EDS.lvproj', 'ExecuteAllBuildSpecs']
+      # (project location, LabVIEW CLI Build operation, Target, Build Specification Name)
+      - ['Source\SLSC EDS.lvproj', 'ExecuteBuildSpec', 'My Computer', 'Configuration Release']
+      - ['Source\SLSC EDS.lvproj', 'ExecuteBuildSpecAllTargets', '', 'Engine Release']
+# Build Output Location
+  - name: buildOutputLocation
+    type: string
+    default: "Built"
+# Post-build Archive Location
+  - name: archiveLocation
+    type: string
+    default: "\\nirvana\temp\papower\Measurements\VeriStandAddons\slsc_eds_custom_device"
+
 # -----------------------------------------
 
 # TEMPORARY: template files reference imitation-cd instead of the build tools repo
@@ -52,17 +63,21 @@ stages:
     jobs:
       - ${{ each lvVersion in parameters.lvVersions }}:
         - job:
-          displayName: Build ${{ parameters.customDevice }} for LabVIEW ${{ lvVersion}}
+          displayName: Build ${{ parameters.customDevice }} for LabVIEW ${{ lvVersion }}
           steps:
-            - template: azure-templates\pre-job-steps.yml@imitation-cd # Configure variables, check out repos, Clear cache
+            - template: azure-templates\pre-job-steps.yml # Configure variables, check out repos, Clear cache
               parameters:
                 customDevice: ${{ parameters.customDevice }}
-                lvVersion: ${{ lvVersion}}
+                lvVersion:    ${{ lvVersion }}
             - ${{ each buildStep in parameters.buildSteps }}:
-              - template: azure-templates\build-op-steps.yml@imitation-cd # config file and build specs
+              - template: azure-templates\build-op-steps.yml # config file and build specs
                 parameters:
                   projectLocation: ${{ buildStep[0] }}
-                  buildOperation: ${{ buildStep[1] }}
-            - template: azure-templates\post-job-steps.yml@imitation-cd # nipkg and archive
+                  buildOperation:  ${{ buildStep[1] }}
+                  target:          ${{ buildStep[2] }}
+                  buildSpec:       ${{ buildStep[3] }}
+            - template: azure-templates\post-job-steps.yml # nipkg and archive
               parameters:
-                pack: false
+                buildOutputLocation: ${{ parameters.buildOutputLocation }}
+                archiveLocation:     ${{ parameters.archiveLocation }}
+                pack:                false
