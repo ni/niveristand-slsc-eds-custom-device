@@ -1,6 +1,5 @@
-# test/POC pipeline for GitHub Veristand Custom Devices migration out of Jenkins
+# File: azure-pipelines.yml
 
-# Triggering: if there is a change to one of the branches below, run the pipeline
 trigger:
   batch: true
   branches:
@@ -8,7 +7,6 @@ trigger:
       - main
       - release/*
 
-# Repositories: include build tools (custom device repo included by default)
 resources:
   repositories:
     - repository: niveristand-custom-device-build-tools
@@ -16,63 +14,55 @@ resources:
       ref: main
       endpoint: ni (2)
       name: ni/niveristand-custom-device-build-tools
-# TEMPORARY, include fake custom device to use templates until migrating the templates into build tools makes sense 
+# TEMPORARY, include fake custom device to use templates until migrating the templates into build tools makes sense
     - repository: imitation-cd
       type: github
       ref: main
       endpoint: papowerNI
       name: papowerNI/imitation-cd
 
-# Pipeline-level Variables
-variables:
-  agentPool: custom-device-temp
-  buildToolsRepo: niveristand-custom-device-build-tools
-  templateLocation: 'azure-templates\build-steps.yaml@imitation-cd'
-  projectLocation: 'Source\SLSC EDS.lvproj'
-  customDeviceName: niveristand-slsc-eds-custom-device
-  shouldPack: false
+pool:
+  name: custom-device-temp
+  demands:
+    - agent.os -equals Windows_NT
 
+# --------- Build Parameters here ---------
+parameters:
+    # Custom Device Name
+  - name: customDevice
+    type: string
+    default: niveristand-slsc-eds-custom-device
+    # LabVIEW Versions to Build
+  - name: lvVersions
+    type: object
+    default:
+      - '2020'
+      - '2021'
+      - '2023'
+    # Custom Device Build Steps (project location, LabVIEW CLI Build operation)
+  - name: buildSteps
+    type: object
+    default:
+      - ['Source\SLSC EDS.lvproj', 'ExecuteAllBuildSpecs']
+# -----------------------------------------
+
+# TEMPORARY: template files reference imitation-cd instead of the build tools repo
 stages:
   - stage: build
-
-  # Agent Pool:  choose an agent that meets the following requirements
-    pool:
-      name: ${{ variables.agentPool }}
-      demands:
-        - agent.os -equals Windows_NT
-
-    # Currently, no parallelism is needed so far, and no stages are needed so far
     jobs:
-      - job: build_for_lv2020
-        displayName: Build ${{ variables.customDeviceName }} for LabVIEW 2020
-        steps:
-          - template: ${{ variables.templateLocation }}
-            parameters:
-              buildToolsRepo: ${{ variables.buildToolsRepo }}
-              projectLocation: ${{ variables.projectLocation }}
-              customDevice: ${{ variables.customDeviceName }}
-              lvVersion: '2020'
-              bitness: '32'
-              pack: ${{ variables.shouldPack }}
-      - job: build_for_lv2021
-        displayName: Build ${{ variables.customDeviceName }} for LabVIEW 2021
-        steps:
-          - template: ${{ variables.templateLocation }}
-            parameters:
-              buildToolsRepo: ${{ variables.buildToolsRepo }}
-              projectLocation: ${{ variables.projectLocation }}
-              customDevice: ${{ variables.customDeviceName }}
-              lvVersion: '2021'
-              bitness: '64'
-              pack: ${{ variables.shouldPack }}
-      - job: build_for_lv2023
-        displayName: Build ${{ variables.customDeviceName }} for LabVIEW 2023
-        steps:
-          - template: ${{ variables.templateLocation }}
-            parameters:
-              buildToolsRepo: ${{ variables.buildToolsRepo }}
-              projectLocation: ${{ variables.projectLocation }}
-              customDevice: ${{ variables.customDeviceName }}
-              lvVersion: '2023'
-              bitness: '64'
-              pack: ${{ variables.shouldPack }}
+      - ${{ each lvVersion in parameters.lvVersions }}:
+        - job:
+          displayName: Build ${{ parameters.customDevice }} for LabVIEW ${{ lvVersion}}
+          steps:
+            - template: azure-templates\pre-job-steps.yml@imitation-cd # Configure variables, check out repos, Clear cache
+              parameters:
+                customDevice: ${{ parameters.customDevice }}
+                lvVersion: ${{ lvVersion}}
+            - ${{ each buildStep in parameters.buildSteps }}:
+              - template: azure-templates\build-op-steps.yml@imitation-cd # config file and build specs
+                parameters:
+                  projectLocation: ${{ buildStep[0] }}
+                  buildOperation: ${{ buildStep[1] }}
+            - template: azure-templates\post-job-steps.yml@imitation-cd # nipkg and archive
+              parameters:
+                pack: false
