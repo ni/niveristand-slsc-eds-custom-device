@@ -49,11 +49,11 @@ parameters:
 # Build Output Location
   - name: buildOutputLocation
     type: string
-    default: "Built"
+    default: 'Built'
 # Post-build Archive Location
   - name: archiveLocation
     type: string
-    default: "\\nirvana\temp\papower\Measurements\VeriStandAddons\slsc_eds_custom_device"
+    default: '\\nirvana\temp\papower\Measurements\VeriStandAddons\slsc_eds_custom_device'
 
 # -----------------------------------------
 
