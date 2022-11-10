@@ -22,37 +22,48 @@ resources:
       name: papowerNI/imitation-cd
 
 pool:
-  name: custom-device-temp
+  name: custom-device-temp # TEMPORARY, eventually use an official build pool of custom device agents
   demands:
     - agent.os -equals Windows_NT
 
 # --------- Build Parameters here ---------
 parameters:
 # Custom Device Name
-  - name: customDevice
-    type: string
+  - name:    customDeviceRepoName
+    type:    string
     default: niveristand-slsc-eds-custom-device
 # LabVIEW Versions to Build
-  - name: lvVersions
-    type: object
+  - name:    lvVersions
+    type:    object
     default:
-      - '2020'
-      - '2021'
-      - '2023'
+      - version: '2020'
+        bitness: '32-bit'
+
+      - version: '2021'
+        bitness: '64-bit'
+
+      - version: '2023'
+        bitness: '64-bit'
 # Custom Device Build Steps
-  - name: buildSteps
-    type: object
+  - name:    buildSteps
+    type:    object
     default:
-      # (project location, LabVIEW CLI Build operation, Target, Build Specification Name)
-      - ['Source\SLSC EDS.lvproj', 'ExecuteBuildSpec', 'My Computer', 'Configuration Release']
-      - ['Source\SLSC EDS.lvproj', 'ExecuteBuildSpecAllTargets', '', 'Engine Release']
+      - projectLocation: 'Source\SLSC EDS.lvproj'
+        buildOperation: 'ExecuteBuildSpec'
+        target: 'My Computer'
+        buildSpec: 'Configuration Release'
+
+      - projectLocation: 'Source\SLSC EDS.lvproj'
+        buildOperation: 'ExecuteBuildSpecAllTargets'
+        target: ''
+        buildSpec: 'Engine Release'
 # Build Output Location
-  - name: buildOutputLocation
-    type: string
+  - name:    buildOutputLocation
+    type:    string
     default: 'Built'
 # Post-build Archive Location
-  - name: archiveLocation
-    type: string
+  - name:    archiveLocation
+    type:    string
     default: '\\nirvana\temp\papower\Measurements\VeriStandAddons\slsc_eds_custom_device'
 
 # -----------------------------------------
@@ -61,23 +72,26 @@ parameters:
 stages:
   - stage: build
     jobs:
+      # Iterate through all LabVIEW Versions & Bitnesses
       - ${{ each lvVersion in parameters.lvVersions }}:
         - job:
-          displayName: Build ${{ parameters.customDevice }} for LabVIEW ${{ lvVersion }}
+          displayName: Build ${{ parameters.customDeviceRepoName }} for LabVIEW ${{ lvVersion.version }}
           steps:
             - template: azure-templates\pre-job-steps.yml@imitation-cd # Configure variables, check out repos, Clear cache
               parameters:
-                customDevice: ${{ parameters.customDevice }}
-                lvVersion:    ${{ lvVersion }}
+                customDeviceRepoName:  ${{ parameters.customDeviceRepoName }}
+                lvVersion:             ${{ lvVersion.version }}
+                bitness:               ${{ lvVersion.bitness }}
+            # Iterate through all Custom Device Build Steps
             - ${{ each buildStep in parameters.buildSteps }}:
               - template: azure-templates\build-op-steps.yml@imitation-cd # config file and build specs
                 parameters:
-                  projectLocation: ${{ buildStep[0] }}
-                  buildOperation:  ${{ buildStep[1] }}
-                  target:          ${{ buildStep[2] }}
-                  buildSpec:       ${{ buildStep[3] }}
+                  projectLocation: ${{ buildStep.projectLocation }}
+                  buildOperation:  ${{ buildStep.buildOperation }}
+                  target:          ${{ buildStep.target }}
+                  buildSpec:       ${{ buildStep.buildSpec }}
             - template: azure-templates\post-job-steps.yml@imitation-cd # nipkg and archive
               parameters:
                 buildOutputLocation: ${{ parameters.buildOutputLocation }}
-                archiveLocation:     ${{ parameters.archiveLocation }}
+                archiveLocation:     ${{ parameters.archiveLocation     }}
                 pack:                false
