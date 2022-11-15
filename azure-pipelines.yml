@@ -41,9 +41,9 @@ parameters:
 
       - version: '2021'
         bitness: '64-bit'
-
-      - version: '2023'
-        bitness: '64-bit'
+# TEMPORARY, disable 2023 since it's so buggy
+      #- version: '2023'
+      #  bitness: '64-bit'
 # Custom Device Build Steps
   - name:    buildSteps
     type:    object
