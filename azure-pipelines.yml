@@ -61,6 +61,10 @@ parameters:
   - name:    buildOutputLocation
     type:    string
     default: 'Built'
+# Nipkg Installation Location
+  - name:    nipkgInstallLocation
+    type:    string
+    default: 'documents\National Instruments\NI VeriStand $(lvVersion)\SLSC Plugins\Modules'
 # Post-build Archive Location
   - name:    archiveLocation
     type:    string
@@ -92,6 +96,7 @@ stages:
                   buildSpec:       ${{ buildStep.buildSpec }}
             - template: azure-templates\post-job-steps.yml@imitation-cd # nipkg and archive
               parameters:
-                buildOutputLocation: ${{ parameters.buildOutputLocation }}
-                archiveLocation:     ${{ parameters.archiveLocation     }}
-                pack:                true
+                nipkgInstallLocation: ${{ parameters.nipkgInstallLocation }}
+                buildOutputLocation:  ${{ parameters.buildOutputLocation }}
+                archiveLocation:      ${{ parameters.archiveLocation     }}
+                pack:                 true
