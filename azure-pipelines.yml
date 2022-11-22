@@ -94,4 +94,4 @@ stages:
               parameters:
                 buildOutputLocation: ${{ parameters.buildOutputLocation }}
                 archiveLocation:     ${{ parameters.archiveLocation     }}
-                pack:                false
+                pack:                true
