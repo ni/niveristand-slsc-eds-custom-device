@@ -26,25 +26,46 @@ pool:
 
 # --------- Build Parameters here ---------
 parameters:
-# Custom Device Name
+    # customDeviceRepoName - Name of the Custom Device Repository on GitHub
   - name:    customDeviceRepoName
     type:    string
-    default: niveristand-slsc-eds-custom-device
+    default:  niveristand-slsc-eds-custom-device
 
-# LabVIEW Versions to Build
+    # lvVersions - each LabVIEW version, bitness, and release nomenclature combination to build
   - name:    lvVersions
     type:    object
     default:
       - version: '2020'
         bitness: '32-bit'
-
+        releaseVersion: '20.0'
+        quarterlyVersion: ''
       - version: '2021'
         bitness: '64-bit'
-      # TEMPORARY, disable 2023 since it's so buggy
-      #- version: '2023'
-      #  bitness: '64-bit'
+        releaseVersion: '21.0'
+      # - version: '2023' TEMPORARY, disable 2023 build since LabVIEW is still buggy
+      #   bitness: '64-bit'
+      #   releaseVersion: '23.0'
 
-# Custom Device Build Steps
+    # buildOutputLocation - location where LV build outputs are stored
+  - name:    buildOutputLocation
+    type:    string
+    default: 'Built'
+
+    # packages - configuration for each nipkg to build
+  - name:    packages
+    type:    object
+    default: 
+      - installLocation: 'documents\National Instruments\NI VeriStand $(lvVersion)\SLSC Plugins\Modules'
+        controlFileName: 'control'
+        payloadLocation: 'Built'
+
+    # archiveLocation - location to store build artifacts for archival
+  - name:    archiveLocation
+    type:    string
+    default: '\\nirvana\temp\papower\Measurements\VeriStandAddons\slsc_eds_custom_device'
+
+    # buildSteps - list of each project, buildOperation, target, and buildSpec combination to build 
+    # Note: target and buildSpec may be empty for some buildOperations
   - name:    buildSteps
     type:    object
     default:
@@ -58,50 +79,34 @@ parameters:
         target: ''
         buildSpec: 'Engine Release'
 
-# Build Output Location
-  - name:    buildOutputLocation
-    type:    string
-    default: 'Built'
-
-# Nipkg Installation Location
-  - name:    nipkgInstallLocation
-    type:    string
-    default: 'documents\National Instruments\NI VeriStand $(lvVersion)\SLSC Plugins\Modules'
-
-# Post-build Archive Location
-  - name:    archiveLocation
-    type:    string
-    default: '\\nirvana\temp\papower\Measurements\VeriStandAddons\slsc_eds_custom_device'
-
-# -----------------------------------------
-
-# TEMPORARY: template files reference @imitation-cd instead of the build tools repo
+# --------- Call Build Templates ---------
+# Note: If custom build steps are needed for a particular custom device, they can be inserted before or after existing templates below
 stages:
   - stage: build
     jobs:
-      # Iterate through all LabVIEW Versions & Bitnesses
       - ${{ each lvVersion in parameters.lvVersions }}:
         - job:
           displayName: Build ${{ parameters.customDeviceRepoName }} for LabVIEW ${{ lvVersion.version }}
           steps:
-            - template: azure-templates\pre-job-steps.yml@imitation-cd # Configure variables, check out repos, Clear cache
+            - template: azure-templates\pre-job-steps.yml # Configure variables, check out repos, Clear cache
               parameters:
                 customDeviceRepoName:  ${{ parameters.customDeviceRepoName }}
                 lvVersion:             ${{ lvVersion.version }}
-                bitness:               ${{ lvVersion.bitness }}
+                bitness:               ${{ lvVersion.bitness }} 
                 archiveLocation:       ${{ parameters.archiveLocation }}
+                # dependencies:          ${{ parameters.dependencies }} No dependencies for SLSC EDS
 
-            # Iterate through all Custom Device Build Steps
             - ${{ each buildStep in parameters.buildSteps }}:
-              - template: azure-templates\build-op-steps.yml@imitation-cd # config file and build specs
+              - template: azure-templates\build-op-steps.yml # config file and build specs
                 parameters:
                   projectLocation: ${{ buildStep.projectLocation }}
                   buildOperation:  ${{ buildStep.buildOperation }}
                   target:          ${{ buildStep.target }}
                   buildSpec:       ${{ buildStep.buildSpec }}
 
-            - template: azure-templates\post-job-steps.yml@imitation-cd # nipkg and archive
-              parameters:
-                nipkgInstallLocation: ${{ parameters.nipkgInstallLocation }}
-                buildOutputLocation:  ${{ parameters.buildOutputLocation }}
-                pack:                 true
+            - ${{ each package in parameters.packages }}:
+              - template: azure-templates\post-job-steps.yml # nipkg and archive
+                parameters:
+                  package:             ${{ package }}
+                  buildOutputLocation: ${{ parameters.buildOutputLocation }}
+                  pack:                true
