@@ -81,6 +81,7 @@ parameters:
 
 # --------- Call Build Templates ---------
 # Note: If custom build steps are needed for a particular custom device, they can be inserted before or after existing templates below
+# TEMPORARY, point template locations to imitation-cd instead of build-tools while in development
 stages:
   - stage: build
     jobs:
@@ -88,7 +89,7 @@ stages:
         - job:
           displayName: Build ${{ parameters.customDeviceRepoName }} for LabVIEW ${{ lvVersion.version }}
           steps:
-            - template: azure-templates\pre-job-steps.yml # Configure variables, check out repos, Clear cache
+            - template: azure-templates\pre-job-steps.yml@imitation-cd # Configure variables, check out repos, Clear cache
               parameters:
                 customDeviceRepoName:  ${{ parameters.customDeviceRepoName }}
                 lvVersion:             ${{ lvVersion.version }}
@@ -97,7 +98,7 @@ stages:
                 # dependencies:          ${{ parameters.dependencies }} No dependencies for SLSC EDS
 
             - ${{ each buildStep in parameters.buildSteps }}:
-              - template: azure-templates\build-op-steps.yml # config file and build specs
+              - template: azure-templates\build-op-steps.yml@imitation-cd # config file and build specs
                 parameters:
                   projectLocation: ${{ buildStep.projectLocation }}
                   buildOperation:  ${{ buildStep.buildOperation }}
@@ -105,7 +106,7 @@ stages:
                   buildSpec:       ${{ buildStep.buildSpec }}
 
             - ${{ each package in parameters.packages }}:
-              - template: azure-templates\post-job-steps.yml # nipkg and archive
+              - template: azure-templates\post-job-steps.yml@imitation-cd # nipkg and archive
                 parameters:
                   package:             ${{ package }}
                   buildOutputLocation: ${{ parameters.buildOutputLocation }}
