@@ -37,14 +37,10 @@ parameters:
     default:
       - version: '2020'
         bitness: '32-bit'
-        releaseVersion: '20.0'
-        quarterlyVersion: ''
       - version: '2021'
         bitness: '64-bit'
-        releaseVersion: '21.0'
       # - version: '2023' TEMPORARY, disable 2023 build since LabVIEW is still buggy
       #   bitness: '64-bit'
-      #   releaseVersion: '23.0'
 
     # buildOutputLocation - location where LV build outputs are stored
   - name:    buildOutputLocation
@@ -94,7 +90,6 @@ stages:
                 customDeviceRepoName:  ${{ parameters.customDeviceRepoName }}
                 lvVersion:             ${{ lvVersion.version }}
                 bitness:               ${{ lvVersion.bitness }} 
-                archiveLocation:       ${{ parameters.archiveLocation }}
                 # dependencies:          ${{ parameters.dependencies }} No dependencies for SLSC EDS
 
             - ${{ each buildStep in parameters.buildSteps }}:
@@ -110,4 +105,5 @@ stages:
                 parameters:
                   package:             ${{ package }}
                   buildOutputLocation: ${{ parameters.buildOutputLocation }}
+                  archiveLocation:     ${{ parameters.archiveLocation }}
                   pack:                true
