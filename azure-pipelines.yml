@@ -42,6 +42,21 @@ parameters:
       # - version: '2023' TEMPORARY, disable 2023 build since LabVIEW is still buggy
       #   bitness: '64-bit'
 
+    # buildSteps - list of each project, buildOperation, target, and buildSpec combination to build 
+    # Note: target and buildSpec may be empty for some buildOperations
+  - name:    buildSteps
+    type:    object
+    default:
+      - projectLocation: 'Source\SLSC EDS.lvproj'
+        buildOperation: 'ExecuteBuildSpec'
+        target: 'My Computer'
+        buildSpec: 'Configuration Release'
+
+      - projectLocation: 'Source\SLSC EDS.lvproj'
+        buildOperation: 'ExecuteBuildSpecAllTargets'
+        target: ''
+        buildSpec: 'Engine Release'
+
     # buildOutputLocation - location where LV build outputs are stored
   - name:    buildOutputLocation
     type:    string
@@ -59,21 +74,6 @@ parameters:
   - name:    archiveLocation
     type:    string
     default: '\\nirvana\temp\papower\Measurements\VeriStandAddons\slsc_eds_custom_device'
-
-    # buildSteps - list of each project, buildOperation, target, and buildSpec combination to build 
-    # Note: target and buildSpec may be empty for some buildOperations
-  - name:    buildSteps
-    type:    object
-    default:
-      - projectLocation: 'Source\SLSC EDS.lvproj'
-        buildOperation: 'ExecuteBuildSpec'
-        target: 'My Computer'
-        buildSpec: 'Configuration Release'
-
-      - projectLocation: 'Source\SLSC EDS.lvproj'
-        buildOperation: 'ExecuteBuildSpecAllTargets'
-        target: ''
-        buildSpec: 'Engine Release'
 
 # --------- Call Build Templates ---------
 # Note: If custom build steps are needed for a particular custom device, they can be inserted before or after existing templates below
