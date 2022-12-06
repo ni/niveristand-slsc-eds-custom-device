@@ -66,9 +66,10 @@ parameters:
   - name:    packages
     type:    object
     default: 
-      - installLocation: 'documents\National Instruments\NI VeriStand $(lvVersion)\SLSC Plugins\Modules'
-        controlFileName: 'control'
-        payloadLocation: 'Built'
+      - controlFileName: 'control'
+        payloadMaps:
+          - payloadLocation: 'Built'
+            installLocation: 'documents\National Instruments\NI VeriStand $(lvVersion)\SLSC Plugins\Modules'
 
     # archiveLocation - location to store build artifacts for archival
   - name:    archiveLocation
