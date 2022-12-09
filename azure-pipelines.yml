@@ -99,6 +99,8 @@ stages:
                 customDeviceRepoName:  ${{ parameters.customDeviceRepoName }}
                 lvVersion:             ${{ lvVersion.version }}
                 bitness:               ${{ lvVersion.bitness }} 
+                releaseVersion:          ${{ parameters.releaseVersion }}
+                quarterlyReleaseVersion: ${{ parameters.quarterlyReleaseVersion }}
 
             - ${{ each buildStep in parameters.buildSteps }}:
               - template: azure-templates\build-op-steps.yml@imitation-cd # config file and build specs
