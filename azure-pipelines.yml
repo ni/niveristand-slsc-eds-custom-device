@@ -82,7 +82,7 @@ parameters:
     # archiveLocation - location to store build artifacts for archival
   - name:    archiveLocation
     type:    string
-    default: '\\nirvana\temp\papower\Measurements\VeriStandAddons\slsc_eds_custom_device'
+    default: '\\daqserver\temp\papower\Measurements\VeriStandAddons\slsc_eds_custom_device'
 
 # --------- Call Build Templates ---------
 # Note: If custom build steps are needed for a particular custom device, they can be inserted before or after existing templates below
