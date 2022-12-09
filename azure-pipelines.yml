@@ -39,8 +39,16 @@ parameters:
         bitness: '32-bit'
       - version: '2021'
         bitness: '64-bit'
-      # - version: '2023' TEMPORARY, disable 2023 build since LabVIEW is still buggy
-      #   bitness: '64-bit'
+      - version: '2023'
+        bitness: '64-bit'
+
+    # releaseVersionm quarterlyReleaseVersion - release versions for output package
+  - name:    releaseVersion
+    type:    string
+    default: '23.0.0'
+  - name:    quarterlyReleaseVersion
+    type:    string
+    default: '2023 Q1'
 
     # buildSteps - list of each project, buildOperation, target, and buildSpec combination to build 
     # Note: target and buildSpec may be empty for some buildOperations
