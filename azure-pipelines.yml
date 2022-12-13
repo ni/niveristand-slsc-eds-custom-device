@@ -8,112 +8,47 @@ trigger:
 resources:
   repositories:
     - repository: niveristand-custom-device-build-tools
-      type: github
-      ref: main
-      endpoint: ni (2)
-      name: ni/niveristand-custom-device-build-tools
-# TEMPORARY, include fake custom device to use templates until migrating the templates into build tools makes sense
+      type:       github
+      ref:        main
+      endpoint:   ni (2)
+      name:       ni/niveristand-custom-device-build-tools
+      # TEMPORARY, include fake custom device to use templates until migrating the templates into build tools makes sense
     - repository: imitation-cd
       type: github
       ref: main
       endpoint: papowerNI
-      name: papowerNI/imitation-cd
+      name: papowerNI/imitation-cd  
 
-pool:
-  name: custom-device-temp # TEMPORARY, eventually use an official build pool of custom device agents
-  demands:
-    - agent.os -equals Windows_NT
-
-# --------- Build Parameters here ---------
-parameters:
-    # customDeviceRepoName - Name of the Custom Device Repository on GitHub
-  - name:    customDeviceRepoName
-    type:    string
-    default:  niveristand-slsc-eds-custom-device
-
-    # lvVersions - each LabVIEW version, bitness, and release nomenclature combination to build
-  - name:    lvVersions
-    type:    object
-    default:
-      - version: '2020'
-        bitness: '32-bit'
-      - version: '2021'
-        bitness: '64-bit'
-      - version: '2023'
-        bitness: '64-bit'
-
-    # releaseVersionm quarterlyReleaseVersion - release versions for output package
-  - name:    releaseVersion
-    type:    string
-    default: '23.0.0'
-  - name:    quarterlyReleaseVersion
-    type:    string
-    default: '2023 Q1'
-
-    # buildSteps - list of each project, buildOperation, target, and buildSpec combination to build 
-    # Note: target and buildSpec may be empty for some buildOperations
-  - name:    buildSteps
-    type:    object
-    default:
-      - projectLocation: 'Source\SLSC EDS.lvproj'
-        buildOperation: 'ExecuteBuildSpec'
-        target: 'My Computer'
-        buildSpec: 'Configuration Release'
-
-      - projectLocation: 'Source\SLSC EDS.lvproj'
-        buildOperation: 'ExecuteBuildSpecAllTargets'
-        target: ''
-        buildSpec: 'Engine Release'
-
-    # buildOutputLocation - location where LV build outputs are stored
-  - name:    buildOutputLocation
-    type:    string
-    default: 'Built'
-
-    # packages - configuration for each nipkg to build
-  - name:    packages
-    type:    object
-    default: 
-      - controlFileName: 'control'
-        payloadMaps:
-          - payloadLocation: 'Built'
-            installLocation: 'documents\National Instruments\NI VeriStand $(lvVersion)\SLSC Plugins\Modules'
-
-    # archiveLocation - location to store build artifacts for archival
-  - name:    archiveLocation
-    type:    string
-    default: '\\daqserver\temp\papower\Measurements\VeriStandAddons\slsc_eds_custom_device'
-
-# --------- Call Build Templates ---------
-# Note: If custom build steps are needed for a particular custom device, they can be inserted before or after existing templates below
-# TEMPORARY, point template locations to imitation-cd instead of build-tools while in development
 stages:
-  - stage: build
-    jobs:
-      - ${{ each lvVersion in parameters.lvVersions }}:
-        - job:
-          displayName: Build ${{ parameters.customDeviceRepoName }} for LabVIEW ${{ lvVersion.version }}
-          steps:
-            - template: azure-templates\pre-job-steps.yml@imitation-cd # Configure variables, check out repos, Clear cache
-              parameters:
-                customDeviceRepoName:  ${{ parameters.customDeviceRepoName }}
-                lvVersion:             ${{ lvVersion.version }}
-                bitness:               ${{ lvVersion.bitness }} 
-                releaseVersion:          ${{ parameters.releaseVersion }}
-                quarterlyReleaseVersion: ${{ parameters.quarterlyReleaseVersion }}
+  - template: azure-templates/stages-template.yml@imitation-cd # TEMPORARY, Point to imitation-cd instead of build-tools
+    parameters:
+      lvVersionsToBuild: 
+        - version: '2020'
+          bitness: '32bit'
+        - version: '2021'
+          bitness: '64bit'
+        - version: '2023'
+          bitness: '64bit'
 
-            - ${{ each buildStep in parameters.buildSteps }}:
-              - template: azure-templates\build-op-steps.yml@imitation-cd # config file and build specs
-                parameters:
-                  projectLocation: ${{ buildStep.projectLocation }}
-                  buildOperation:  ${{ buildStep.buildOperation }}
-                  target:          ${{ buildStep.target }}
-                  buildSpec:       ${{ buildStep.buildSpec }}
-                  # dependencies:          ${{ parameters.dependencies }} No dependencies for SLSC EDS
+      buildSteps:
+        - projectLocation: 'Source\SLSC EDS.lvproj'
+          buildOperation: 'ExecuteBuildSpec'
+          target: 'My Computer'
+          buildSpec: 'Configuration Release'
 
-            - template: azure-templates\post-job-steps.yml@imitation-cd # nipkg and archive
-              parameters:
-                packages:             ${{ parameters.packages }}
-                buildOutputLocation: ${{ parameters.buildOutputLocation }}
-                archiveLocation:     ${{ parameters.archiveLocation }}
-                pack:                true
+        - projectLocation: 'Source\SLSC EDS.lvproj'
+          buildOperation: 'ExecuteBuildSpecAllTargets'
+          target: ''
+          buildSpec: 'Engine Release'
+
+      releaseVersion: '23.0.0'
+      quarterlyReleaseVersion: '2023 Q1'
+      buildOutputLocation: 'Built'
+      archiveLocation: '\\daqserver\temp\papower\Measurements\VeriStandAddons\slsc_eds_custom_device'
+
+      pack: true
+      packages:
+        - controlFileName: 'control'
+          payloadMaps:
+            - payloadLocation: 'Built'
+              installLocation: 'documents\National Instruments\NI VeriStand $(lvVersion)\SLSC Plugins\Modules'
