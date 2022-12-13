@@ -38,7 +38,7 @@ stages:
 
         - projectLocation: 'Source\SLSC EDS.lvproj'
           buildOperation: 'ExecuteBuildSpecAllTargets'
-          target: ''
+          target: 'All'
           buildSpec: 'Engine Release'
 
       releaseVersion: '23.0.0'
