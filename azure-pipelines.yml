@@ -37,7 +37,7 @@ stages:
 
       releaseVersion: '23.3.0'
       buildOutputLocation: 'Built'
-      archiveLocation: '\\nirvana\Measurements\VeriStandAddons\prototype\slsc_eds_custom_device'
+      archiveLocation: '\\nirvana\Measurements\VeriStandAddons\slsc_eds_custom_device'
 
       packages:
         - controlFileName: 'control'
