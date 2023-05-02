@@ -43,4 +43,3 @@ stages:
         - controlFileName: 'control'
           payloadMaps:
             - installLocation: 'documents\National Instruments\NI VeriStand $(lvVersion)\SLSC Plugins\Modules'
-              payloadLocation: 'Built'
