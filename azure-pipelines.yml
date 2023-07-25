@@ -35,7 +35,7 @@ stages:
           target: 'All'
           buildSpec: 'Engine Release'
 
-      releaseVersion: '23.3.0'
+      releaseVersion: '23.8.0'
       buildOutputLocation: 'Built'
       archiveLocation: '\\nirvana\Measurements\VeriStandAddons\slsc_eds_custom_device'
 
