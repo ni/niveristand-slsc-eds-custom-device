@@ -11,17 +11,17 @@ In the absence of a VeriStand custom device for a specific hardware module, this
 
 ## LabVIEW Source Code Version
 
-LabVIEW 2019
+LabVIEW 2020
 
 ## Dependencies
 
 ### Running the custom device
 
-- [VeriStand 2019 or later](https://www.ni.com/en-us/support/downloads/software-products/download.veristand.html)
+- [VeriStand 2020 or later](https://www.ni.com/en-us/support/downloads/software-products/download.veristand.html)
 
 ### Developing or building from source
 
-- [LabVIEW 2019 or later](https://www.ni.com/en-us/support/downloads/software-products/download.labview.html)
+- [LabVIEW 2020 or later](https://www.ni.com/en-us/support/downloads/software-products/download.labview.html)
 - [LabVIEW Real-Time Module](https://www.ni.com/en-us/support/downloads/software-products/download.labview-real-time-module.html)
 - [NI R Series Multifunction RIO](https://www.ni.com/en-us/support/downloads/drivers/download.ni-r-series-multifunction-rio.html)
   - Required for FPGA-based loopback test, not a direct dependency of the Custom Device
