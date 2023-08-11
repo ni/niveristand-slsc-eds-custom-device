@@ -52,6 +52,7 @@
 			<Item Name="SLSC Get Channels to Remove.vi" Type="VI" URL="../../SLSC CD API/SLSC CD System Explorer/SLSC Get Channels to Remove.vi"/>
 			<Item Name="SLSC Get Default-Reset Value.vi" Type="VI" URL="../../SLSC CD API/SLSC CD System Explorer/SLSC Get Default-Reset Value.vi"/>
 			<Item Name="SLSC Get Plugin Path.vi" Type="VI" URL="../SubVIs/SLSC Get Plugin Path.vi"/>
+			<Item Name="SLSC Get Reservation Values.vi" Type="VI" URL="../../SLSC CD API/SLSC CD System Explorer/SLSC Get Reservation Values.vi"/>
 			<Item Name="SLSC Get Sampling Time.vi" Type="VI" URL="../../SLSC CD API/SLSC CD System Explorer/SLSC Get Sampling Time.vi"/>
 			<Item Name="SLSC Initilize Properties.vi" Type="VI" URL="../SubVIs/SLSC Initilize Properties.vi"/>
 			<Item Name="SLSC Load EDS Configuration.vi" Type="VI" URL="../../SLSC CD API/SLSC CD System Explorer/SLSC Load EDS Configuration.vi"/>
@@ -67,5 +68,4 @@
 		</Item>
 		<Item Name="Types" Type="Folder"/>
 	</Item>
-	<Item Name="SLSC Get Reservation Values.vi" Type="VI" URL="../../SLSC CD API/SLSC CD System Explorer/SLSC Get Reservation Values.vi"/>
 </Library>
