@@ -1,9 +1,0 @@
-To compile this document, you have to:
-
-a) Install the HTML Help Workshop and Documentation. You can get in here:
-
-	https://www.microsoft.com/en-us/download/details.aspx?id=21138
-
-b) Modify the HTML pages in this directory and update the *.hhp file accordingly.
-
-c) Compile the code using the HTML Help Workshop and Documentation.
