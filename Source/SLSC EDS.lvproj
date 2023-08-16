@@ -85,6 +85,10 @@
 			<Item Name="Custom Device API.lvlib" Type="Library" URL="/&lt;vilib&gt;/NI VeriStand/Custom Device API/Custom Device API.lvlib"/>
 			<Item Name="Custom Device Utility Library.lvlib" Type="Library" URL="/&lt;vilib&gt;/NI VeriStand/Custom Device Tools/Custom Device Utility Library/Custom Device Utility Library.lvlib"/>
 		</Item>
+		<Item Name="JKI APIs" Type="Folder">
+			<Item Name="JKI JSON Serialization.lvlib" Type="Library" URL="/&lt;vilib&gt;/addons/_JKI.lib/Serialization/JSON/JKI JSON Serialization.lvlib"/>
+			<Item Name="JKI Serialization.lvlib" Type="Library" URL="/&lt;vilib&gt;/addons/_JKI.lib/Serialization/Core/JKI Serialization.lvlib"/>
+		</Item>
 		<Item Name="Support Files" Type="Folder">
 			<Item Name="Glyphs" Type="Folder" URL="../Glyphs">
 				<Property Name="NI.DISK" Type="Bool">true</Property>
@@ -212,7 +216,6 @@
 				<Item Name="ex_CorrectErrorChain.vi" Type="VI" URL="/&lt;vilib&gt;/express/express shared/ex_CorrectErrorChain.vi"/>
 				<Item Name="NI_Data Type.lvlib" Type="Library" URL="/&lt;vilib&gt;/Utility/Data Type/NI_Data Type.lvlib"/>
 				<Item Name="LVDateTimeRec.ctl" Type="VI" URL="/&lt;vilib&gt;/Utility/miscctls.llb/LVDateTimeRec.ctl"/>
-				<Item Name="JKI Unicode.lvlib" Type="Library" URL="/&lt;vilib&gt;/addons/_JKI.lib/Unicode/JKI Unicode.lvlib"/>
 				<Item Name="imagedata.ctl" Type="VI" URL="/&lt;vilib&gt;/picture/picture.llb/imagedata.ctl"/>
 				<Item Name="Directory of Top Level VI.vi" Type="VI" URL="/&lt;vilib&gt;/picture/jpeg.llb/Directory of Top Level VI.vi"/>
 				<Item Name="Check Path.vi" Type="VI" URL="/&lt;vilib&gt;/picture/jpeg.llb/Check Path.vi"/>
@@ -520,8 +523,6 @@
 				<Item Name="LVFixedPointRepBitsTypeDef.ctl" Type="VI" URL="/&lt;vilib&gt;/fxp/LVFixedPointRepBitsTypeDef.ctl"/>
 				<Item Name="LVFixedPointRepRangeTypeDef.ctl" Type="VI" URL="/&lt;vilib&gt;/fxp/LVFixedPointRepRangeTypeDef.ctl"/>
 				<Item Name="LVNumericRepresentation.ctl" Type="VI" URL="/&lt;vilib&gt;/numeric/LVNumericRepresentation.ctl"/>
-				<Item Name="JKI JSON Serialization.lvlib" Type="Library" URL="/&lt;vilib&gt;/addons/_JKI.lib/Serialization/JSON/JKI JSON Serialization.lvlib"/>
-				<Item Name="JKI Serialization.lvlib" Type="Library" URL="/&lt;vilib&gt;/addons/_JKI.lib/Serialization/Core/JKI Serialization.lvlib"/>
 				<Item Name="NI_SystemLogging.lvlib" Type="Library" URL="/&lt;vilib&gt;/Utility/SystemLogging/NI_SystemLogging.lvlib"/>
 				<Item Name="Create Directory Recursive.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/libraryn.llb/Create Directory Recursive.vi"/>
 				<Item Name="VeriStandTestUtilities.lvlib" Type="Library" URL="/&lt;vilib&gt;/NI/VeriStand Custom Device Testing Tools/VeriStandTestUtilities/VeriStandTestUtilities.lvlib"/>
@@ -537,6 +538,7 @@
 				<Item Name="8.6CompatibleGlobalVar.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/config.llb/8.6CompatibleGlobalVar.vi"/>
 				<Item Name="PackedMatrixToFlatVector.vi" Type="VI" URL="/&lt;vilib&gt;/NI VeriStand/Execution/Shared/PackedMatrixToFlatVector.vi"/>
 				<Item Name="VeriStandTestCase.lvclass" Type="LVClass" URL="/&lt;vilib&gt;/NI/VeriStand Custom Device Testing Tools/VeriStandTestCase/VeriStandTestCase.lvclass"/>
+				<Item Name="JKI Unicode.lvlib" Type="Library" URL="/&lt;vilib&gt;/addons/_JKI.lib/Unicode/JKI Unicode.lvlib"/>
 			</Item>
 			<Item Name="user.lib" Type="Folder">
 				<Item Name="Reshape Array to 1D VArray__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Reshape Array to 1D VArray__ogtk.vi"/>
@@ -624,6 +626,9 @@
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
 			<Item Name="Enable Disable Add Remove buttons.vi" Type="VI" URL="../SLSC UI API/System Explorer/Listbox/Enable Disable Add Remove buttons.vi"/>
+			<Item Name="nisyscfg.dll" Type="Document" URL="nisyscfg.dll">
+				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
+			</Item>
 		</Item>
 		<Item Name="Build Specifications" Type="Build">
 			<Item Name="Configuration Debug" Type="Source Distribution">
@@ -749,7 +754,7 @@
 				<Property Name="Destination[4].destName" Type="Str">Help</Property>
 				<Property Name="Destination[4].path" Type="Path">../Built/NI_AB_PROJECTNAME</Property>
 				<Property Name="DestinationCount" Type="Int">5</Property>
-				<Property Name="Source[0].itemID" Type="Str">{1C3EB380-FD8C-40FD-8A29-B596132092C0}</Property>
+				<Property Name="Source[0].itemID" Type="Str">{F2386E69-63D5-4D82-842E-8040F684ACF6}</Property>
 				<Property Name="Source[0].type" Type="Str">Container</Property>
 				<Property Name="Source[1].Container.applyDestination" Type="Bool">true</Property>
 				<Property Name="Source[1].Container.applyInclusion" Type="Bool">true</Property>
@@ -770,6 +775,36 @@
 				<Property Name="Source[1].propertiesCount" Type="Int">5</Property>
 				<Property Name="Source[1].sourceInclusion" Type="Str">Include</Property>
 				<Property Name="Source[1].type" Type="Str">Container</Property>
+				<Property Name="Source[10].itemID" Type="Ref">/My Computer/JKI APIs/JKI JSON Serialization.lvlib/JSON Deserializer.lvclass/Unflatten From String.vi</Property>
+				<Property Name="Source[10].newName" Type="Str">EDS_JKI_JSON_Deseri_Unflatten From String.vi</Property>
+				<Property Name="Source[10].type" Type="Str">VI</Property>
+				<Property Name="Source[11].itemID" Type="Ref">/My Computer/JKI APIs/JKI JSON Serialization.lvlib/JSON Serializer.lvclass/Flatten To String.vi</Property>
+				<Property Name="Source[11].newName" Type="Str">EDS_JKI_JSON_Seri_Flatten To String.vi</Property>
+				<Property Name="Source[11].type" Type="Str">VI</Property>
+				<Property Name="Source[12].itemID" Type="Ref">/My Computer/JKI APIs/JKI Serialization.lvlib/Serializer.lvclass/Flatten To String.vi</Property>
+				<Property Name="Source[12].newName" Type="Str">EDS_JKI_Seri_Flatten To String.vi</Property>
+				<Property Name="Source[12].type" Type="Str">VI</Property>
+				<Property Name="Source[13].itemID" Type="Ref">/My Computer/JKI APIs/JKI Serialization.lvlib/Deserializer.lvclass/Unflatten From String.vi</Property>
+				<Property Name="Source[13].newName" Type="Str">EDS_JKI_Deseri_Unflatten From String.vi</Property>
+				<Property Name="Source[13].type" Type="Str">VI</Property>
+				<Property Name="Source[14].itemID" Type="Ref">/My Computer/JKI APIs/JKI JSON Serialization.lvlib/Private/JSON Lexer.lvclass/Tokenize String.vi</Property>
+				<Property Name="Source[14].newName" Type="Str">EDS_JKI_JSON_Seri_JSON_Lexer_Tokenize String.vi</Property>
+				<Property Name="Source[14].type" Type="Str">VI</Property>
+				<Property Name="Source[15].itemID" Type="Ref">/My Computer/JKI APIs/JKI JSON Serialization.lvlib/Private/JSON Lexer.lvclass/Match.vi</Property>
+				<Property Name="Source[15].newName" Type="Str">EDS_JKI_JSON_Seri_JSON_Lexer_Match.vi</Property>
+				<Property Name="Source[15].type" Type="Str">VI</Property>
+				<Property Name="Source[16].itemID" Type="Ref">/My Computer/JKI APIs/JKI JSON Serialization.lvlib/Private/JSON Lexer.lvclass/Write String.vi</Property>
+				<Property Name="Source[16].newName" Type="Str">EDS_JKI_JSON_Seri_JSON_Lexer_Write String.vi</Property>
+				<Property Name="Source[16].type" Type="Str">VI</Property>
+				<Property Name="Source[17].itemID" Type="Ref">/My Computer/JKI APIs/JKI JSON Serialization.lvlib/Private/JSON Parser.lvclass/Match End.vi</Property>
+				<Property Name="Source[17].newName" Type="Str">EDS_JKI_JSON_Seri_JSON_Parser_Match End.vi</Property>
+				<Property Name="Source[17].type" Type="Str">VI</Property>
+				<Property Name="Source[18].itemID" Type="Ref">/My Computer/JKI APIs/JKI JSON Serialization.lvlib/Private/JSON Parser.lvclass/Parse Root.vi</Property>
+				<Property Name="Source[18].newName" Type="Str">EDS_JKI_JSON_Seri_JSON_Parser_Parse Root.vi</Property>
+				<Property Name="Source[18].type" Type="Str">VI</Property>
+				<Property Name="Source[19].itemID" Type="Ref">/My Computer/JKI APIs/JKI JSON Serialization.lvlib/Private/Parser.lvclass/Match End.vi</Property>
+				<Property Name="Source[19].newName" Type="Str">EDS_JKI_JSON_Seri_Parser_Match End.vi</Property>
+				<Property Name="Source[19].type" Type="Str">VI</Property>
 				<Property Name="Source[2].Container.applyProperties" Type="Bool">true</Property>
 				<Property Name="Source[2].Container.applySaveSettings" Type="Bool">true</Property>
 				<Property Name="Source[2].itemID" Type="Ref">/My Computer/NI VeriStand APIs</Property>
@@ -785,6 +820,18 @@
 				<Property Name="Source[2].properties[4].value" Type="Bool">false</Property>
 				<Property Name="Source[2].propertiesCount" Type="Int">5</Property>
 				<Property Name="Source[2].type" Type="Str">Container</Property>
+				<Property Name="Source[20].itemID" Type="Ref">/My Computer/JKI APIs/JKI JSON Serialization.lvlib/Private/Parser.lvclass/Match.vi</Property>
+				<Property Name="Source[20].newName" Type="Str">EDS_JKI_JSON_Seri_Parser_Match.vi</Property>
+				<Property Name="Source[20].type" Type="Str">VI</Property>
+				<Property Name="Source[21].itemID" Type="Ref">/My Computer/JKI APIs/JKI JSON Serialization.lvlib/Private/Parser.lvclass/Parse Root.vi</Property>
+				<Property Name="Source[21].newName" Type="Str">EDS_JKI_JSON_Seri_Parser_Parse Root.vi</Property>
+				<Property Name="Source[21].type" Type="Str">VI</Property>
+				<Property Name="Source[22].itemID" Type="Ref">/My Computer/JKI APIs/JKI JSON Serialization.lvlib/Private/Lexer.lvclass/Tokenize String.vi</Property>
+				<Property Name="Source[22].newName" Type="Str">EDS_JKI_JSON_Seri_Lexer_Tokenize String.vi</Property>
+				<Property Name="Source[22].type" Type="Str">VI</Property>
+				<Property Name="Source[23].itemID" Type="Ref">/My Computer/JKI APIs/JKI JSON Serialization.lvlib/Private/Lexer.lvclass/Write String.vi</Property>
+				<Property Name="Source[23].newName" Type="Str">EDS_JKI_JSON_Seri_Lexer_Write String.vi</Property>
+				<Property Name="Source[23].type" Type="Str">VI</Property>
 				<Property Name="Source[3].Container.applyProperties" Type="Bool">true</Property>
 				<Property Name="Source[3].Container.applySaveSettings" Type="Bool">true</Property>
 				<Property Name="Source[3].itemID" Type="Ref">/My Computer/SLSC EDS Shared.lvlib/Shared</Property>
@@ -826,7 +873,7 @@
 				<Property Name="Source[9].itemID" Type="Ref">/My Computer/Inline Async APIs</Property>
 				<Property Name="Source[9].newName" Type="Str">SLSC_EDS_</Property>
 				<Property Name="Source[9].type" Type="Str">Container</Property>
-				<Property Name="SourceCount" Type="Int">10</Property>
+				<Property Name="SourceCount" Type="Int">24</Property>
 			</Item>
 			<Item Name="Engine Release" Type="Source Distribution">
 				<Property Name="Bld_buildCacheID" Type="Str">{BDB37E78-1B48-4DD8-B51B-9DFE56743A02}</Property>
@@ -1005,6 +1052,9 @@
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
 			<Item Name="nislsclvapi.dll" Type="Document" URL="nislsclvapi.dll">
+				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
+			</Item>
+			<Item Name="nisyscfg.dll" Type="Document" URL="nisyscfg.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
 			<Item Name="systemLogging.dll" Type="Document" URL="systemLogging.dll">
