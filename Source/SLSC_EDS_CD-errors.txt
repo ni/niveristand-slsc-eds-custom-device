@@ -5,7 +5,7 @@ Error codes for the VeriStand SLSC EDS custom device.
 <nifamily familyname="SLSC EDS CD errors" displayname="SLSC EDS CD errors">
 </nifamily>
 </nicomment>
-<nierror code="6001">
-SLSC system is not responding to ping.
+<nierror code="732600">
+Error occurred while sending commands.
 </nierror>
 </nidocument>
