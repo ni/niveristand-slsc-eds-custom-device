@@ -152,6 +152,50 @@
 				<Item Name="SLSC EDS System Tests.lvclass" Type="LVClass" URL="../Tests/System/SLSC EDS System Tests.lvclass"/>
 			</Item>
 		</Item>
+		<Item Name="Help" Type="Folder">
+			<Item Name="HTML Help Source" Type="Folder">
+				<Item Name="css" Type="Folder">
+					<Item Name="expandable_tree.css" Type="Document" URL="../Help/HTML Help Source/css/expandable_tree.css"/>
+					<Item Name="VSsystemexplorer.css" Type="Document" URL="../Help/HTML Help Source/css/VSsystemexplorer.css"/>
+				</Item>
+				<Item Name="js" Type="Folder">
+					<Item Name="arraytools.js" Type="Document" URL="../Help/HTML Help Source/js/arraytools.js"/>
+					<Item Name="checkinstalled.js" Type="Document" URL="../Help/HTML Help Source/js/checkinstalled.js"/>
+					<Item Name="common.js" Type="Document" URL="../Help/HTML Help Source/js/common.js"/>
+					<Item Name="cssframes.js" Type="Document" URL="../Help/HTML Help Source/js/cssframes.js"/>
+					<Item Name="domtools.js" Type="Document" URL="../Help/HTML Help Source/js/domtools.js"/>
+					<Item Name="dynamiccontent.js" Type="Document" URL="../Help/HTML Help Source/js/dynamiccontent.js"/>
+					<Item Name="dynamicjumps.js" Type="Document" URL="../Help/HTML Help Source/js/dynamicjumps.js"/>
+					<Item Name="dynamiclinks.js" Type="Document" URL="../Help/HTML Help Source/js/dynamiclinks.js"/>
+					<Item Name="expandable_tree.js" Type="Document" URL="../Help/HTML Help Source/js/expandable_tree.js"/>
+					<Item Name="feedbacklink.js" Type="Document" URL="../Help/HTML Help Source/js/feedbacklink.js"/>
+					<Item Name="Globals.js" Type="Document" URL="../Help/HTML Help Source/js/Globals.js"/>
+					<Item Name="initpagedyn.js" Type="Document" URL="../Help/HTML Help Source/js/initpagedyn.js"/>
+					<Item Name="launchhelp.js" Type="Document" URL="../Help/HTML Help Source/js/launchhelp.js"/>
+					<Item Name="linking.js" Type="Document" URL="../Help/HTML Help Source/js/linking.js"/>
+					<Item Name="objectnames.js" Type="Document" URL="../Help/HTML Help Source/js/objectnames.js"/>
+					<Item Name="osbrowser.js" Type="Document" URL="../Help/HTML Help Source/js/osbrowser.js"/>
+					<Item Name="pdf.js" Type="Document" URL="../Help/HTML Help Source/js/pdf.js"/>
+					<Item Name="polyviselect.js" Type="Document" URL="../Help/HTML Help Source/js/polyviselect.js"/>
+					<Item Name="stylesheets.js" Type="Document" URL="../Help/HTML Help Source/js/stylesheets.js"/>
+					<Item Name="variables.js" Type="Document" URL="../Help/HTML Help Source/js/variables.js"/>
+					<Item Name="web.js" Type="Document" URL="../Help/HTML Help Source/js/web.js"/>
+				</Item>
+				<Item Name="MainPage_SLSC_Incoming.html" Type="Document" URL="../Help/HTML Help Source/MainPage_SLSC_Incoming.html"/>
+				<Item Name="MainPage_SLSC_Outgoing.html" Type="Document" URL="../Help/HTML Help Source/MainPage_SLSC_Outgoing.html"/>
+				<Item Name="SLSC_EDS_Commands.html" Type="Document" URL="../Help/HTML Help Source/SLSC_EDS_Commands.html"/>
+				<Item Name="SLSC_EDS_Main.html" Type="Document" URL="../Help/HTML Help Source/SLSC_EDS_Main.html"/>
+				<Item Name="SLSC_EDS_PropertiesRoot.html" Type="Document" URL="../Help/HTML Help Source/SLSC_EDS_PropertiesRoot.html"/>
+				<Item Name="SLSC_EDS_PropertySection.html" Type="Document" URL="../Help/HTML Help Source/SLSC_EDS_PropertySection.html"/>
+				<Item Name="SLSC_EDS_Status.html" Type="Document" URL="../Help/HTML Help Source/SLSC_EDS_Status.html"/>
+			</Item>
+			<Item Name="Build CHM.cfg" Type="Document" URL="../Help/Build CHM.cfg"/>
+			<Item Name="Build CHM.log" Type="Document" URL="../Help/Build CHM.log"/>
+			<Item Name="Build CHM.vi" Type="VI" URL="../Help/Build CHM.vi"/>
+			<Item Name="html_template.htm" Type="Document" URL="../Help/html_template.htm"/>
+			<Item Name="SLSC EDS.chm" Type="Document" URL="../Help/SLSC EDS.chm"/>
+			<Item Name="SLSC EDS.hhp" Type="Document" URL="../Help/SLSC EDS.hhp"/>
+		</Item>
 		<Item Name="Utility" Type="Folder">
 			<Item Name="Build Rename" Type="Folder">
 				<Item Name="VariantType.lvlib" Type="Library" URL="/&lt;vilib&gt;/Utility/VariantDataType/VariantType.lvlib"/>
@@ -159,12 +203,12 @@
 			<Item Name="Copy .LLB to NI VeriStand dir.vi" Type="VI" URL="../Utility/Copy .LLB to NI VeriStand dir.vi"/>
 			<Item Name="Create Stub Files.vi" Type="VI" URL="../Utility/Create Stub Files.vi"/>
 			<Item Name="Pre-Build Action.vi" Type="VI" URL="../Utility/Pre-Build Action.vi"/>
+			<Item Name="Build CHM Help.vi" Type="VI" URL="../Utility/Build CHM Help.vi"/>
 		</Item>
 		<Item Name="SLSC EDS Engine.lvlib" Type="Library" URL="../Engine/SLSC EDS Engine.lvlib"/>
 		<Item Name="SLSC EDS Shared.lvlib" Type="Library" URL="../Shared/SLSC EDS Shared.lvlib"/>
 		<Item Name="SLSC EDS System Explorer.lvlib" Type="Library" URL="../System Explorer/SLSC EDS System Explorer.lvlib"/>
 		<Item Name="SLSC Module SLSC EDS.xml" Type="Document" URL="../SLSC Module SLSC EDS.xml"/>
-		<Item Name="SLSC EDS.chm" Type="Document" URL="../Help/SLSC EDS.chm"/>
 		<Item Name="Dependencies" Type="Dependencies">
 			<Item Name="vi.lib" Type="Folder">
 				<Item Name="BuildHelpPath.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/error.llb/BuildHelpPath.vi"/>
@@ -537,6 +581,11 @@
 				<Item Name="8.6CompatibleGlobalVar.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/config.llb/8.6CompatibleGlobalVar.vi"/>
 				<Item Name="PackedMatrixToFlatVector.vi" Type="VI" URL="/&lt;vilib&gt;/NI VeriStand/Execution/Shared/PackedMatrixToFlatVector.vi"/>
 				<Item Name="VeriStandTestCase.lvclass" Type="LVClass" URL="/&lt;vilib&gt;/NI/VeriStand Custom Device Testing Tools/VeriStandTestCase/VeriStandTestCase.lvclass"/>
+				<Item Name="CHM Generator.lvclass" Type="LVClass" URL="/&lt;vilib&gt;/NI/Compiled HTML Menu Tool/CHM Generator/CHM Generator.lvclass"/>
+				<Item Name="Keyed Value Tree.lvclass" Type="LVClass" URL="/&lt;vilib&gt;/NI/Compiled HTML Menu Tool/Keyed Value Tree/Keyed Value Tree.lvclass"/>
+				<Item Name="Space Constant.vi" Type="VI" URL="/&lt;vilib&gt;/dlg_ctls.llb/Space Constant.vi"/>
+				<Item Name="Get Current LV Bitness.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/Get Current LV Bitness.vi"/>
+				<Item Name="Compare Two Paths.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/libraryn.llb/Compare Two Paths.vi"/>
 			</Item>
 			<Item Name="user.lib" Type="Folder">
 				<Item Name="Reshape Array to 1D VArray__ogtk.vi" Type="VI" URL="/&lt;userlib&gt;/_OpenG.lib/lvdata/lvdata.llb/Reshape Array to 1D VArray__ogtk.vi"/>
@@ -624,6 +673,9 @@
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
 			<Item Name="Enable Disable Add Remove buttons.vi" Type="VI" URL="../SLSC UI API/System Explorer/Listbox/Enable Disable Add Remove buttons.vi"/>
+			<Item Name="nisyscfg.dll" Type="Document" URL="nisyscfg.dll">
+				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
+			</Item>
 		</Item>
 		<Item Name="Build Specifications" Type="Build">
 			<Item Name="Configuration Debug" Type="Source Distribution">
@@ -715,7 +767,7 @@
 				<Property Name="Source[5].itemID" Type="Ref">/My Computer/SLSC Module SLSC EDS.xml</Property>
 				<Property Name="Source[5].sourceInclusion" Type="Str">Include</Property>
 				<Property Name="Source[6].destinationIndex" Type="Int">0</Property>
-				<Property Name="Source[6].itemID" Type="Ref">/My Computer/SLSC EDS.chm</Property>
+				<Property Name="Source[6].itemID" Type="Ref"></Property>
 				<Property Name="Source[6].sourceInclusion" Type="Str">Include</Property>
 				<Property Name="Source[7].Container.applyPrefix" Type="Bool">true</Property>
 				<Property Name="Source[7].Container.depDestIndex" Type="Int">0</Property>
@@ -808,7 +860,7 @@
 				<Property Name="Source[4].sourceInclusion" Type="Str">Include</Property>
 				<Property Name="Source[4].type" Type="Str">Container</Property>
 				<Property Name="Source[5].destinationIndex" Type="Int">0</Property>
-				<Property Name="Source[5].itemID" Type="Ref">/My Computer/SLSC EDS.chm</Property>
+				<Property Name="Source[5].itemID" Type="Ref"></Property>
 				<Property Name="Source[5].sourceInclusion" Type="Str">Include</Property>
 				<Property Name="Source[6].destinationIndex" Type="Int">0</Property>
 				<Property Name="Source[6].itemID" Type="Ref">/My Computer/SLSC Module SLSC EDS.xml</Property>
@@ -1005,6 +1057,9 @@
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
 			<Item Name="nislsclvapi.dll" Type="Document" URL="nislsclvapi.dll">
+				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
+			</Item>
+			<Item Name="nisyscfg.dll" Type="Document" URL="nisyscfg.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
 			<Item Name="systemLogging.dll" Type="Document" URL="systemLogging.dll">
