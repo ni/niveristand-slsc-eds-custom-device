@@ -36,7 +36,9 @@
 		</Item>
 		<Item Name="SubVIs" Type="Folder">
 			<Property Name="NI.SortType" Type="Int">0</Property>
+			<Item Name="Connect to SLSC Module and Return Name.vi" Type="VI" URL="../SubVIs/Connect to SLSC Module and Return Name.vi"/>
 			<Item Name="Custom Device State to String.vi" Type="VI" URL="../SubVIs/Custom Device State to String.vi"/>
+			<Item Name="Set System Explorer Busy.vi" Type="VI" URL="../SubVIs/Set System Explorer Busy.vi"/>
 			<Item Name="SLSC Add Command Section.vi" Type="VI" URL="../../SLSC CD API/SLSC CD System Explorer/SLSC Add Command Section.vi"/>
 			<Item Name="SLSC Add or Remove Channels.vi" Type="VI" URL="../SubVIs/SLSC Add or Remove Channels.vi"/>
 			<Item Name="SLSC Add Property Section.vi" Type="VI" URL="../../SLSC CD API/SLSC CD System Explorer/SLSC Add Property Section.vi"/>
@@ -67,6 +69,7 @@
 			<Item Name="SLSC Show Pinout.vi" Type="VI" URL="../SubVIs/SLSC Show Pinout.vi"/>
 			<Item Name="SLSC Update Default Values in Tree.vi" Type="VI" URL="../SubVIs/SLSC Update Default Values in Tree.vi"/>
 			<Item Name="SLSC Update Values in Tree Control.vi" Type="VI" URL="../SubVIs/SLSC Update Values in Tree Control.vi"/>
+			<Item Name="Unset System Explorer Busy.vi" Type="VI" URL="../SubVIs/Unset System Explorer Busy.vi"/>
 		</Item>
 		<Item Name="Types" Type="Folder"/>
 	</Item>
