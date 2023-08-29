@@ -36,6 +36,7 @@
 		</Item>
 		<Item Name="SubVIs" Type="Folder">
 			<Property Name="NI.SortType" Type="Int">0</Property>
+			<Item Name="Custom Device State to String.vi" Type="VI" URL="../SubVIs/Custom Device State to String.vi"/>
 			<Item Name="SLSC Add Command Section.vi" Type="VI" URL="../../SLSC CD API/SLSC CD System Explorer/SLSC Add Command Section.vi"/>
 			<Item Name="SLSC Add or Remove Channels.vi" Type="VI" URL="../SubVIs/SLSC Add or Remove Channels.vi"/>
 			<Item Name="SLSC Add Property Section.vi" Type="VI" URL="../../SLSC CD API/SLSC CD System Explorer/SLSC Add Property Section.vi"/>
