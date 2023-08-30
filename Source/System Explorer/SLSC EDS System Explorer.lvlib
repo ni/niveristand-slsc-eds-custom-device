@@ -36,7 +36,6 @@
 		</Item>
 		<Item Name="SubVIs" Type="Folder">
 			<Property Name="NI.SortType" Type="Int">0</Property>
-			<Item Name="Connect to SLSC Module and Return Name.vi" Type="VI" URL="../SubVIs/Connect to SLSC Module and Return Name.vi"/>
 			<Item Name="Custom Device State to String.vi" Type="VI" URL="../SubVIs/Custom Device State to String.vi"/>
 			<Item Name="Set System Explorer Busy.vi" Type="VI" URL="../SubVIs/Set System Explorer Busy.vi"/>
 			<Item Name="SLSC Add Command Section.vi" Type="VI" URL="../../SLSC CD API/SLSC CD System Explorer/SLSC Add Command Section.vi"/>
