@@ -189,12 +189,7 @@
 				<Item Name="SLSC_EDS_PropertySection.html" Type="Document" URL="../Help/HTML Help Source/SLSC_EDS_PropertySection.html"/>
 				<Item Name="SLSC_EDS_Status.html" Type="Document" URL="../Help/HTML Help Source/SLSC_EDS_Status.html"/>
 			</Item>
-			<Item Name="Build CHM.cfg" Type="Document" URL="../Help/Build CHM.cfg"/>
-			<Item Name="Build CHM.log" Type="Document" URL="../Help/Build CHM.log"/>
-			<Item Name="Build CHM.vi" Type="VI" URL="../Help/Build CHM.vi"/>
 			<Item Name="html_template.htm" Type="Document" URL="../Help/html_template.htm"/>
-			<Item Name="SLSC EDS.chm" Type="Document" URL="../Help/SLSC EDS.chm"/>
-			<Item Name="SLSC EDS.hhp" Type="Document" URL="../Help/SLSC EDS.hhp"/>
 		</Item>
 		<Item Name="Utility" Type="Folder">
 			<Item Name="Build Rename" Type="Folder">
@@ -203,7 +198,6 @@
 			<Item Name="Copy .LLB to NI VeriStand dir.vi" Type="VI" URL="../Utility/Copy .LLB to NI VeriStand dir.vi"/>
 			<Item Name="Create Stub Files.vi" Type="VI" URL="../Utility/Create Stub Files.vi"/>
 			<Item Name="Pre-Build Action.vi" Type="VI" URL="../Utility/Pre-Build Action.vi"/>
-			<Item Name="Build CHM Help.vi" Type="VI" URL="../Utility/Build CHM Help.vi"/>
 		</Item>
 		<Item Name="SLSC EDS Engine.lvlib" Type="Library" URL="../Engine/SLSC EDS Engine.lvlib"/>
 		<Item Name="SLSC EDS Shared.lvlib" Type="Library" URL="../Shared/SLSC EDS Shared.lvlib"/>
@@ -581,11 +575,6 @@
 				<Item Name="8.6CompatibleGlobalVar.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/config.llb/8.6CompatibleGlobalVar.vi"/>
 				<Item Name="PackedMatrixToFlatVector.vi" Type="VI" URL="/&lt;vilib&gt;/NI VeriStand/Execution/Shared/PackedMatrixToFlatVector.vi"/>
 				<Item Name="VeriStandTestCase.lvclass" Type="LVClass" URL="/&lt;vilib&gt;/NI/VeriStand Custom Device Testing Tools/VeriStandTestCase/VeriStandTestCase.lvclass"/>
-				<Item Name="CHM Generator.lvclass" Type="LVClass" URL="/&lt;vilib&gt;/NI/Compiled HTML Menu Tool/CHM Generator/CHM Generator.lvclass"/>
-				<Item Name="Keyed Value Tree.lvclass" Type="LVClass" URL="/&lt;vilib&gt;/NI/Compiled HTML Menu Tool/Keyed Value Tree/Keyed Value Tree.lvclass"/>
-				<Item Name="Space Constant.vi" Type="VI" URL="/&lt;vilib&gt;/dlg_ctls.llb/Space Constant.vi"/>
-				<Item Name="Get Current LV Bitness.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/Get Current LV Bitness.vi"/>
-				<Item Name="Compare Two Paths.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/libraryn.llb/Compare Two Paths.vi"/>
 				<Item Name="Set Cursor (Icon Pict).vi" Type="VI" URL="/&lt;vilib&gt;/Utility/cursorutil.llb/Set Cursor (Icon Pict).vi"/>
 				<Item Name="Set Cursor (Cursor ID).vi" Type="VI" URL="/&lt;vilib&gt;/Utility/cursorutil.llb/Set Cursor (Cursor ID).vi"/>
 				<Item Name="Set Cursor.vi" Type="VI" URL="/&lt;vilib&gt;/Utility/cursorutil.llb/Set Cursor.vi"/>
@@ -804,8 +793,11 @@
 				<Property Name="Destination[3].preserveHierarchy" Type="Bool">true</Property>
 				<Property Name="Destination[4].destName" Type="Str">Help</Property>
 				<Property Name="Destination[4].path" Type="Path">../Built/NI_AB_PROJECTNAME</Property>
-				<Property Name="DestinationCount" Type="Int">5</Property>
-				<Property Name="Source[0].itemID" Type="Str">{1C3EB380-FD8C-40FD-8A29-B596132092C0}</Property>
+				<Property Name="Destination[5].destName" Type="Str">Page Help</Property>
+				<Property Name="Destination[5].path" Type="Path">../Built/NI_AB_PROJECTNAME/Page Help</Property>
+				<Property Name="Destination[5].preserveHierarchy" Type="Bool">true</Property>
+				<Property Name="DestinationCount" Type="Int">6</Property>
+				<Property Name="Source[0].itemID" Type="Str">{F5FBDED7-331B-4FE8-8998-B2EAC9B698BC}</Property>
 				<Property Name="Source[0].type" Type="Str">Container</Property>
 				<Property Name="Source[1].Container.applyDestination" Type="Bool">true</Property>
 				<Property Name="Source[1].Container.applyInclusion" Type="Bool">true</Property>
@@ -864,23 +856,27 @@
 				<Property Name="Source[4].sourceInclusion" Type="Str">Include</Property>
 				<Property Name="Source[4].type" Type="Str">Container</Property>
 				<Property Name="Source[5].destinationIndex" Type="Int">0</Property>
-				<Property Name="Source[5].itemID" Type="Ref"></Property>
+				<Property Name="Source[5].itemID" Type="Ref">/My Computer/SLSC Module SLSC EDS.xml</Property>
 				<Property Name="Source[5].sourceInclusion" Type="Str">Include</Property>
-				<Property Name="Source[6].destinationIndex" Type="Int">0</Property>
-				<Property Name="Source[6].itemID" Type="Ref">/My Computer/SLSC Module SLSC EDS.xml</Property>
-				<Property Name="Source[6].sourceInclusion" Type="Str">Include</Property>
+				<Property Name="Source[6].destinationIndex" Type="Int">2</Property>
+				<Property Name="Source[6].itemID" Type="Ref">/My Computer/Utility/Build Rename/VariantType.lvlib/Private/MDTFlavorToTypeEnum.vi</Property>
+				<Property Name="Source[6].newName" Type="Str">_MDTFlavorToTypeEnum.vi</Property>
+				<Property Name="Source[6].type" Type="Str">VI</Property>
 				<Property Name="Source[7].destinationIndex" Type="Int">2</Property>
-				<Property Name="Source[7].itemID" Type="Ref">/My Computer/Utility/Build Rename/VariantType.lvlib/Private/MDTFlavorToTypeEnum.vi</Property>
-				<Property Name="Source[7].newName" Type="Str">_MDTFlavorToTypeEnum.vi</Property>
+				<Property Name="Source[7].itemID" Type="Ref">/My Computer/Utility/Build Rename/VariantType.lvlib/Private/GetRefnumInfoInternal.vi</Property>
+				<Property Name="Source[7].newName" Type="Str">_GetRefnumInfoInternal.vi</Property>
 				<Property Name="Source[7].type" Type="Str">VI</Property>
-				<Property Name="Source[8].destinationIndex" Type="Int">2</Property>
-				<Property Name="Source[8].itemID" Type="Ref">/My Computer/Utility/Build Rename/VariantType.lvlib/Private/GetRefnumInfoInternal.vi</Property>
-				<Property Name="Source[8].newName" Type="Str">_GetRefnumInfoInternal.vi</Property>
-				<Property Name="Source[8].type" Type="Str">VI</Property>
-				<Property Name="Source[9].Container.applyPrefix" Type="Bool">true</Property>
+				<Property Name="Source[8].Container.applyPrefix" Type="Bool">true</Property>
+				<Property Name="Source[8].Container.depDestIndex" Type="Int">0</Property>
+				<Property Name="Source[8].itemID" Type="Ref">/My Computer/Inline Async APIs</Property>
+				<Property Name="Source[8].newName" Type="Str">SLSC_EDS_</Property>
+				<Property Name="Source[8].type" Type="Str">Container</Property>
+				<Property Name="Source[9].Container.applyDestination" Type="Bool">true</Property>
+				<Property Name="Source[9].Container.applyInclusion" Type="Bool">true</Property>
 				<Property Name="Source[9].Container.depDestIndex" Type="Int">0</Property>
-				<Property Name="Source[9].itemID" Type="Ref">/My Computer/Inline Async APIs</Property>
-				<Property Name="Source[9].newName" Type="Str">SLSC_EDS_</Property>
+				<Property Name="Source[9].destinationIndex" Type="Int">5</Property>
+				<Property Name="Source[9].itemID" Type="Ref">/My Computer/Help</Property>
+				<Property Name="Source[9].sourceInclusion" Type="Str">Include</Property>
 				<Property Name="Source[9].type" Type="Str">Container</Property>
 				<Property Name="SourceCount" Type="Int">10</Property>
 			</Item>
