@@ -1,5 +1,5 @@
 ﻿<?xml version='1.0' encoding='UTF-8'?>
-<Project Type="Project" LVVersion="21008000">
+<Project Type="Project" LVVersion="20008000">
 	<Property Name="CCSymbols" Type="Str">CD_Version,Default;</Property>
 	<Property Name="NI.LV.All.SourceOnly" Type="Bool">true</Property>
 	<Property Name="NI.Project.Description" Type="Str"></Property>
@@ -666,6 +666,9 @@
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
 			<Item Name="Enable Disable Add Remove buttons.vi" Type="VI" URL="../SLSC UI API/System Explorer/Listbox/Enable Disable Add Remove buttons.vi"/>
+			<Item Name="nisyscfg.dll" Type="Document" URL="nisyscfg.dll">
+				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
+			</Item>
 		</Item>
 		<Item Name="Build Specifications" Type="Build">
 			<Item Name="Configuration Debug" Type="Source Distribution">
@@ -794,7 +797,7 @@
 				<Property Name="Destination[5].path" Type="Path">../Built/NI_AB_PROJECTNAME/Page Help</Property>
 				<Property Name="Destination[5].preserveHierarchy" Type="Bool">true</Property>
 				<Property Name="DestinationCount" Type="Int">6</Property>
-				<Property Name="Source[0].itemID" Type="Str">{9705721A-52E5-4188-9842-4309CD6FA1AB}</Property>
+				<Property Name="Source[0].itemID" Type="Str">{F5FBDED7-331B-4FE8-8998-B2EAC9B698BC}</Property>
 				<Property Name="Source[0].type" Type="Str">Container</Property>
 				<Property Name="Source[1].Container.applyDestination" Type="Bool">true</Property>
 				<Property Name="Source[1].Container.applyInclusion" Type="Bool">true</Property>
@@ -863,14 +866,19 @@
 				<Property Name="Source[7].itemID" Type="Ref">/My Computer/Utility/Build Rename/VariantType.lvlib/Private/GetRefnumInfoInternal.vi</Property>
 				<Property Name="Source[7].newName" Type="Str">_GetRefnumInfoInternal.vi</Property>
 				<Property Name="Source[7].type" Type="Str">VI</Property>
-				<Property Name="Source[8].Container.applyDestination" Type="Bool">true</Property>
-				<Property Name="Source[8].Container.applyInclusion" Type="Bool">true</Property>
+				<Property Name="Source[8].Container.applyPrefix" Type="Bool">true</Property>
 				<Property Name="Source[8].Container.depDestIndex" Type="Int">0</Property>
-				<Property Name="Source[8].destinationIndex" Type="Int">5</Property>
-				<Property Name="Source[8].itemID" Type="Ref">/My Computer/Help</Property>
-				<Property Name="Source[8].sourceInclusion" Type="Str">Include</Property>
+				<Property Name="Source[8].itemID" Type="Ref">/My Computer/Inline Async APIs</Property>
+				<Property Name="Source[8].newName" Type="Str">SLSC_EDS_</Property>
 				<Property Name="Source[8].type" Type="Str">Container</Property>
-				<Property Name="SourceCount" Type="Int">9</Property>
+				<Property Name="Source[9].Container.applyDestination" Type="Bool">true</Property>
+				<Property Name="Source[9].Container.applyInclusion" Type="Bool">true</Property>
+				<Property Name="Source[9].Container.depDestIndex" Type="Int">0</Property>
+				<Property Name="Source[9].destinationIndex" Type="Int">5</Property>
+				<Property Name="Source[9].itemID" Type="Ref">/My Computer/Help</Property>
+				<Property Name="Source[9].sourceInclusion" Type="Str">Include</Property>
+				<Property Name="Source[9].type" Type="Str">Container</Property>
+				<Property Name="SourceCount" Type="Int">10</Property>
 			</Item>
 			<Item Name="Engine Release" Type="Source Distribution">
 				<Property Name="Bld_buildCacheID" Type="Str">{BDB37E78-1B48-4DD8-B51B-9DFE56743A02}</Property>
@@ -888,14 +896,14 @@
 				<Property Name="Destination[1].destName" Type="Str">Support Directory</Property>
 				<Property Name="Destination[1].path" Type="Path">../Built/NI_AB_PROJECTNAME/Data</Property>
 				<Property Name="DestinationCount" Type="Int">2</Property>
-				<Property Name="Source[0].itemID" Type="Str">{9705721A-52E5-4188-9842-4309CD6FA1AB}</Property>
+				<Property Name="Source[0].itemID" Type="Str">{9C1DF30D-C6C2-46FB-BAF9-F83552450407}</Property>
 				<Property Name="Source[0].type" Type="Str">Container</Property>
 				<Property Name="Source[1].destinationIndex" Type="Int">0</Property>
 				<Property Name="Source[1].itemID" Type="Ref">/My Computer/SLSC EDS Engine.lvlib/RT Driver VI.vi</Property>
 				<Property Name="Source[1].properties[0].type" Type="Str">Remove front panel</Property>
 				<Property Name="Source[1].properties[0].value" Type="Bool">false</Property>
 				<Property Name="Source[1].properties[1].type" Type="Str">Remove block diagram</Property>
-				<Property Name="Source[1].properties[1].value" Type="Bool">true</Property>
+				<Property Name="Source[1].properties[1].value" Type="Bool">false</Property>
 				<Property Name="Source[1].properties[2].type" Type="Str">Allow debugging</Property>
 				<Property Name="Source[1].properties[2].value" Type="Bool">false</Property>
 				<Property Name="Source[1].propertiesCount" Type="Int">3</Property>
@@ -931,7 +939,12 @@
 				<Property Name="Source[3].properties[4].value" Type="Bool">true</Property>
 				<Property Name="Source[3].propertiesCount" Type="Int">5</Property>
 				<Property Name="Source[3].type" Type="Str">Container</Property>
-				<Property Name="SourceCount" Type="Int">4</Property>
+				<Property Name="Source[4].Container.applyPrefix" Type="Bool">true</Property>
+				<Property Name="Source[4].Container.depDestIndex" Type="Int">0</Property>
+				<Property Name="Source[4].itemID" Type="Ref">/My Computer/Inline Async APIs</Property>
+				<Property Name="Source[4].newName" Type="Str">SLSC_EDS_</Property>
+				<Property Name="Source[4].type" Type="Str">Container</Property>
+				<Property Name="SourceCount" Type="Int">5</Property>
 			</Item>
 		</Item>
 	</Item>
@@ -1046,6 +1059,9 @@
 			<Item Name="nislsclvapi.dll" Type="Document" URL="nislsclvapi.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
+			<Item Name="nisyscfg.dll" Type="Document" URL="nisyscfg.dll">
+				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
+			</Item>
 			<Item Name="systemLogging.dll" Type="Document" URL="systemLogging.dll">
 				<Property Name="NI.PreserveRelativePath" Type="Bool">true</Property>
 			</Item>
@@ -1070,14 +1086,14 @@
 				<Property Name="Destination[1].path" Type="Path">/Linux_x64</Property>
 				<Property Name="Destination[1].path.type" Type="Str">&lt;none&gt;</Property>
 				<Property Name="DestinationCount" Type="Int">2</Property>
-				<Property Name="Source[0].itemID" Type="Str">{3E0C6CFB-347D-4AD6-91B8-3902CE0C31D2}</Property>
+				<Property Name="Source[0].itemID" Type="Str">{6E722496-A73E-410E-A17E-FA2E12AA0E14}</Property>
 				<Property Name="Source[0].type" Type="Str">Container</Property>
 				<Property Name="Source[1].destinationIndex" Type="Int">0</Property>
 				<Property Name="Source[1].itemID" Type="Ref">/Linux x64/SLSC EDS Engine.lvlib/RT Driver VI.vi</Property>
 				<Property Name="Source[1].properties[0].type" Type="Str">Remove front panel</Property>
 				<Property Name="Source[1].properties[0].value" Type="Bool">false</Property>
 				<Property Name="Source[1].properties[1].type" Type="Str">Remove block diagram</Property>
-				<Property Name="Source[1].properties[1].value" Type="Bool">true</Property>
+				<Property Name="Source[1].properties[1].value" Type="Bool">false</Property>
 				<Property Name="Source[1].properties[2].type" Type="Str">Allow debugging</Property>
 				<Property Name="Source[1].properties[2].value" Type="Bool">false</Property>
 				<Property Name="Source[1].propertiesCount" Type="Int">3</Property>
@@ -1113,7 +1129,12 @@
 				<Property Name="Source[3].properties[4].value" Type="Bool">false</Property>
 				<Property Name="Source[3].propertiesCount" Type="Int">5</Property>
 				<Property Name="Source[3].type" Type="Str">Container</Property>
-				<Property Name="SourceCount" Type="Int">4</Property>
+				<Property Name="Source[4].Container.applyPrefix" Type="Bool">true</Property>
+				<Property Name="Source[4].Container.depDestIndex" Type="Int">0</Property>
+				<Property Name="Source[4].itemID" Type="Ref">/Linux x64/Inline Async API</Property>
+				<Property Name="Source[4].newName" Type="Str">SLSC_EDS_</Property>
+				<Property Name="Source[4].type" Type="Str">Container</Property>
+				<Property Name="SourceCount" Type="Int">5</Property>
 			</Item>
 		</Item>
 	</Item>
