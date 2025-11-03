@@ -11,7 +11,7 @@ In the absence of a VeriStand custom device for a specific hardware module, this
 
 ## LabVIEW Source Code Version
 
-LabVIEW 2020
+LabVIEW 2024
 
 ## Dependencies
 
