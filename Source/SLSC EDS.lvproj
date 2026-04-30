@@ -618,9 +618,9 @@
 				<Property Name="Source[4].type" Type="Str">Container</Property>
 				<Property Name="SourceCount" Type="Int">5</Property>
 			</Item>
-			<Item Name="Linux Configuration Debug" Type="Source Distribution">
+			<Item Name="Configuration(Linux) Debug" Type="Source Distribution">
 				<Property Name="Bld_buildCacheID" Type="Str">{8710C803-6A70-4A70-875A-0C9DF6631ACC}</Property>
-				<Property Name="Bld_buildSpecName" Type="Str">Linux Configuration Debug</Property>
+				<Property Name="Bld_buildSpecName" Type="Str">Configuration(Linux) Debug</Property>
 				<Property Name="Bld_excludeLibraryItems" Type="Bool">true</Property>
 				<Property Name="Bld_excludePolymorphicVIs" Type="Bool">true</Property>
 				<Property Name="Bld_excludeTypedefs" Type="Bool">true</Property>
@@ -652,9 +652,9 @@
 				<Property Name="Source[2].type" Type="Str">Container</Property>
 				<Property Name="SourceCount" Type="Int">3</Property>
 			</Item>
-			<Item Name="Linux Configuration Release" Type="Source Distribution">
+			<Item Name="Configuration(Linux) Release" Type="Source Distribution">
 				<Property Name="Bld_buildCacheID" Type="Str">{67DA91CF-D990-4E9E-91A2-6B7B2BB8545B}</Property>
-				<Property Name="Bld_buildSpecName" Type="Str">Linux Configuration Release</Property>
+				<Property Name="Bld_buildSpecName" Type="Str">Configuration(Linux) Release</Property>
 				<Property Name="Bld_excludeLibraryItems" Type="Bool">true</Property>
 				<Property Name="Bld_excludePolymorphicVIs" Type="Bool">true</Property>
 				<Property Name="Bld_excludeTypedefs" Type="Bool">true</Property>
