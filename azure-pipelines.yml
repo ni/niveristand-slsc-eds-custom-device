@@ -38,6 +38,8 @@ stages:
       releaseVersion: '26.5.0'
       buildOutputLocation: 'Built'
       archiveLocation: '\\nirvana\Measurements\VeriStandAddons\slsc_eds_custom_device'
+      repoName: 'niveristand-slsc-eds-custom-device'
+      createNetCoreRepo: true
 
       packages:
         - controlFileName: 'control'
