@@ -57,13 +57,13 @@ stages:
           projectLocation: 'Source/SLSC EDS.lvproj'
           buildOperation: 'ExecuteBuildSpec'
           target: 'My Computer'
-          buildSpec: 'Configuration Release'
+          buildSpec: 'Configuration(Linux) Debug'
 
         - id: 'slsc_eds_engine'
           projectLocation: 'Source/SLSC EDS.lvproj'
           buildOperation: 'ExecuteBuildSpec'
           target: 'My Computer'
-          buildSpec: 'Engine Release'
+          buildSpec: 'Configuration(Linux) Release'
       
       releaseVersion: '26.5.0'
       branch: 'main'
