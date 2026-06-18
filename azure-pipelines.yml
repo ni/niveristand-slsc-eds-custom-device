@@ -54,13 +54,13 @@ stages:
 
       buildSteps:
         - id: 'slsc_eds_configuration'
-          projectLocation: 'Source\SLSC EDS.lvproj'
+          projectLocation: 'Source/SLSC EDS.lvproj'
           buildOperation: 'ExecuteBuildSpec'
           target: 'My Computer'
           buildSpec: 'Configuration Release'
 
         - id: 'slsc_eds_engine'
-          projectLocation: 'Source\SLSC EDS.lvproj'
+          projectLocation: 'Source/SLSC EDS.lvproj'
           buildOperation: 'ExecuteBuildSpec'
           target: 'My Computer'
           buildSpec: 'Engine Release'
