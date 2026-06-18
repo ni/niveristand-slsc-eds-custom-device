@@ -63,7 +63,7 @@ stages:
           projectLocation: 'Source\SLSC EDS.lvproj'
           buildOperation: 'ExecuteBuildSpec'
           target: 'My Computer'
-          buildSpec: 'Engine Release''
+          buildSpec: 'Engine Release'
       
       releaseVersion: '26.5.0'
       branch: 'main'
