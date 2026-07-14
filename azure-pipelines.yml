@@ -5,69 +5,87 @@ trigger:
       - main
       - release/*
 
+variables:
+  - name: ConvertNetCore
+    value: true
+
 resources:
   repositories:
     - repository: niveristand-custom-device-build-tools
-      type:       github
-      ref:        main
-      endpoint:   nivs-custom-devices
-      name:       ni/niveristand-custom-device-build-tools
+      type: github
+      ref: main
+      endpoint: nivs-custom-devices
+      name: ni/niveristand-custom-device-build-tools
 
 stages:
-  - template: azure-templates/stages.yml@niveristand-custom-device-build-tools
-    parameters:
-      lvVersionsToBuild:
-        - version: '2024'
-          bitness: '64bit'
-        - version: '2025'
-          bitness: '64bit'
-        - version: '2026'
-          bitness: '64bit'
 
-      buildSteps:
-        - projectLocation: 'Source\SLSC EDS.lvproj'
-          buildOperation: 'ExecuteBuildSpec'
-          target: 'My Computer'
-          buildSpec: 'Configuration Release'
+# =====================================================================
+# WINDOWS BUILD (Stage Template)
+# =====================================================================
+- template: azure-templates/stages.yml@niveristand-custom-device-build-tools
+  parameters:
+    stageName: WindowsBuild
 
-        - projectLocation: 'Source\SLSC EDS.lvproj'
-          buildOperation: 'ExecuteBuildSpecAllTargets'
-          target: 'All'
-          buildSpec: 'Engine Release'
+    lvVersionsToBuild:
+      - version: '2024'
+        bitness: '64bit'
+      - version: '2025'
+        bitness: '64bit'
+      - version: '2026'
+        bitness: '64bit'
 
-      releaseVersion: '26.5.0'
-      buildOutputLocation: 'Built'
-      archiveLocation: '\\nirvana\Measurements\VeriStandAddons\slsc_eds_custom_device'
-      repoName: 'niveristand-slsc-eds-custom-device'
-      createNetCoreRepo: true
+    buildSteps:
+      - projectLocation: 'Source\SLSC EDS.lvproj'
+        buildOperation: 'ExecuteBuildSpec'
+        target: 'My Computer'
+        buildSpec: 'Configuration Release'
 
-      packages:
-        - controlFileName: 'control'
-          payloadMaps:
-            - installLocation: 'documents\National Instruments\NI VeriStand $(lvVersion)\SLSC Plugins\Modules'
+      - projectLocation: 'Source\SLSC EDS.lvproj'
+        buildOperation: 'ExecuteBuildSpecAllTargets'
+        target: 'All'
+        buildSpec: 'Engine Release'
 
-  - template: azure-templates/linux-stage.yml@niveristand-custom-device-build-tools
-    parameters:
-      lvVersionsToBuild:
-        - version: '2026'
-          bitness: '64bit'
+    releaseVersion: '26.5.0'
+    buildOutputLocation: 'Built'
+    archiveLocation: '\\nirvana\Measurements\VeriStandAddons\slsc_eds_custom_device'
+    repoName: 'niveristand-slsc-eds-custom-device'
 
-      buildSteps:
-        - id: 'slsc_eds_configuration'
-          projectLocation: 'Source/SLSC EDS.lvproj'
-          buildOperation: 'ExecuteBuildSpec'
-          target: 'My Computer'
-          buildSpec: 'Configuration(Linux) Debug'
+    packages:
+      - controlFileName: 'control'
+        payloadMaps:
+          - installLocation: 'documents\National Instruments\NI VeriStand $(lvVersion)\SLSC Plugins\Modules'
 
-        - id: 'slsc_eds_engine'
-          projectLocation: 'Source/SLSC EDS.lvproj'
-          buildOperation: 'ExecuteBuildSpec'
-          target: 'My Computer'
-          buildSpec: 'Configuration(Linux) Release'
+# =====================================================================
+# LINUX BUILD
+# =====================================================================
+- template: azure-templates/linux-stage.yml@niveristand-custom-device-build-tools
+  parameters:
+    stageName: LinuxBuild
+
+    # If your linux-stage.yml supports these parameters:
+    dependsOn: 
+      - WindowsBuild
+
+    lvVersionsToBuild:
+      - version: '2026'
+        bitness: '64bit'
+
+    buildSteps:
+      - id: 'slsc_eds_configuration'
+        projectLocation: 'Source/SLSC EDS.lvproj'
+        buildOperation: 'ExecuteBuildSpec'
+        target: 'My Computer'
+        buildSpec: 'Configuration(Linux) Debug'
+
+      - id: 'slsc_eds_engine'
+        projectLocation: 'Source/SLSC EDS.lvproj'
+        buildOperation: 'ExecuteBuildSpec'
+        target: 'My Computer'
+        buildSpec: 'Configuration(Linux) Release'
       
-      releaseVersion: '26.5.0'
-      branch: 'main'
-      debugBuild: 'no'
-      buildOutputLocation: 'Built'
-      archiveLocation: '\\nirvana\Measurements\VeriStandAddons\slsc_eds_custom_device'
-      repoName: 'niveristand-slsc-eds-custom-device'
+    releaseVersion: '26.5.0'
+    branch: 'main'
+    debugBuild: 'no'
+    buildOutputLocation: 'Built'
+    archiveLocation: '\\nirvana\Measurements\VeriStandAddons\slsc_eds_custom_device'
+    repoName: 'niveristand-slsc-eds-custom-device'
