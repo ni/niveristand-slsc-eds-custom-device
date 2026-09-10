@@ -33,6 +33,8 @@ stages:
         bitness: '64bit'
       - version: '2026'
         bitness: '64bit'
+      - version: '2027'
+        bitness: '64bit'
 
     buildSteps:
       - projectLocation: 'Source\SLSC EDS.lvproj'
@@ -45,7 +47,7 @@ stages:
         target: 'All'
         buildSpec: 'Engine Release'
 
-    releaseVersion: '26.5.0'
+    releaseVersion: '26.8.0'
     buildOutputLocation: 'Built'
     archiveLocation: '\\nirvana\Measurements\VeriStandAddons\slsc_eds_custom_device'
     repoName: 'niveristand-slsc-eds-custom-device'
@@ -67,7 +69,7 @@ stages:
       - WindowsBuild
 
     lvVersionsToBuild:
-      - version: '2026'
+      - version: '2027'
         bitness: '64bit'
 
     buildSteps:
@@ -83,7 +85,7 @@ stages:
         target: 'My Computer'
         buildSpec: 'Configuration(Linux) Release'
       
-    releaseVersion: '26.5.0'
+    releaseVersion: '26.8.0'
     branch: 'main'
     debugBuild: 'no'
     buildOutputLocation: 'Built'
