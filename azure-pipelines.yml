@@ -55,7 +55,7 @@ stages:
     packages:
       - controlFileName: 'control'
         payloadMaps:
-          - installLocation: 'documents\National Instruments\NI VeriStand $(lvVersion)\SLSC Plugins\Modules'
+          - installLocation: 'programdata\National Instruments\NI VeriStand $(lvVersion)\Plugins\SLSC Plugins\Modules'
 
 # =====================================================================
 # LINUX BUILD
